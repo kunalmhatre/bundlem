@@ -1,0 +1,11 @@
+# Folders
+
+node_modules/
+src/assets/css/
+
+#Files
+
+src/index.html
+./LICENSE
+./package.json
+./README.md
