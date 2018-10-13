@@ -1,0 +1,42 @@
+{
+  "name": "bundlem",
+  "version": "1.0.0",
+  "description": "Bundlem helps you to create mini-courses by bundling online resources.",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "webpack-dev-server --mode development --open --hot",
+    "build": "webpack-cli -mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kunalmhatre/bundlem.git"
+  },
+  "keywords": [
+    "bundle",
+    "online",
+    "resources",
+    "resource",
+    "bundler"
+  ],
+  "author": "Kunal Mhatre",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kunalmhatre/bundlem/issues"
+  },
+  "homepage": "https://github.com/kunalmhatre/bundlem#readme",
+  "dependencies": {
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.9"
+  }
+}
