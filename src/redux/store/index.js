@@ -20,7 +20,14 @@ const storeFactory = () =>
 			JSON.parse(localStorage['bundlem']) :
 				{
 					bundles: {},
-					activeBundle: {}
+					activeBundle: {
+						name: null,
+						description: null,
+						resources: [],
+						activeResource: null,
+						activeResourceId: null,
+						editActiveResource: false 
+					}
 				}
 	);
 

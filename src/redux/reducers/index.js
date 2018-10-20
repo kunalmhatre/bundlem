@@ -7,9 +7,12 @@ const activeBundle = (state = {}, action) => {
 		case CONSTANTS.START_BUNDLE:
 
 			return {
-				...state,
 				name: action.bundleName,
-				description: action.bundleDescription
+				description: action.bundleDescription,
+				resources: [],
+				activeResource: null,
+				activeResourceId: null,
+				editActiveResource: false
 			};
 
 		case CONSTANTS.ADD_RESOURCE:
