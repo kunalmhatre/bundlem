@@ -5,6 +5,7 @@ import Create from './components/Create';
 import Submit from './components/Submit';
 import Search from './components/Search';
 import Make from './components/Make';
+import Bundle from './components/Bundle';
 import PageNotFound from './components/PageNotFound';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
@@ -24,7 +25,9 @@ render(
 				<Route path='/create' component={ CreateContainer } />
 				<Route path='/submit' component={ Submit } />
 				<Route path='/search' component={ Search } />
+				<Route path='/bundle/:bundleId' component={ Bundle } />
 				<Route path='/make' component={ MakeContainer } />
+
 				<Route component={ PageNotFound } />
 			</Switch>
 		</HashRouter>

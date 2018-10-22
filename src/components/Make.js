@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import PageTemplate from './templates/PageTemplate';
 import ResourceForm from './ResourceForm';
 import ResourceDetails from './ResourceDetails';
+import _ from 'lodash';
 import { Link } from 'react-router-dom'
 
 const Make = ({ activeBundle = {}, ...actions }) => {
@@ -21,7 +22,7 @@ const Make = ({ activeBundle = {}, ...actions }) => {
 		actions.setActiveResourceAction(resource);
 		actions.setActiveResourceIdAction(
 			(activeBundle.resources.length) ? 
-				(activeBundle.resources.length - 1) : 0
+				activeBundle.resources.length : 0
 		);
 
 	};
@@ -52,38 +53,56 @@ const Make = ({ activeBundle = {}, ...actions }) => {
 	
 	};
 
+	const removeResource = (resources, resourceId) => 
+
+		resources.filter(
+			(item, index) => 
+				(index != resourceId) ? true : false
+		);
+
 	const removeActiveResource = () => {
+
+		let resources = removeResource(
+			activeBundle.resources,
+			activeBundle.activeResourceId
+		);
+
+		let previousLength = resources.length + 1;
 
 		actions.removeResourceAction(
 			activeBundle.activeResourceId
 		);
 
-		if (activeBundle.resources[activeBundle.activeResourceId + 1]) {
-
-			actions.setActiveResourceAction(
-				activeBundle.resources[activeBundle.activeResourceId + 1]
-			);
+		if ((activeBundle.activeResourceId + 1) < previousLength) {
+		
 			actions.setActiveResourceIdAction(
-				activeBundle.activeResourceId + 1
+				activeBundle.activeResourceId
 			);
-
-		} else if (activeBundle.resources[activeBundle.activeResourceId - 1]) {
-
 			actions.setActiveResourceAction(
-				activeBundle.resources[activeBundle.activeResourceId - 1]
-			);
-			actions.setActiveResourceIdAction(
-				activeBundle.activeResourceId - 1
+				resources[activeBundle.activeResourceId]
 			);
 
-		} else {
+		} else if ((activeBundle.activeResourceId + 1) == previousLength) {
 
-			actions.setActiveResourceAction(
-				null
-			);
-			actions.setActiveResourceIdAction(
-				null
-			);
+			if ((activeBundle.activeResourceId - 1) == -1) {
+
+				actions.setActiveResourceIdAction(
+					null
+				);
+				actions.setActiveResourceAction(
+					null
+				);
+
+			} else {
+
+				actions.setActiveResourceIdAction(
+					activeBundle.activeResourceId - 1
+				);
+				actions.setActiveResourceAction(
+					resources[activeBundle.activeResourceId - 1]
+				);
+
+			}
 
 		}
 
@@ -91,31 +110,28 @@ const Make = ({ activeBundle = {}, ...actions }) => {
 
 	const navLinks = () => {
 
-		if (activeBundle.resources.length <= 0) {
+		if (activeBundle.resources.length == 0) {
 
 			return (
 
-				<a 
-					onClick={ () => activeResourceId(0) }>
-					Resource-1
+				<a key={0} onClick={ () => activeResourceId(0) }>
+					{ 'Resource-1' }
 				</a>
 
 			);
-
+			
 		} else {
 
 			return (
 
 				activeBundle.resources.map((item, index) => 
-					<a 
-						key={index} 
-						onClick={ () => activeResourceId(index) }>
-						{ 
-							`Resource-${index + 1}` 
-						}
+					
+					<a key={index} onClick={ () => activeResourceId(index) }>
+						{ `Resource-${index + 1}` }
 					</a>
 
 				)
+
 			);
 
 		}
@@ -125,7 +141,7 @@ const Make = ({ activeBundle = {}, ...actions }) => {
 	return (
 
 		<PageTemplate 
-			bundleName={ activeBundle.bundleName }>
+			bundleName={ activeBundle.name }>
 			<div 
 				id='sidebar'>
 				<nav>
@@ -173,19 +189,6 @@ const Make = ({ activeBundle = {}, ...actions }) => {
 		</PageTemplate>
 
 	);
-
-}
-
-Make.propTypes = {
-
-	activeBundle: PropTypes.object,
-	actions: PropTypes.object
-
-}
-
-Make.defaultProps = {
-
-	actions: {}
 
 }
 

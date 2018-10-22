@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ResourceDetails = ({ activeResource = {}, editActiveResource = f => f, removeActiveResource = f => f }) => {
+const ResourceDetails = ({ editActiveResource = f => f, removeActiveResource = f => f, activeResource = {} }) => {
 
 	return (
 

@@ -7,12 +7,14 @@ const ResourceForm = ({ addResource = f => f, activeResource = {} }) => {
 
 	const save = () => 
 
-		addResource({
-			title: resourceTitle.value,
-			type: resourceType.value,
-			url: resourceURL.value,
-			description: resourceDescription.value
-		});
+		addResource(
+			{
+				title: resourceTitle.value,
+				type: resourceType.value,
+				url: resourceURL.value,
+				description: resourceDescription.value
+			}
+		);
 
 	return (
 
@@ -32,7 +34,7 @@ const ResourceForm = ({ addResource = f => f, activeResource = {} }) => {
 									ref={ input => resourceTitle = input }
 									id='resourceTitle' 
 									type='text'
-									defaultValue={ ('title' in activeResource) ? activeResource.title : '' } />
+									defaultValue={ 'title' in activeResource ? activeResource.title : '' } />
 							</td>
 						</tr>
 						<tr>
@@ -46,7 +48,7 @@ const ResourceForm = ({ addResource = f => f, activeResource = {} }) => {
 								<select 
 									ref={ input => resourceType = input }
 									id='resourceType'
-									defaultValue={ ('type' in activeResource) ? activeResource.type : '' } >
+									defaultValue={ 'type' in activeResource ? activeResource.type : '' } >
 									<option 
 										value='Webpage'>
 										Webpage</option>
@@ -76,7 +78,7 @@ const ResourceForm = ({ addResource = f => f, activeResource = {} }) => {
 									ref={ input => resourceURL = input }
 									id='resourceURL' 
 									type='url'
-									defaultValue={ ('url' in activeResource) ? activeResource.url : '' } />
+									defaultValue={ 'url' in activeResource ? activeResource.url : '' } />
 							</td>
 						</tr>
 						<tr>
@@ -91,7 +93,7 @@ const ResourceForm = ({ addResource = f => f, activeResource = {} }) => {
 									ref={ input => resourceDescription = input } 
 									id='resourceDescription' 
 									type='text'
-									defaultValue={ ('description' in activeResource) ? activeResource.description : '' }
+									defaultValue={ 'description' in activeResource ? activeResource.description : '' }
 									style={{
 										padding: "0.5em",
 										width: '100%',
@@ -105,7 +107,7 @@ const ResourceForm = ({ addResource = f => f, activeResource = {} }) => {
 							<td></td>
 							<td>
 								<button
-									onClick={ save }>
+									onClick={ () => save() }>
 									Save
 								</button>
 							</td>
