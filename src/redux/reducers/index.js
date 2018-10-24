@@ -1,56 +1,62 @@
 import CONSTANTS from '../constants';
+import _ from 'lodash';
 
 const activeBundle = (state = {}, action) => {
+
+	let clone = _.cloneDeep(state);
 
 	switch(action.type) {
 
 		case CONSTANTS.START_BUNDLE:
 
 			return {
-				...state,
 				name: action.bundleName,
-				description: action.bundleDescription
+				description: action.bundleDescription,
+				resources: [],
+				activeResource: null,
+				activeResourceId: null,
+				editActiveResource: false
 			};
 
 		case CONSTANTS.ADD_RESOURCE:
 
 			return {
-				...state,
+				...clone,
 				resources: resources(state.resources, action)
 			};
 
 		case CONSTANTS.UPDATE_RESOURCE:
 
 			return {
-				...state,
+				...clone,
 				resources: resources(state.resources, action)
 			};
 
 		case CONSTANTS.REMOVE_RESOURCE:
 
 			return {
-				...state,
+				...clone,
 				resources: resources(state.resources, action)
 			};
 
 		case CONSTANTS.SET_ACTIVE_RESOURCE:
 
 			return {
-				...state,
-				activeResource: action.activeResource
+				...clone,
+				activeResource: _.cloneDeep(action.activeResource)
 			};
 
 		case CONSTANTS.SET_ACTIVE_RESOURCE_ID:
 
 			return {
-				...state,
+				...clone,
 				activeResourceId: action.activeResourceId
 			};
 
 		case CONSTANTS.SET_EDIT_ACTIVE_RESOURCE:
 
 			return {
-				...state,
+				...clone,
 				editActiveResource: action.status
 			};
 
@@ -64,27 +70,29 @@ const activeBundle = (state = {}, action) => {
 
 const resources = (state = [], action) => {
 
+	let clone = _.cloneDeep(state);
+
 	switch(action.type) {
 
 		case CONSTANTS.ADD_RESOURCE:
 
 			return [
-				...state,
-				action.resource
+				...clone,
+				_.cloneDeep(action.resource)
 			];
 
 		case CONSTANTS.UPDATE_RESOURCE:
 
-			return state.map((item, index) => 
+			return clone.map((item, index) => 
 
 				(index == action.resourceId) ? 
-					action.updatedResource : item
+					_.cloneDeep(action.updatedResource) : item
 
 			);
 
 		case CONSTANTS.REMOVE_RESOURCE:
 
-			return state.filter((item, index) =>
+			return clone.filter((item, index) =>
 
 				(index != action.resourceId) ?
 					true : false
@@ -101,12 +109,14 @@ const resources = (state = [], action) => {
 
 const bundles = (state = {}, action) => {
 
+	let clone = _.cloneDeep(state);
+
 	switch(action.type) {
 
 		case CONSTANTS.STORE_BUNDLE:
 
 			return {
-				...state,
+				...clone,
 				[action.bundleId]: action.bundle
 			};
 
