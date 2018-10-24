@@ -108,35 +108,20 @@ const Make = ({ activeBundle = {}, ...actions }) => {
 
 	};
 
-	const navLinks = () => {
+	const bundleup = (event) => {
 
-		if (activeBundle.resources.length == 0) {
+		let totalResources = activeBundle.resources.length;
+		let choice;
 
-			return (
+		choice = confirm(`Are you sure you want to bundl 'em up?`);
 
-				<a key={0} onClick={ () => activeResourceId(0) }>
-					{ 'Resource-1' }
-				</a>
+		if (!choice) {
 
-			);
-			
-		} else {
-
-			return (
-
-				activeBundle.resources.map((item, index) => 
-					
-					<a key={index} onClick={ () => activeResourceId(index) }>
-						{ `Resource-${index + 1}` }
-					</a>
-
-				)
-
-			);
-
+			event.preventDefault();
+		
 		}
 
-	};
+	}
 
 	return (
 
@@ -146,7 +131,17 @@ const Make = ({ activeBundle = {}, ...actions }) => {
 				id='sidebar'>
 				<nav>
 					{
-						navLinks()
+						(activeBundle.resources.length == 0) ?
+							<a key={0} onClick={ () => activeResourceId(0) }>
+								{ 'Resource-1' }
+							</a> :
+							activeBundle.resources.map((item, index) => 
+								
+								<a key={index} onClick={ () => activeResourceId(index) }>
+									{ `Resource-${index + 1}` }
+								</a>
+
+							)
 					}
 					<a 
 						onClick={ addNewResource }>
@@ -160,7 +155,8 @@ const Make = ({ activeBundle = {}, ...actions }) => {
 					(activeBundle.editActiveResource) ? 
 						<ResourceForm 
 							addResource={ updateResource }
-							activeResource={ activeBundle.activeResource } /> :
+							activeResource={ activeBundle.activeResource }
+							editResourceStatus={ true } /> :
 							(activeBundle.activeResource) ? 
 								<ResourceDetails 
 									activeResource={ activeBundle.activeResource }
@@ -182,7 +178,9 @@ const Make = ({ activeBundle = {}, ...actions }) => {
 						}
 					}
 				}}>
-				<button>
+				<button 
+					disabled={ !(activeBundle.resources.length) || activeBundle.editActiveResource } 
+					onClick={ (event) => bundleup(event) }>
 					Bundle up!
 				</button>
 			</Link>

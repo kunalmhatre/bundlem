@@ -4,6 +4,8 @@ import PageTemplate from './templates/PageTemplate';
 import { Link } from 'react-router-dom';
 import { compose } from 'redux';
 import validator from 'validator';
+import validateCreateForm from '../lib/validators/validateCreateForm';
+import handleInputChange from '../lib/validators/eventHandlers/handleInputChange';
 
 class Create extends React.Component {
 
@@ -11,6 +13,10 @@ class Create extends React.Component {
 
 		super(props);
 
+		this.history = this.props.history; 
+		this.startBundleAction = this.props.startBundleAction; 
+		this.validateCreateForm = validateCreateForm.bind(this);
+		this.handleInputChange = handleInputChange.bind(this);
 		this.state = {
 			fields: {},
 			errors: {},
@@ -20,102 +26,9 @@ class Create extends React.Component {
 
 	}
 
-	handleChange(event) {
-
-		let fields = this.state.fields;
-
-		fields[event.target.name] = event.target.value;
-
-		this.setState({
-			fields
-		});
-
-	}
-
-	validateForm(event) {
-
-		let fields = this.state.fields;
-		let isFieldValid = this.state.isFieldValid;
-		let errors = this.state.errors;
-		let isFormValid = false;
-
-		switch(event.target.name) {
-
-			case 'bundleName':
-
-				if (!fields['bundleName']) {
-
-					isFieldValid['bundleName'] = false;
-					errors['bundleName'] = 'Please enter the Bundle Name';
-
-				} else if (!validator.isLength(fields['bundleName'], {min: 1, max: 120})) {
-
-					isFieldValid['bundleName'] = false;
-					errors['bundleName'] = 'Bundle Name can be of 120 characters at max';
-
-				} else {
-
-					isFieldValid['bundleName'] = true;
-					errors['bundleName'] = null;
-
-				}
-
-				break;
-
-			case 'bundleDescription':
-
-				if (!fields['bundleDescription']) {
-
-					isFieldValid['bundleDescription'] = false;
-					errors['bundleDescription'] = 'Please enter the Bundle Description';
-
-				} else if (!validator.isLength(fields['bundleDescription'], {min: 1, max: 320})) {
-
-					isFieldValid['bundleDescription'] = false;
-					errors['bundleDescription'] = 'Bundle Description can be of 320 characters at max';			
-
-				} else {
-
-					isFieldValid['bundleDescription'] = true;
-					errors['bundleDescription'] = null;
-
-				}
-
-				break;
-
-			default:
-
-				return false;
-
-		}
-
-		if (isFieldValid.bundleName && isFieldValid.bundleDescription) {
-
-			isFormValid = true;
-		
-		} else {
-
-			isFormValid = false;
-		
-		}
-
-		this.setState({
-			errors,
-			isFieldValid,
-			isFormValid
-		})
-
-		return isFormValid;
-
-	}
-
 	render() {
 
 		const { fields, errors, isFormValid } = this.state;
-		const history = this.props.history;
-		const handleChange = this.handleChange.bind(this);
-		const validateForm = this.validateForm.bind(this);
-		const startBundleAction = this.props.startBundleAction; 
 
 		return (
 
@@ -138,8 +51,8 @@ class Create extends React.Component {
 											type='text'
 											onChange={ event =>
 												compose(
-													handleChange(event),
-													validateForm(event)
+													this.handleInputChange(event),
+													this.validateCreateForm(event)
 												)
 											} />
 									</td>
@@ -164,8 +77,8 @@ class Create extends React.Component {
 											type='text'
 											onChange={ event => 
 												compose(
-													handleChange(event),
-													validateForm(event)
+													this.handleInputChange(event),
+													this.validateCreateForm(event)
 												)
 											}
 											style={{
@@ -191,11 +104,11 @@ class Create extends React.Component {
 											disabled={ !(isFormValid) }
 											onClick={ () => 
 												compose(
-													startBundleAction(
+													this.startBundleAction(
 														fields.bundleName,
 														fields.bundleDescription
 													),
-													history.push('/make')
+													this.history.push('/make')
 												)
 											}>
 											Next

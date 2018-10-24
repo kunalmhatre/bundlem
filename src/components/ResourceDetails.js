@@ -34,10 +34,10 @@ const ResourceDetails = ({ editActiveResource = f => f, removeActiveResource = f
 					</tr>
 					<tr>
 						<td>
-							Description:
+							Notes:
 						</td>
 						<td>
-							<b>{ activeResource.description }</b>
+							<b>{ activeResource.notes }</b>
 						</td>
 					</tr>
 					<tr>

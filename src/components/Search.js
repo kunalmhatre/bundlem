@@ -3,6 +3,8 @@ import validator from 'validator';
 import PageTemplate from './templates/PageTemplate';
 import { Redirect } from 'react-router-dom';
 import { compose } from 'redux';
+import validateSearchForm from '../lib/validators/validateSearchForm';
+import handleInputChange from '../lib/validators/eventHandlers/handleInputChange';
 
 class Search extends React.Component {
 
@@ -10,23 +12,14 @@ class Search extends React.Component {
 
 		super(props);
 
+		this.history = this.props.history;
+		this.validateSearchForm = validateSearchForm.bind(this);
+		this.handleInputChange = handleInputChange.bind(this);
 		this.state = {
 			fields: {},
 			errors: {},
 			isFormValid: false
 		}
-
-	}
-
-	handleChange(event) {
-
-		let fields = this.state.fields;
-
-		fields[event.target.name] = event.target.value;
-
-		this.setState({
-			fields
-		});
 
 	}
 
@@ -60,9 +53,6 @@ class Search extends React.Component {
 	render() {
 
 		const { fields, errors, isFormValid } = this.state;
-		const history = this.props.history;
-		const handleChange = this.handleChange.bind(this);
-		const validateForm = this.validateForm.bind(this); 
 
 		return (
 
@@ -80,8 +70,8 @@ class Search extends React.Component {
 											type='text'
 											onChange={ event => 
 												compose(
-													handleChange(event),
-													validateForm()
+													this.handleInputChange(event),
+													this.validateSearchForm()
 												) 
 											} />
 									</td>
@@ -96,7 +86,7 @@ class Search extends React.Component {
 										<button 
 											disabled={ !(isFormValid) }
 											onClick={ () => 
-												history.push(`/bundle/${fields.bundleId}`) 
+												this.history.push(`/bundle/${fields.bundleId}`) 
 											}>
 											Search
 										</button>

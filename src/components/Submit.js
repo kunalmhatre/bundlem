@@ -49,6 +49,7 @@ class Submit extends React.Component {
 
 	render() {
 
+		console.log(this.location.state.activeBundle);
 		const { loaded, bundleId } = this.state;
 		const name = (this.location.state) ? this.location.state.activeBundle.name : null;
 
