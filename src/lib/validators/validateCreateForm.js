@@ -72,7 +72,7 @@ function validateCreateForm(event) {
 		errors,
 		isFieldValid,
 		isFormValid
-	})
+	});
 
 	return isFormValid;
 

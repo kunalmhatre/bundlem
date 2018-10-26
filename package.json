@@ -1,13 +1,14 @@
 {
   "name": "bundlem",
   "version": "1.0.0",
-  "description": "Bundlem helps you to create mini-courses by bundling online resources.",
+  "description": "Bundlem helps you to create bundles of online resources.",
   "main": "./src/index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --open --hot",
-    "build": "webpack-cli -mode production",
+    "build": "webpack -p",
     "lint": "./node_modules/.bin/eslint .",
-    "test": "./node_modules/.bin/jest . --verbose"
+    "test": "./node_modules/.bin/jest . --verbose",
+    "node": "./node_modules/.bin/babel-node ./src/server/index.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
   },
   "homepage": "https://github.com/kunalmhatre/bundlem#readme",
   "dependencies": {
+    "express": "^4.16.4",
     "lodash": "^4.17.11",
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
@@ -37,6 +39,7 @@
     "validator": "^10.8.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-jest": "^23.6.0",
     "babel-loader": "^7.1.5",
