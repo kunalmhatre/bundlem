@@ -173,8 +173,7 @@ const Make = ({ activeBundle = {}, ...actions }) => {
 						activeBundle: {
 							name: activeBundle.name,
 							description: activeBundle.description,
-							resources: activeBundle.resources,
-							timestamp: Date.now()
+							resources: activeBundle.resources
 						}
 					}
 				}}>

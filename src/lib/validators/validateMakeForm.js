@@ -36,10 +36,10 @@ function validateMakeForm(event) {
 				isFieldValid['resourceURL'] = false;
 				errors['resourceURL'] = 'Please provide Resource URL';
 
-			} else if (!validator.isURL(fields['resourceURL'])) {
+			} else if (!validator.isURL(fields['resourceURL'], {require_protocol: true})) {
 
 				isFieldValid['resourceURL'] = false;
-				errors['resourceURL'] = 'Please provide valid URL';
+				errors['resourceURL'] = 'Please provide a valid URL (e.g. https://foo.com)';
 
 			} else {
 
@@ -69,7 +69,7 @@ function validateMakeForm(event) {
 			}
 
 			break;
-
+ a
 		default:
 
 			break;

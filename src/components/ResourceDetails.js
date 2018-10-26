@@ -29,7 +29,7 @@ const ResourceDetails = ({ editActiveResource = f => f, removeActiveResource = f
 							URL:
 						</td>
 						<td>
-							<a href={ `'${activeResource.url}'` }>{ activeResource.url }</a>
+							<a href={ `${activeResource.url}` }>{ activeResource.url }</a>
 						</td>
 					</tr>
 					<tr>

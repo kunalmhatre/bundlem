@@ -27,7 +27,6 @@ render(
 				<Route path='/search' component={ Search } />
 				<Route path='/bundle/:bundleId' component={ Bundle } />
 				<Route path='/make' component={ MakeContainer } />
-
 				<Route component={ PageNotFound } />
 			</Switch>
 		</HashRouter>

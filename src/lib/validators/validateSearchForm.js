@@ -21,7 +21,7 @@ function validateSearchForm() {
 	this.setState({
 		errors,
 		isFormValid
-	})
+	});
 
 	return isFormValid;
 

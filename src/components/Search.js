@@ -86,7 +86,7 @@ class Search extends React.Component {
 										<button 
 											disabled={ !(isFormValid) }
 											onClick={ () => 
-												this.history.push(`/bundle/${fields.bundleId}`) 
+												this.history.push(`/bundle/${fields['bundleId']}`) 
 											}>
 											Search
 										</button>

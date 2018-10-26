@@ -30,26 +30,56 @@ class Submit extends React.Component {
 
 	componentDidMount() {
 
-		/*fetch('URL', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json; charset=utf-8'
-			},
-			body: JSON.stringify(this.activeBundle)
-		})
-		.then(response => response.json())
-		.then(data => {
-			this.setState({
-				loaded: true,
-				bundleId: data.bundleId
+		if (this.location.state && !this.state.loaded) {
+
+			fetch('http://localhost:1337/create', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({
+					bundle: this.location.state.activeBundle	
+				})
+			})
+			.then(response => {
+
+				if (response.status == 201) {
+
+					return response.json()
+				
+				} else {
+				
+					return null;
+				
+				}
+				
+			})
+			.then(data => {
+				
+				if (data) {
+
+					this.setState({
+						loaded: true,
+						bundleId: data.id
+					});
+
+				} else {
+
+					this.setState({
+						loaded: false,
+						bundleId: null
+					});
+
+				}
+
 			});
-		});*/
+
+		}
 
 	}
 
 	render() {
 
-		console.log(this.location.state.activeBundle);
 		const { loaded, bundleId } = this.state;
 		const name = (this.location.state) ? this.location.state.activeBundle.name : null;
 
@@ -65,7 +95,9 @@ class Submit extends React.Component {
 								(loaded) ? 
 									<div
 										id='bundleId'>
-										bundleId
+										{
+											bundleId
+										}
 									</div> :
 									<i>
 										Generating...

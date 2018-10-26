@@ -7,7 +7,7 @@ class Bundle extends React.Component {
 		
 		super(props);
 
-		this.bundleId = props.match.bundleId;
+		this.bundleId = props.match.params.bundleId;
 		this.state = {
 			loaded: false,
 			bundle: {}
@@ -17,7 +17,7 @@ class Bundle extends React.Component {
 
 	componentDidMount() {
 
-		fetch(`URL${this.bundleId}`)
+		fetch(`http://localhost:1337/bundle/${this.bundleId}`)
 			.then(response => {
 
 				if (response.status == 200) {
@@ -35,7 +35,14 @@ class Bundle extends React.Component {
 				}
 
 			})
-			.then(data => bundle = data)
+			.then(data => {
+
+				this.setState({
+					loaded: true,
+					bundle: data.bundle
+				});
+
+			})
 			.catch(error => alert(error));
 
 	}
