@@ -11,6 +11,8 @@ function validateMakeForm(event) {
 
 		case 'resourceTitle':
 
+			fields['resourceTitle'] = fields['resourceTitle'].trim();
+
 			if (fields['resourceTitle'] &&
 				!(validator.isLength(
 					fields['resourceTitle'], 
@@ -18,7 +20,7 @@ function validateMakeForm(event) {
 				))) {
 
 				isFieldValid['resourceTitle'] = false;
-				errors['resourceTitle'] = 'Resource Title can be of 120 characters at max'
+				errors['resourceTitle'] = 'Title can be of 120 characters at max'
 
 			} else {
 
@@ -31,15 +33,17 @@ function validateMakeForm(event) {
 
 		case 'resourceURL':
 
+			fields['resourceURL'] = fields['resourceURL'].trim();
+
 			if (!fields['resourceURL']) {
 
 				isFieldValid['resourceURL'] = false;
-				errors['resourceURL'] = 'Please provide Resource URL';
+				errors['resourceURL'] = null;
 
 			} else if (!validator.isURL(fields['resourceURL'], {require_protocol: true})) {
 
 				isFieldValid['resourceURL'] = false;
-				errors['resourceURL'] = 'Please provide a valid URL (e.g. https://foo.com)';
+				errors['resourceURL'] = 'Please provide a valid URL (e.g. https://example.com)';
 
 			} else {
 
@@ -51,6 +55,8 @@ function validateMakeForm(event) {
 			break;
 
 		case 'resourceNotes':
+
+			fields['resourceNotes'] = fields['resourceNotes'].trim();
 
 			if (fields['resourceNotes'] &&
 				!(validator.isLength(
@@ -69,7 +75,7 @@ function validateMakeForm(event) {
 			}
 
 			break;
- a
+ 
 		default:
 
 			break;

@@ -6,6 +6,8 @@ function validateSearchForm() {
 	let errors = {};
 	let isFormValid = true;
 
+	fields['bundleId'] = fields['bundleId'].trim();
+
 	if (!fields['bundleId']) {
 
 		isFormValid = false;

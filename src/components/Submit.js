@@ -89,7 +89,7 @@ class Submit extends React.Component {
 				{
 					(this.location.state) ?
 						<center>
-							<p>Done, your Bundle is ready to be shared.</p>
+							<p>Done, your Bundle is getting ready to be shared.</p>
 							<h3>Bundle ID</h3>
 							{
 								(loaded) ? 

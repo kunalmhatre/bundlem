@@ -6,14 +6,19 @@ import Submit from './components/Submit';
 import Search from './components/Search';
 import Make from './components/Make';
 import Bundle from './components/Bundle';
+import PreviewContainer from './components/containers/PreviewContainer';
 import PageNotFound from './components/PageNotFound';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import storeFactory from './redux/store';
 import CreateContainer from './components/containers/CreateContainer';
 import MakeContainer from './components/containers/MakeContainer';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faBars, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 window.React = React;
+
+library.add(faBars, faPlus);
 
 const store = storeFactory();
 
@@ -27,6 +32,7 @@ render(
 				<Route path='/search' component={ Search } />
 				<Route path='/bundle/:bundleId' component={ Bundle } />
 				<Route path='/make' component={ MakeContainer } />
+				<Route path='/preview' component={ PreviewContainer } />
 				<Route component={ PageNotFound } />
 			</Switch>
 		</HashRouter>

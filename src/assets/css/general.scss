@@ -1,0 +1,150 @@
+@import './variables/colors.scss';
+
+body {
+	font-size: 16px;
+	font-family: $bundlemFont;
+}
+
+.centeredContent {
+	text-align: center;
+}
+
+.bundlemLogo { 
+	text-align: center;
+	font-size: 7rem;
+	font-family: $bundlemFont;
+	font-weight: 700;
+	color: $bundlemColor;
+	padding: 1rem;
+}
+
+#header div.bundlemHeader h1 {
+	font-family: $bundlemFont;
+	font-weight: 700;
+	font-size: 2rem;
+	color: $bundlemColor;
+	cursor: pointer;
+}
+
+.largeMarginTop {
+	margin-top: 10rem;
+}
+
+.tagline {
+	font-size: 2.5rem;
+	color: $bundlemColor;
+}
+
+.description { 
+	padding:  1.5rem;
+}
+
+.flexCenter {
+	display: flex;
+	justify-content: center;
+}
+
+.flexRight {
+	display: flex;
+	justify-content: right;
+}
+
+.inputLabels {
+	color: $bundlemColor;
+	font-size: 2rem;
+}
+
+.textareaHeight {
+	height: 3rem;
+}
+
+.createTitle {
+	color: $bundlemColor;
+	font-size: 2.5rem;
+	font-weight: 700;
+}
+
+.floatRight {
+	float: right;
+}
+
+.floatLeft {
+	float: left;
+}
+
+.headerBars {
+	font-family: $bundlemFont;
+	font-weight: 700;
+	font-size: 3rem;
+	color: white;
+	cursor: pointer;
+	margin-right: 1rem;
+	margin-left: 2rem; 
+}
+
+.inputErrors {
+	padding-left: 1rem;
+	color: $lightRed;
+}
+
+.textColorGrey {
+	color: $lightGrey;
+}
+
+.marginRight {
+	margin-right: 1rem;
+}
+
+/* #header {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	border-bottom: 0.1rem solid $lightGrey;
+} */
+
+#sidebar {
+	position: fixed;
+	width: 300px;
+	height: 100%;
+	background: $bundlemColor;
+	border-right: 0.1rem solid white;
+	border-top: 0.1rem solid white; 
+}
+
+#sidebar ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+#sidebar ul li {
+	list-style: none;
+	font-family: $bundlemFont;
+	font-weight: 700;
+	font-size: 2rem;
+	text-align: center;
+	color: white;
+	border-bottom: 0.1rem solid white;
+	padding: 1.5rem;
+}
+
+#sidebar ul li.active {
+	background-color: white;
+	color: $bundlemColor;
+}
+
+#sidebarContent {
+	margin-left: 300px;
+}
+
+#resourceDetails {
+	padding: 3rem;
+}
+
+#resourceForm {
+	margin-left: 2rem;
+	margin-right: 2rem;
+}
+
+.borderColor {
+	border: 0px solid green; 
+}

@@ -1,10 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { PageHeader } from 'react-bootstrap/lib';
+import { Link, withRouter } from 'react-router-dom';
+import '../../assets/css/general.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const HeaderMenu = ({ bundleName }) => 
-
-	<div id='header'>
-		<h2>{ (bundleName) ? `Bundle - ${bundleName}` : 'Bundlem' }</h2>
+const HeaderMenu = ({ bundleName, history }) => 
+	
+	<div id='header'> 
+		{	
+			<PageHeader 
+				className='bundlemHeader'
+				onClick={ () => 
+					!(bundleName) ? history.push('/') : history.push('/create') }>
+				{ (bundleName) ? bundleName : 'Bundlem' }
+			</PageHeader>
+		}
 	</div>
 
 HeaderMenu.propTypes = {
@@ -13,4 +24,4 @@ HeaderMenu.propTypes = {
 	
 }
 
-export default HeaderMenu;
+export default withRouter(HeaderMenu);

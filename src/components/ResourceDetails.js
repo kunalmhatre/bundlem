@@ -1,69 +1,87 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import { 
+	Col, 
+	Button,
+	ButtonToolbar,
+	Well,
+	Label,
+	Badge,
+	Grid,
+	Row,
+	Panel,
+	PanelGroup,
+	ListGroup,
+	ListGroupItem
+} from 'react-bootstrap/lib';
 
-const ResourceDetails = ({ editActiveResource = f => f, removeActiveResource = f => f, activeResource = {} }) => {
+const ResourceDetails = ({ activeBundle = {} }) =>
 
-	return (
-
-		<div id='details'>
-			<table>
-				<tbody>
-					<tr>
-						<td>
-							Title:
-						</td>
-						<td>
-							<b>{ activeResource.title }</b>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							Type:
-						</td>
-						<td>
-							<b>{ activeResource.type }</b>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							URL:
-						</td>
-						<td>
-							<a href={ `${activeResource.url}` }>{ activeResource.url }</a>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							Notes:
-						</td>
-						<td>
-							<b>{ activeResource.notes }</b>
-						</td>
-					</tr>
-					<tr>
-						<td></td>
-						<td>
-							<button onClick={ () => editActiveResource() }>
-								Edit
-							</button>
-							<button onClick={ () => removeActiveResource() } >
-								Remove
-							</button>
-						</td>
-					</tr>
-				</tbody>
-			</table>
+	<div id='bundle'>
+		<div id='bundleDescription'>
+			<Well>
+			{
+				activeBundle.description
+			}
+			</Well>
 		</div>
+		<div id='totalResources'>
+			<p>
+				Total Resources: <Badge>{ activeBundle.resources.length }</Badge>
+			</p>
+		</div>
+		<hr/>
+		<div id='bundleResources'>
+			<PanelGroup accordion id='resources'>
+			{
+				activeBundle.resources.map((resource, index) => 
+					
+					<Panel key={ index } bsStyle='primary' eventKey={ index }>
+						<Panel.Heading>
+							<Panel.Title toggle>
+								<div id='panelTitle'>
+								{ 
+									(resource.title) ? `${ index + 1 }. ${ resource.title }` : `Resource ${ index + 1 }` 
+								}
+								</div>
+							</Panel.Title>
+						</Panel.Heading>
+						<Panel.Body collapsible>
+							<ListGroup>
+								<ListGroupItem className='textColorGrey'>
+									<Label bsStyle='info'>{ resource.type }</Label>
+								</ListGroupItem>
+								<ListGroupItem>
+									<a href={ `${ resource.url }` }>{ resource.url }</a>
+								</ListGroupItem>
+								{
+									(resource.notes) ?
+										<ListGroupItem>
+											{ resource.notes }
+										</ListGroupItem> :
+										null		
+								}
+							</ListGroup>
+						</Panel.Body>
+					</Panel>
 
-	);
-
-}
+				)
+			}
+			</PanelGroup>
+		</div>
+		<Link to='/make'>
+			<Button 
+				bsStyle='primary'
+				bsSize='large'>
+				Back
+			</Button>
+		</Link>
+	</div>
 
 ResourceDetails.propTypes = {
 
-	activeResource: PropTypes.object,
-	editActiveResource: PropTypes.func,
-	removeActiveResource: PropTypes.func
+	activeBundle: PropTypes.object,
 
 }
 

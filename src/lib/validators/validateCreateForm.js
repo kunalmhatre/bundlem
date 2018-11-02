@@ -11,10 +11,12 @@ function validateCreateForm(event) {
 
 		case 'bundleName':
 
+			fields['bundleName'] = fields['bundleName'].trim();			
+
 			if (!fields['bundleName']) {
 
 				isFieldValid['bundleName'] = false;
-				errors['bundleName'] = 'Please enter the Bundle Name';
+				errors['bundleName'] = null;
 
 			} else if (!validator.isLength(fields['bundleName'], {min: 1, max: 120})) {
 
@@ -31,6 +33,8 @@ function validateCreateForm(event) {
 			break;
 
 		case 'bundleDescription':
+
+			fields['bundleDescription'] = fields['bundleDescription'].trim();			
 
 			if (fields['bundleDescription'] &&
 				!(validator.isLength(

@@ -3,7 +3,9 @@ import Create from '../Create';
 import { startBundle } from '../../redux/actions';
 
 const CreateContainer = connect(
-	null,
+	state => ({
+		activeBundle: state.activeBundle
+	}),
 	dispatch => ({
 		startBundleAction(bundleName, bundleDescription) {
 			dispatch(
