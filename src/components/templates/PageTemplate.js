@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import HeaderMenu from '../menus/HeaderMenu';
+import FooterMenu from '../menus/FooterMenu';
 import {
 	Grid,
 	Row, 
 	Col
 } from 'react-bootstrap/lib';
 
-const PageTemplate = ({ bundleName, children }) => 
+const PageTemplate = ({ bundleName, children, needHeader = true, needFooter = true }) => 
 
 	<Grid>
 		<Row className='show-grid'>
@@ -22,8 +23,15 @@ const PageTemplate = ({ bundleName, children }) =>
 				sm={12}
 				md={10}
 				lg={8}>
-				<HeaderMenu bundleName={bundleName} />
-				{children}
+				{
+					(needHeader) ? <HeaderMenu bundleName={bundleName} /> : null
+				}
+				{ 
+					children 
+				}
+				{
+					(needFooter) ? <FooterMenu /> : null
+				}
 			</Col>
 			<Col
 				xsHidden

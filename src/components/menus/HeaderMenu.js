@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { PageHeader } from 'react-bootstrap/lib';
 import { Link, withRouter } from 'react-router-dom';
 import '../../assets/css/general.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const HeaderMenu = ({ bundleName, history }) => 
 	

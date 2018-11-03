@@ -64,6 +64,18 @@ const activeBundle = (state = {}, action) => {
 				showPreview: action.status
 			}
 
+		case CONSTANTS.CLEAR_ACTIVE_BUNDLE:
+
+			return {
+				name: null,
+				description: null,
+				resources: [],
+				activeResource: null,
+				activeResourceId: 0,
+				editActiveResource: false,
+				showPreview: false 
+			}
+
 		default:
 
 			return state;

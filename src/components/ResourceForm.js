@@ -5,8 +5,9 @@ import validator from 'validator';
 import { compose } from 'redux';
 import validateMakeForm from '../lib/validators/validateMakeForm';
 import handleInputChange from '../lib/validators/eventHandlers/handleInputChange';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import BSFormGroup from './bootstrap/ResourceForm/BSFormGroup';
+import { FaChevronLeft, FaChevronRight, FaMinusCircle, FaEye } from 'react-icons/fa';
+import { IconContext } from 'react-icons';
 import { 
 	Form, 
 	FormGroup, 
@@ -19,6 +20,7 @@ import {
 	Row,
 	HelpBlock 
 } from 'react-bootstrap/lib';
+import '../assets/css/general.scss';
 
 class ResourceForm extends React.Component {
 
@@ -352,7 +354,13 @@ class ResourceForm extends React.Component {
 											bsSize='large'
 											href='#'
 											onClick={ () => this.removeResource(currentResourceId - 1, activeBundle.resources, this.updateState.bind(this)) }>
-											Remove
+											<span>
+												Remove
+												&nbsp;
+												<IconContext.Provider value={{ className: 'verticalMiddle' }}>
+													<FaMinusCircle />
+												</IconContext.Provider>
+											</span>
 										</Button>
 										<Button
 											disabled={ !(isFormValid) }
@@ -372,14 +380,25 @@ class ResourceForm extends React.Component {
 											onClick={ () => this.previousResource(currentResourceId - 2, activeBundle.resources, this.updateState.bind(this)) }>
 											{
 												(currentResourceId - 1) ? 
-													`Resource ${ currentResourceId - 1 }`:
-													'Previous'
+													<span>
+														<IconContext.Provider value={{ className: 'verticalMiddle' }}>
+															<FaChevronLeft />
+														</IconContext.Provider>
+														&nbsp;
+														{ `Resource ${ currentResourceId - 1 }` }
+													</span> :
+													<span>
+														<IconContext.Provider value={{ className: 'verticalMiddle' }}>
+															<FaChevronLeft />
+														</IconContext.Provider>
+														&nbsp;
+														Previous
+													</span>
 											}
 										</Button>
 										{
 											(activeBundle.activeResource) ?
 												<Button
-													bsStyle='primary'
 													bsSize='large'
 													href='#'
 													onClick={ () => this.edit(currentResourceId - 1, activeBundle.resources) }>
@@ -401,7 +420,13 @@ class ResourceForm extends React.Component {
 											bsSize='large'
 											href='#'
 											onClick={ () => this.nextResource(currentResourceId, activeBundle.resources, this.updateState.bind(this)) }>
-											{`Resource ${ currentResourceId + 1 }`}
+											<span>
+												{ `Resource ${ currentResourceId + 1 }` }
+												&nbsp;
+												<IconContext.Provider value={{ className: 'verticalMiddle' }}>
+													<FaChevronRight />
+												</IconContext.Provider>
+											</span>
 										</Button>
 									</ButtonGroup>
 							}
@@ -423,14 +448,21 @@ class ResourceForm extends React.Component {
 									bsSize='large'
 									href='#'
 									onClick={ () => this.history.push('/preview') }>
-									Preview Bundle
+									<span>
+										Preview Bundle
+										&nbsp;
+										<IconContext.Provider value={{ className: 'verticalMiddle' }}>
+											<FaEye />
+										</IconContext.Provider>
+									</span>
 								</Button>
 								<Button
 									disabled={ (activeBundle.resources.length) ? false : true }
 									bsStyle='success'
 									bsSize='large'
-									href='#'>
-									Finish Bundle
+									href='#'
+									onClick={ () => this.history.push('/submit') }>
+									Publish Bundle
 								</Button>
 							</ButtonGroup>
 						</Col>

@@ -48,6 +48,10 @@ const storeBundle = (bundleId, bundle) => ({
 	type: CONSTANTS.STORE_BUNDLE
 })
 
+const clearActiveBundle = () => ({
+	type: CONSTANTS.CLEAR_ACTIVE_BUNDLE
+})
+
 export {
 	startBundle,
 	addResource,
@@ -57,5 +61,6 @@ export {
 	setActiveResourceId,
 	setEditActiveResource,
 	setShowPreview,
-	storeBundle
+	storeBundle,
+	clearActiveBundle
 };

@@ -91,7 +91,7 @@ const Make = ({ activeBundle = {}, ...actions }) => {
 					previousResource={ previousResource }
 					removeResource={ removeResource } /> :
 				<p>
-					Please click <Link to='/create'>here</Link> to create a Bundle first.
+					Please click <Link to='/create'>here</Link> to create a bundle first.
 				</p>
 
 		}

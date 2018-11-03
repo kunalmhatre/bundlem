@@ -20,18 +20,22 @@ const ResourceDetails = ({ activeBundle = {} }) =>
 
 	<div id='bundle'>
 		<div id='bundleDescription'>
-			<Well>
 			{
-				activeBundle.description
+				(activeBundle.description) ?
+					<Well>
+					{
+						activeBundle.description
+					}
+					</Well> :
+					null
 			}
-			</Well>
 		</div>
 		<div id='totalResources'>
 			<p>
 				Total Resources: <Badge>{ activeBundle.resources.length }</Badge>
 			</p>
 		</div>
-		<hr/>
+		<hr />
 		<div id='bundleResources'>
 			<PanelGroup accordion id='resources'>
 			{
@@ -42,7 +46,9 @@ const ResourceDetails = ({ activeBundle = {} }) =>
 							<Panel.Title toggle>
 								<div id='panelTitle'>
 								{ 
-									(resource.title) ? `${ index + 1 }. ${ resource.title }` : `Resource ${ index + 1 }` 
+									(resource.title) ? 
+										`${ index + 1 }. ${ resource.title }` : 
+										`${ index + 1 }. ${ resource.type }`
 								}
 								</div>
 							</Panel.Title>
@@ -70,13 +76,6 @@ const ResourceDetails = ({ activeBundle = {} }) =>
 			}
 			</PanelGroup>
 		</div>
-		<Link to='/make'>
-			<Button 
-				bsStyle='primary'
-				bsSize='large'>
-				Back
-			</Button>
-		</Link>
 	</div>
 
 ResourceDetails.propTypes = {

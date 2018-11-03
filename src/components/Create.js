@@ -6,6 +6,8 @@ import { compose } from 'redux';
 import validator from 'validator';
 import validateCreateForm from '../lib/validators/validateCreateForm';
 import handleInputChange from '../lib/validators/eventHandlers/handleInputChange';
+import { FaChevronRight } from 'react-icons/fa';
+import { IconContext } from 'react-icons';
 import { 
 	Form, 
 	FormGroup, 
@@ -110,7 +112,7 @@ class Create extends React.Component {
 									name='bundleName'
 									type='text' 
 									bsSize='large'
-									placeholder='React - Security Best Practices'
+									placeholder='Online Privacy'
 									defaultValue={ activeBundle.name }
 									onChange={ event => 
 										compose(
@@ -174,7 +176,10 @@ class Create extends React.Component {
 											this.history.push('/make')
 										)
 									}>
-									Next
+									Next&nbsp;
+									<IconContext.Provider value={{ className: 'verticalMiddle' }}>
+										<FaChevronRight />
+									</IconContext.Provider>
 								</Button>
 							</Col>
 						</FormGroup>

@@ -18,12 +18,30 @@ body {
 	padding: 1rem;
 }
 
+.lightSeparation {
+	margin: 3rem
+}
+
 #header div.bundlemHeader h1 {
 	font-family: $bundlemFont;
 	font-weight: 700;
 	font-size: 2rem;
 	color: $bundlemColor;
 	cursor: pointer;
+}
+
+.bundleIdHeader {
+	font-family: $bundlemFont;
+	font-weight: 700;
+	font-size: 2rem;
+	color: $bundlemColor;
+}
+
+.bundleId {
+	font-family: $bundlemFont;
+	font-weight: 700;
+	font-size: 7rem;
+	color: $bundlemColor;
 }
 
 .largeMarginTop {
@@ -80,6 +98,10 @@ body {
 	cursor: pointer;
 	margin-right: 1rem;
 	margin-left: 2rem; 
+}
+
+.verticalMiddle {
+	vertical-align: middle
 }
 
 .inputErrors {
@@ -147,4 +169,33 @@ body {
 
 .borderColor {
 	border: 0px solid green; 
+}
+
+//Credits: https://github.com/react-icons/react-icons/issues/52#issuecomment-343990710
+
+.icon-spin {
+  -webkit-animation: icon-spin 2s infinite linear;
+          animation: icon-spin 2s infinite linear;
+}
+
+@-webkit-keyframes icon-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+
+@keyframes icon-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
 }

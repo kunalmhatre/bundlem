@@ -1,6 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import PageTemplate from './templates/PageTemplate';
+import '../assets/css/general.scss';
+import { FiLoader } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
+import { IconContext } from 'react-icons';
+import { Well, Button, ButtonToolbar, Alert } from 'react-bootstrap/lib';
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 class Submit extends React.Component {
 	
@@ -8,37 +14,37 @@ class Submit extends React.Component {
 
 		super(props);
 
-		this.location = props.location;
+		this.history = props.history;
+		this.storeBundleAction = props.storeBundleAction;
+		this.clearActiveBundleAction = props.clearActiveBundleAction;
+		this.activeBundle = props.activeBundle;
 		this.state = {
 			loaded: false,
-			bundleId: null
+			bundleId: null,
+			copied: false
 		}
-
-	}
-
-	static propTypes = {
-
-		location: PropTypes.object
-
-	}
-
-	static defaultProps = {
-
-		location: {}
 
 	}
 
 	componentDidMount() {
 
-		if (this.location.state && !this.state.loaded) {
+		let finalBundle;
 
-			fetch('http://localhost:1337/create', {
+		if (this.activeBundle && !this.state.loaded) {
+
+			finalBundle = {
+				name: this.activeBundle.name,
+				description: this.activeBundle.description,
+				resources: this.activeBundle.resources
+			}
+
+			fetch('https://bundlem.herokuapp.com/create', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
 				},
 				body: JSON.stringify({
-					bundle: this.location.state.activeBundle	
+					bundle: finalBundle	
 				})
 			})
 			.then(response => {
@@ -57,6 +63,10 @@ class Submit extends React.Component {
 			.then(data => {
 				
 				if (data) {
+
+					this.storeBundleAction(data.id, finalBundle);
+					
+					this.clearActiveBundleAction();
 
 					this.setState({
 						loaded: true,
@@ -80,33 +90,79 @@ class Submit extends React.Component {
 
 	render() {
 
-		const { loaded, bundleId } = this.state;
-		const name = (this.location.state) ? this.location.state.activeBundle.name : null;
+		const { loaded, bundleId, copied } = this.state;
 
 		return (
 
-			<PageTemplate bundleName={ name }>
+			<PageTemplate bundleName={ this.activeBundle.name }>
 				{
-					(this.location.state) ?
-						<center>
-							<p>Done, your Bundle is getting ready to be shared.</p>
-							<h3>Bundle ID</h3>
+					(this.activeBundle.name) ?
+						<div 
+							id='generateBundleId'
+							className='centeredContent'>
+							
+							<h4 className='lightSeparation'>
+							{
+								(loaded) ?
+									<Alert bsStyle='success'>
+										<p className='centeredContent'>
+											<b>Congrats, your bundle has been published.</b>
+										</p>
+									</Alert> :
+									<Alert bsStyle='info'>
+										<p className='centeredContent'>
+											<b>Publishing your bundle, a moment please.</b>
+										</p>
+									</Alert>
+
+							}
+							</h4>
+							
+							<h3 className='bundleIdHeader'>Bundle ID</h3>
 							{
 								(loaded) ? 
-									<div
-										id='bundleId'>
-										{
-											bundleId
-										}
+									<div id='bundleLoaded'>
+										<h1 className='bundleId'>
+											<Link to={`/bundle/${bundleId}`}>{ bundleId }</Link>
+										</h1>
+										<CopyToClipboard 
+											text={ bundleId }
+											onCopy={ () => this.setState({ copied: true }) }>
+											<Button>
+											{
+												(copied) ? 'Copied' : 'Copy'
+											}
+											</Button>
+										</CopyToClipboard>
+										<hr />
+										<div 
+											id='nextActions'
+											className='centeredContent'>
+											<ButtonToolbar className='flexCenter'>
+												<Button 
+													bsStyle='primary'
+													onClick={() => this.history.push('/create')}>
+													New Bundle
+												</Button>
+												<Button 
+													bsStyle='primary'
+													onClick={() => this.history.push('/search')}>
+													Search Bundle
+												</Button>
+											</ButtonToolbar>
+										</div>
 									</div> :
-									<i>
-										Generating...
-									</i>
+									<IconContext.Provider value={{color: '#296193', size: '3em', className: 'icon-spin'}}>
+										<FiLoader />
+									</IconContext.Provider>
 							}
-						</center> :
-						<center>
-							<p>You might want to consider making a bundle first.</p>
-						</center>
+						</div> :
+						<div id='noBundle'>
+							<p>
+								You might want to consider making a bundle first. 
+								Please click <Link to='/create'>here</Link> to create a bundle.
+							</p>
+						</div>
 				}
 			</PageTemplate>
 
