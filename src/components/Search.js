@@ -66,7 +66,7 @@ class Search extends React.Component {
 
 						<FormGroup>
 							<Col>
-								<h2 className='centeredContent createTitle'>
+								<h2 className='centeredContent searchBundleTitle'>
 									Enter the Bundle ID
 								</h2>
 							</Col>
