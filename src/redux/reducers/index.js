@@ -57,13 +57,6 @@ const activeBundle = (state = {}, action) => {
 				editActiveResource: action.status
 			};
 
-		case CONSTANTS.SET_SHOW_PREVIEW:
-
-			return {
-				...clone,
-				showPreview: action.status
-			}
-
 		case CONSTANTS.CLEAR_ACTIVE_BUNDLE:
 
 			return {
@@ -72,8 +65,7 @@ const activeBundle = (state = {}, action) => {
 				resources: [],
 				activeResource: null,
 				activeResourceId: 0,
-				editActiveResource: false,
-				showPreview: false 
+				editActiveResource: false
 			}
 
 		default:

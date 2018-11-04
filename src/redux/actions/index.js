@@ -37,11 +37,6 @@ const setEditActiveResource = (status) => ({
 	type: CONSTANTS.SET_EDIT_ACTIVE_RESOURCE
 })
 
-const setShowPreview = (status) => ({
-	status,
-	type: CONSTANTS.SET_SHOW_PREVIEW
-})
-
 const storeBundle = (bundleId, bundle) => ({
 	bundleId,
 	bundle,
@@ -60,7 +55,6 @@ export {
 	setActiveResource,
 	setActiveResourceId,
 	setEditActiveResource,
-	setShowPreview,
 	storeBundle,
 	clearActiveBundle
 };

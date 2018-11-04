@@ -182,11 +182,11 @@ class Submit extends React.Component {
 													<Link to={`/bundle/${bundleId}`}>{ bundleId }</Link>
 												</h1>
 												<CopyToClipboard 
-													text={ bundleId }
+													text={ `https://bundlem.in/#/bundle/${bundleId}` }
 													onCopy={ () => this.setState({ copied: true }) }>
 													<Button>
 													{
-														(copied) ? 'Copied' : 'Copy'
+														(copied) ? 'Copied' : 'Get Shareable Link'
 													}
 													</Button>
 												</CopyToClipboard>

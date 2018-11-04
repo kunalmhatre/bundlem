@@ -352,7 +352,7 @@ class ResourceForm extends React.Component {
 							name='resourceURL'
 							type='url' 
 							bsSize='large'
-							placeholder='https://example.com'
+							placeholder='https://example.com/example.html'
 							onChange={ event =>
 								compose(
 									this.handleInputChange(event),

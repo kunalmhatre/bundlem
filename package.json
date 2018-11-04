@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/kunalmhatre/bundlem#readme",
   "dependencies": {
+    "deep-freeze": "0.0.1",
     "express": "^4.16.4",
     "lodash": "^4.17.11",
     "prop-types": "^15.6.2",

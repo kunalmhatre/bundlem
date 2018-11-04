@@ -26,8 +26,7 @@ const storeFactory = () =>
 						resources: [],
 						activeResource: null,
 						activeResourceId: 0,
-						editActiveResource: false,
-						showPreview: false 
+						editActiveResource: false
 					}
 				}
 	);

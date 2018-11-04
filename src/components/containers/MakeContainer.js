@@ -7,8 +7,7 @@ import {
 	updateResource, 
 	setActiveResource, 
 	setActiveResourceId, 
-	setEditActiveResource,
-	setShowPreview 
+	setEditActiveResource
 } from '../../redux/actions';
 
 const MakeContainer = connect(
@@ -38,11 +37,8 @@ const MakeContainer = connect(
 		},
 		setEditActiveResourceAction(status) {
 			dispatch(setEditActiveResource(status));
-		},
-		setShowPreviewAction(status) {
-			dispatch(setShowPreview(status));
 		}
-
+		
 	})
 
 )(Make);
