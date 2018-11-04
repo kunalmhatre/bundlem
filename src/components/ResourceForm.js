@@ -18,7 +18,8 @@ import {
 	ControlLabel,
 	Grid,
 	Row,
-	HelpBlock 
+	HelpBlock,
+	Modal 
 } from 'react-bootstrap/lib';
 import '../assets/css/general.scss';
 
@@ -39,6 +40,7 @@ class ResourceForm extends React.Component {
 
 		this.validateMakeForm = validateMakeForm.bind(this);
 		this.handleInputChange = handleInputChange.bind(this);
+		this.publishBundle = this.publishBundle.bind(this);
 
 		this.resourceTitle = null;
 		this.resourceType = null;
@@ -49,7 +51,8 @@ class ResourceForm extends React.Component {
 			fields: {},
 			errors:{},
 			isFieldValid: {},
-			isFormValid: false
+			isFormValid: false,
+			publishBundle: false
 		}
 
 	}
@@ -207,6 +210,25 @@ class ResourceForm extends React.Component {
 
 	}
 
+	publishBundle(status) {
+
+		if (status) {
+
+			this.setState({
+				publishBundle: true
+			});
+
+		} else {
+
+			this.setState({
+				publishBundle: false
+			});
+
+		}
+
+		
+	}
+
 	render() {
 
 		const { fields, errors, isFormValid } = this.state;
@@ -217,6 +239,35 @@ class ResourceForm extends React.Component {
 		return (
 			
 			<div id='resourceForm'>
+
+				<div id='beforePublish'>
+					<Modal show={ this.state.publishBundle } onHide={ () => this.publishBundle(false) }>
+						<Modal.Header closeButton>
+							<Modal.Title>Publish Bundle</Modal.Title>
+						</Modal.Header>
+						<Modal.Body>
+							{
+								(activeBundle.resources.length == 1) ?
+									<h4><b>Are you sure you want to bundle only one resource?</b></h4> :
+									<h4><b>{ `Are you sure you want bundle ${activeBundle.resources.length} resources?` }</b></h4>
+							}
+							{	
+								<section>
+									<hr />
+									<p><b>Note:</b> Once published, you won't be able to edit the bundle again.</p>
+								</section>
+							}
+						</Modal.Body>
+						<Modal.Footer>
+							<Button
+								bsStyle='primary' 
+								onClick={ () => this.history.push('/submit') }>
+								Yes
+							</Button>
+							<Button onClick={ () => this.publishBundle(false) }>Wait</Button>
+						</Modal.Footer>
+					</Modal>
+				</div>
 
 				<Form horizontal>
 
@@ -461,7 +512,7 @@ class ResourceForm extends React.Component {
 									bsStyle='success'
 									bsSize='large'
 									href='#'
-									onClick={ () => this.history.push('/submit') }>
+									onClick={ () => this.publishBundle(true) }>
 									Publish Bundle
 								</Button>
 							</ButtonGroup>

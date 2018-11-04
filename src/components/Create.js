@@ -112,7 +112,7 @@ class Create extends React.Component {
 									name='bundleName'
 									type='text' 
 									bsSize='large'
-									placeholder='Online Privacy'
+									placeholder='Fishing for beginners or Funny cat videos'
 									defaultValue={ activeBundle.name }
 									onChange={ event => 
 										compose(

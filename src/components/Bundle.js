@@ -110,13 +110,12 @@ class Bundle extends React.Component {
 								<p>
 									Sorry, there exists no bundle with the specified Bundle ID. 
 								</p>
-								<p>
-									<Button
-										bsStyle='primary' 
-										onClick={() => this.history.push('/search')}>
-										Try again
-									</Button>
-								</p>
+								<hr />
+								<Button
+									bsStyle='primary' 
+									onClick={() => this.history.push('/search')}>
+									Try again
+								</Button>
 							</Alert> : 
 							(status == 400) ?
 								<Alert bsStyle='danger'>
@@ -126,17 +125,16 @@ class Bundle extends React.Component {
 									<p>
 										Please provide a valid Bundle ID. 
 									</p>
-									<p>
-										<Button
-											bsStyle='primary' 
-											onClick={() => this.history.push('/search')}>
-											Try again
-										</Button>
-									</p>
+									<hr />
+									<Button
+										bsStyle='primary' 
+										onClick={() => this.history.push('/search')}>
+										Try again
+									</Button>
 								</Alert> :
 								<Alert bsStyle='danger'>
 									<p>
-										<b>Server got in trouble</b>
+										<b>Server error</b>
 									</p>
 									<p>
 										Please report this to us in case it takes too long to resolve. 
@@ -151,27 +149,23 @@ class Bundle extends React.Component {
 								</Alert>
 
 			}
-			{	
-				/*<section>
-					<hr />
-					<div 
-						id='nextActions'
-						className='centeredContent'>
-						<ButtonToolbar className='flexCenter'>
-							<Button 
-								bsStyle='primary'
-								onClick={() => this.history.push('/create')}>
-								Create Bundle
-							</Button>
-							<Button 
-								bsStyle='primary'
-								onClick={() => this.history.push('/search')}>
-								Search Bundle
-							</Button>
-						</ButtonToolbar>
-					</div>
-				</section>*/
-			}
+			<section>
+				<hr />
+				<div 
+					id='nextActions'
+					className='centeredContent'>
+					<ButtonToolbar className='flexCenter'>
+						<Button 
+							onClick={() => this.history.push('/create')}>
+							Create Bundle
+						</Button>
+						<Button 
+							onClick={() => this.history.push('/search')}>
+							Search Bundle
+						</Button>
+					</ButtonToolbar>
+				</div>
+			</section>
 			</PageTemplate>
 
 		);

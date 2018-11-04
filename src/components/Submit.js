@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { IconContext } from 'react-icons';
 import { Well, Button, ButtonToolbar, Alert } from 'react-bootstrap/lib';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 class Submit extends React.Component {
 	
@@ -18,15 +19,19 @@ class Submit extends React.Component {
 		this.storeBundleAction = props.storeBundleAction;
 		this.clearActiveBundleAction = props.clearActiveBundleAction;
 		this.activeBundle = props.activeBundle;
+		this.verifySpam = this.verifySpam.bind(this);
+		this.publishBundle = this.publishBundle.bind(this);
 		this.state = {
 			loaded: false,
 			bundleId: null,
-			copied: false
+			copied: false,
+			spammer: true,
+			spamCheckStatusCode: 406
 		}
 
 	}
 
-	componentDidMount() {
+	publishBundle() {
 
 		let finalBundle;
 
@@ -46,8 +51,7 @@ class Submit extends React.Component {
 				body: JSON.stringify({
 					bundle: finalBundle	
 				})
-			})
-			.then(response => {
+			}).then(response => {
 
 				if (response.status == 201) {
 
@@ -59,8 +63,7 @@ class Submit extends React.Component {
 				
 				}
 				
-			})
-			.then(data => {
+			}).then(data => {
 				
 				if (data) {
 
@@ -88,75 +91,171 @@ class Submit extends React.Component {
 
 	}
 
+	verifySpam(token) {
+
+		fetch('https://bundlem.herokuapp.com/verify', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				token: token	
+			})
+		}).then(response => {
+			
+			if (response.status == 200) {
+
+				this.setState({
+					spammer: false,
+					spamCheckStatusCode: 200
+				});
+
+				this.publishBundle();
+
+			} else if (response.status == 406) {
+
+				this.setState({
+					spammer: false,
+					spamCheckStatusCode: 406
+				})
+
+			} else {
+
+				this.setState({
+					spammer: false,
+					spamCheckStatusCode: 500
+				});
+
+			}
+
+		});
+
+	}
+
 	render() {
 
-		const { loaded, bundleId, copied } = this.state;
+		const { loaded, bundleId, copied, spammer, spamCheckStatusCode } = this.state;
 
 		return (
 
 			<PageTemplate bundleName={ this.activeBundle.name }>
 				{
 					(this.activeBundle.name) ?
-						<div 
-							id='generateBundleId'
-							className='centeredContent'>
-							
-							<h4 className='lightSeparation'>
-							{
-								(loaded) ?
-									<Alert bsStyle='success'>
-										<p className='centeredContent'>
-											<b>Congrats, your bundle has been published.</b>
-										</p>
-									</Alert> :
-									<Alert bsStyle='info'>
-										<p className='centeredContent'>
-											<b>Publishing your bundle, a moment please.</b>
-										</p>
-									</Alert>
+						(spammer) ?
+							<section>
+								<div className='lightSeparation'>
+									<h3 className='createTitle centeredContent'>You gotta prove it!</h3>
+								</div>
+								<div className='flexCenter'>
+									<ReCAPTCHA
+										sitekey='6LdinngUAAAAAJv63RkqJmFqFh6sbxIlN42ZdFiu'
+										onChange={ this.verifySpam } />
+								</div>
+							</section> :
+							(spamCheckStatusCode == 200) ?
+								<div 
+									id='generateBundleId'
+									className='centeredContent'>
+									
+									<h4 className='lightSeparation'>
+									{
+										(loaded) ?
+											<Alert bsStyle='success'>
+												<p className='centeredContent'>
+													<b>Congrats, your bundle has been published.</b>
+												</p>
+											</Alert> :
+											<Alert bsStyle='info'>
+												<p className='centeredContent'>
+													<b>Publishing your bundle, a moment please.</b>
+												</p>
+											</Alert>
 
-							}
-							</h4>
-							
-							<h3 className='bundleIdHeader'>Bundle ID</h3>
-							{
-								(loaded) ? 
-									<div id='bundleLoaded'>
-										<h1 className='bundleId'>
-											<Link to={`/bundle/${bundleId}`}>{ bundleId }</Link>
-										</h1>
-										<CopyToClipboard 
-											text={ bundleId }
-											onCopy={ () => this.setState({ copied: true }) }>
-											<Button>
-											{
-												(copied) ? 'Copied' : 'Copy'
-											}
-											</Button>
-										</CopyToClipboard>
+									}
+									</h4>
+									
+									<h3 className='bundleIdHeader'>Bundle ID</h3>
+									{
+										(loaded) ? 
+											<div id='bundleLoaded'>
+												<h1 className='bundleId'>
+													<Link to={`/bundle/${bundleId}`}>{ bundleId }</Link>
+												</h1>
+												<CopyToClipboard 
+													text={ bundleId }
+													onCopy={ () => this.setState({ copied: true }) }>
+													<Button>
+													{
+														(copied) ? 'Copied' : 'Copy'
+													}
+													</Button>
+												</CopyToClipboard>
+												<hr />
+												<div 
+													id='nextActions'
+													className='centeredContent'>
+													<ButtonToolbar className='flexCenter'>
+														<Button 
+															bsStyle='primary'
+															onClick={() => this.history.push('/create')}>
+															Create Bundle
+														</Button>
+														<Button 
+															bsStyle='primary'
+															onClick={() => this.history.push('/search')}>
+															Search Bundle
+														</Button>
+													</ButtonToolbar>
+												</div>
+											</div> :
+											<IconContext.Provider value={{color: '#296193', size: '3em', className: 'icon-spin'}}>
+												<FiLoader />
+											</IconContext.Provider>
+									}
+								</div> :
+								(spamCheckStatusCode == 406) ?
+									<Alert bsStyle='danger'>
+										<p>
+											<b>Spam check failed</b>
+										</p>
+										<p>
+											Please report this to us in case it takes too long to resolve.
+										</p>
 										<hr />
-										<div 
-											id='nextActions'
-											className='centeredContent'>
-											<ButtonToolbar className='flexCenter'>
-												<Button 
-													bsStyle='primary'
-													onClick={() => this.history.push('/create')}>
-													New Bundle
-												</Button>
-												<Button 
-													bsStyle='primary'
-													onClick={() => this.history.push('/search')}>
-													Search Bundle
-												</Button>
-											</ButtonToolbar>
-										</div>
-									</div> :
-									<IconContext.Provider value={{color: '#296193', size: '3em', className: 'icon-spin'}}>
-										<FiLoader />
-									</IconContext.Provider>
-							}
-						</div> :
+										<ButtonToolbar>
+											<Button 
+												bsStyle='primary'
+												onClick={ () => this.setState({ spammer: true }) }>
+												Try again
+											</Button>
+											<Button 
+												bsStyle='danger'
+												onClick={ () => window.location = 'https://github.com/kunalmhatre/bundlem/issues/new' }>
+												Report
+											</Button>
+										</ButtonToolbar>
+									</Alert> :
+									<Alert bsStyle='danger'>
+										<p>
+											<b>Server error</b>
+										</p>
+										<p>
+											Please report this to us in case it takes too long to resolve. 
+										</p>
+										<hr />
+										<ButtonToolbar>
+											<Button 
+												bsStyle='primary'
+												onClick={ () => this.setState({ spammer: true }) }>
+												Try again
+											</Button>
+											<Button 
+												bsStyle='danger'
+												onClick={ () => window.location = 'https://github.com/kunalmhatre/bundlem/issues/new' }>
+												Report
+											</Button>
+										</ButtonToolbar>
+									</Alert> :
 						<div id='noBundle'>
 							<p>
 								You might want to consider making a bundle first. 
