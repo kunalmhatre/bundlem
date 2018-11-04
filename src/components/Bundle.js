@@ -20,7 +20,7 @@ class Bundle extends React.Component {
 			loaded: false,
 			bundle: null,
 			status: null
-		}
+		};
 
 	}
 
@@ -80,7 +80,7 @@ class Bundle extends React.Component {
 						status: 200
 					});
 
-				})
+				});
 
 		}
 

@@ -1,11 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import Home from './components/Home';
-import Create from './components/Create';
-import Submit from './components/Submit';
 import Search from './components/Search';
-import Make from './components/Make';
-import Bundle from './components/Bundle';
 import PreviewContainer from './components/containers/PreviewContainer';
 import SubmitContainer from './components/containers/SubmitContainer';
 import BundleContainer from './components/containers/BundleContainer';

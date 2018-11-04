@@ -7,7 +7,7 @@ const saveToLocalStorage = store => next => action => {
 
 	localStorage['bundlem'] = JSON.stringify(store.getState());
 
-}
+};
 
 const storeFactory = () => 
 

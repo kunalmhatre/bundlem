@@ -1,7 +1,13 @@
-import React from 'react';
+import PageTemplate from './templates/PageTemplate';
+import '../assets/css/general.scss';
 
 const PageNotFound = () => 
 
-	<h1>404 - Page Not Found</h1>
+	<PageTemplate>
+		<div className='centeredContent'>
+			<h1 className='textColorGrey bundlemLogo'>404</h1>
+			<b className='textColorGrey'>Page not found</b>
+		</div>
+	</PageTemplate>;
 
 export default PageNotFound;

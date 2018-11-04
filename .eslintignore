@@ -1,7 +1,9 @@
 # Folders
 
 node_modules/
-src/assets/css/
+src/assets/
+build/
+__tests__/
 
 #Files
 

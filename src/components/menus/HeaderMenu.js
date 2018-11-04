@@ -1,7 +1,6 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { PageHeader } from 'react-bootstrap/lib';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import '../../assets/css/general.scss';
 
 const HeaderMenu = ({ bundleName, history }) => 
@@ -15,12 +14,12 @@ const HeaderMenu = ({ bundleName, history }) =>
 				{ (bundleName) ? bundleName : 'Bundlem' }
 			</PageHeader>
 		}
-	</div>
+	</div>;
 
 HeaderMenu.propTypes = {
 
 	bundleName: PropTypes.string
 	
-}
+};
 
 export default withRouter(HeaderMenu);

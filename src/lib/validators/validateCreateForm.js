@@ -21,7 +21,7 @@ function validateCreateForm(event) {
 			} else if (!validator.isLength(fields['bundleName'], {min: 1, max: 120})) {
 
 				isFieldValid['bundleName'] = false;
-				errors['bundleName'] = `Bundle's name can be of 120 characters at max`;
+				errors['bundleName'] = 'Bundle\'s name can be of 120 characters at max';
 
 			} else {
 
@@ -43,7 +43,7 @@ function validateCreateForm(event) {
 				))) {
 
 				isFieldValid['bundleDescription'] = false;
-				errors['bundleDescription'] = `Bundle's description can be of 320 characters at max`
+				errors['bundleDescription'] = 'Bundle\'s description can be of 320 characters at max';
 
 			} else {
 

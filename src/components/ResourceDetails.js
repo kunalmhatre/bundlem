@@ -1,15 +1,8 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { 
-	Col, 
-	Button,
-	ButtonToolbar,
 	Well,
 	Label,
 	Badge,
-	Grid,
-	Row,
 	Panel,
 	PanelGroup,
 	ListGroup,
@@ -76,12 +69,12 @@ const ResourceDetails = ({ activeBundle = {} }) =>
 			}
 			</PanelGroup>
 		</div>
-	</div>
+	</div>;
 
 ResourceDetails.propTypes = {
 
 	activeBundle: PropTypes.object,
 
-}
+};
 
 export default ResourceDetails;

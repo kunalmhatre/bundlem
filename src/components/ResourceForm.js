@@ -1,7 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import validator from 'validator';
 import { compose } from 'redux';
 import validateMakeForm from '../lib/validators/validateMakeForm';
 import handleInputChange from '../lib/validators/eventHandlers/handleInputChange';
@@ -14,10 +13,7 @@ import {
 	Col, 
 	FormControl, 
 	Button,
-	ButtonGroup, 
-	ControlLabel,
-	Grid,
-	Row,
+	ButtonGroup,
 	HelpBlock,
 	Modal 
 } from 'react-bootstrap/lib';
@@ -53,7 +49,7 @@ class ResourceForm extends React.Component {
 			isFieldValid: {},
 			isFormValid: false,
 			publishBundle: false
-		}
+		};
 
 	}
 
@@ -69,7 +65,7 @@ class ResourceForm extends React.Component {
 			if (this.resourceTitle.value) {
 
 				fields['resourceTitle'] = this.resourceTitle.value;
-				errors['resourceTitle'] = null
+				errors['resourceTitle'] = null;
 				isFieldValid['resourceTitle'] = true;
 
 			}
@@ -77,7 +73,7 @@ class ResourceForm extends React.Component {
 			if (this.resourceURL.value) {
 
 				fields['resourceURL'] = this.resourceURL.value;
-				errors['resourceURL'] = null
+				errors['resourceURL'] = null;
 				isFieldValid['resourceURL'] = true;
 
 			}
@@ -85,7 +81,7 @@ class ResourceForm extends React.Component {
 			if (this.resourceNotes.value) {
 
 				fields['resourceNotes'] = this.resourceNotes.value;
-				errors['resourceNotes'] = null
+				errors['resourceNotes'] = null;
 				isFieldValid['resourceNotes'] = true;
 
 			}
@@ -104,22 +100,6 @@ class ResourceForm extends React.Component {
 			});
 
 		} 
-
-	}
-
-	static propTypes = {
-
-		addResource: PropTypes.func,
-		activeResource: PropTypes.object,
-		editResource: PropTypes.bool
-
-	}
-
-	static defaultProps = {
-
-		addResource: f => f,
-		activeResource: {},
-		editResourceStatus: false
 
 	}
 
@@ -167,7 +147,7 @@ class ResourceForm extends React.Component {
 			if (this.resourceTitle.value) {
 
 				fields['resourceTitle'] = this.resourceTitle.value;
-				errors['resourceTitle'] = null
+				errors['resourceTitle'] = null;
 				isFieldValid['resourceTitle'] = true;
 
 			}
@@ -175,7 +155,7 @@ class ResourceForm extends React.Component {
 			if (this.resourceURL.value) {
 
 				fields['resourceURL'] = this.resourceURL.value;
-				errors['resourceURL'] = null
+				errors['resourceURL'] = null;
 				isFieldValid['resourceURL'] = true;
 
 			}
@@ -183,7 +163,7 @@ class ResourceForm extends React.Component {
 			if (this.resourceNotes.value) {
 
 				fields['resourceNotes'] = this.resourceNotes.value;
-				errors['resourceNotes'] = null
+				errors['resourceNotes'] = null;
 				isFieldValid['resourceNotes'] = true;
 
 			}
@@ -231,7 +211,7 @@ class ResourceForm extends React.Component {
 
 	render() {
 
-		const { fields, errors, isFormValid } = this.state;
+		const { errors, isFormValid } = this.state;
 		const activeBundle  = this.props.activeBundle;
 		const { activeResource,  editActiveResource} = activeBundle;
 		const currentResourceId = (activeBundle.activeResourceId) ? ((activeBundle.activeResourceId) + 1) : 1;
@@ -528,5 +508,21 @@ class ResourceForm extends React.Component {
 	}
 
 }
+
+ResourceForm.propTypes = {
+
+	addResource: PropTypes.func,
+	activeResource: PropTypes.object,
+	editResource: PropTypes.bool
+
+};
+
+ResourceForm.defaultProps = {
+
+	addResource: f => f,
+	activeResource: {},
+	editResourceStatus: false
+
+};
 
 export default withRouter(ResourceForm);

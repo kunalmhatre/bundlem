@@ -20,7 +20,7 @@ function validateMakeForm(event) {
 				))) {
 
 				isFieldValid['resourceTitle'] = false;
-				errors['resourceTitle'] = 'Title can be of 120 characters at max'
+				errors['resourceTitle'] = 'Title can be of 120 characters at max';
 
 			} else {
 
@@ -65,7 +65,7 @@ function validateMakeForm(event) {
 				))) {
 
 				isFieldValid['resourceNotes'] = false;
-				errors['resourceNotes'] = 'Resource Notes can be of 1024 characters at max'
+				errors['resourceNotes'] = 'Resource Notes can be of 1024 characters at max';
 
 			} else {
 

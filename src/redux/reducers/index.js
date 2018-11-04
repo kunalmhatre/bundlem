@@ -66,7 +66,7 @@ const activeBundle = (state = {}, action) => {
 				activeResource: null,
 				activeResourceId: 0,
 				editActiveResource: false
-			}
+			};
 
 		default:
 

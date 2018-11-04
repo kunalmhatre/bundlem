@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Submit from '../Submit';
-import { storeBundle, startBundle, clearActiveBundle } from '../../redux/actions';
+import { storeBundle, clearActiveBundle } from '../../redux/actions';
 
 const SubmitContainer = connect(
 	state => ({

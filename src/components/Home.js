@@ -1,9 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Create from './Create';
-import Search from './Search';
 import PageTemplate from './templates/PageTemplate';
-import { Button, ButtonToolbar, Grid, Row, Col } from 'react-bootstrap/lib';
+import { Button, ButtonToolbar } from 'react-bootstrap/lib';
 import '../assets/css/general.scss';
 
 const Home = ({ history }) => 
@@ -46,6 +42,6 @@ const Home = ({ history }) =>
 
 		</div>
 
-	</PageTemplate>
+	</PageTemplate>;
 
 export default Home;

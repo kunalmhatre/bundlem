@@ -15,6 +15,6 @@ const BSFormGroup = ({ controlId = '', content = '', className = '', children })
 			lg={10}>
 			{children}
 		</Col>
-	</FormGroup>
+	</FormGroup>;
 
 export default BSFormGroup;

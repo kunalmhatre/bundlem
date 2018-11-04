@@ -16,10 +16,6 @@
         "react"
     ],
     "rules": {
-        "indent": [
-            "error",
-            "tab"
-        ],
         "linebreak-style": [
             "error",
             "unix"
@@ -31,11 +27,16 @@
         "semi": [
             "error",
             "always"
+        ],
+        "react/jsx-uses-vars": [
+            2
         ]
     },
     "globals": {
         "__dirname": false,
         "describe": false,
-        "it": false
+        "it": false,
+        "path": false,
+        "process": false
     }
 }

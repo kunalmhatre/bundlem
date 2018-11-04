@@ -1,11 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import PageTemplate from './templates/PageTemplate';
 import '../assets/css/general.scss';
 import { FiLoader } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import { IconContext } from 'react-icons';
-import { Well, Button, ButtonToolbar, Alert } from 'react-bootstrap/lib';
+import { Button, ButtonToolbar, Alert } from 'react-bootstrap/lib';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 import ReCAPTCHA from 'react-google-recaptcha';
 
@@ -27,7 +26,7 @@ class Submit extends React.Component {
 			copied: false,
 			spammer: true,
 			spamCheckStatusCode: 406
-		}
+		};
 
 	}
 
@@ -41,7 +40,7 @@ class Submit extends React.Component {
 				name: this.activeBundle.name,
 				description: this.activeBundle.description,
 				resources: this.activeBundle.resources
-			}
+			};
 
 			fetch('https://bundlem.herokuapp.com/create', {
 				method: 'POST',
@@ -55,7 +54,7 @@ class Submit extends React.Component {
 
 				if (response.status == 201) {
 
-					return response.json()
+					return response.json();
 				
 				} else {
 				
@@ -66,6 +65,8 @@ class Submit extends React.Component {
 			}).then(data => {
 				
 				if (data) {
+
+					finalBundle['id'] = data.id;
 
 					this.storeBundleAction(data.id, finalBundle);
 					
@@ -117,7 +118,7 @@ class Submit extends React.Component {
 				this.setState({
 					spammer: false,
 					spamCheckStatusCode: 406
-				})
+				});
 
 			} else {
 

@@ -1,12 +1,11 @@
 import React from 'react';
 import validator from 'validator';
 import PageTemplate from './templates/PageTemplate';
-import { Redirect } from 'react-router-dom';
 import { compose } from 'redux';
 import validateSearchForm from '../lib/validators/validateSearchForm';
 import handleInputChange from '../lib/validators/eventHandlers/handleInputChange';
 import '../assets/css/general.scss';
-import { Form, FormControl, FormGroup, ControlLabel, Col, HelpBlock, Button } from 'react-bootstrap/lib';
+import { Form, FormControl, FormGroup, Col, HelpBlock, Button } from 'react-bootstrap/lib';
 import { FaSearch } from 'react-icons/fa';
 import { IconContext } from 'react-icons';
 
@@ -23,7 +22,7 @@ class Search extends React.Component {
 			fields: {},
 			errors: {},
 			isFormValid: false
-		}
+		};
 
 	}
 
@@ -48,7 +47,7 @@ class Search extends React.Component {
 		this.setState({
 			errors,
 			isFormValid
-		})
+		});
 
 		return isFormValid;
 

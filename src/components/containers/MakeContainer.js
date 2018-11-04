@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import Make from '../Make';
-import _ from 'lodash';
 import { 
 	addResource, 
 	removeResource, 

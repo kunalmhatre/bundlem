@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import HeaderMenu from '../menus/HeaderMenu';
 import FooterMenu from '../menus/FooterMenu';
@@ -40,12 +39,12 @@ const PageTemplate = ({ bundleName, children, needHeader = true, needFooter = tr
 				lg={2}>
 			</Col>
 		</Row>
-	</Grid>	
+	</Grid>;
 
 PageTemplate.propTypes = {
 
 	bundleName: PropTypes.string
 	
-}
+};
 
 export default PageTemplate;

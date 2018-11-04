@@ -1,4 +1,3 @@
-import React from 'react';
 import PageTemplate from './templates/PageTemplate';
 import ResourceDetails from './ResourceDetails';
 import { Link } from 'react-router-dom';
@@ -32,6 +31,6 @@ const Preview = ({ activeBundle }) =>
 					click <Link to='/create'>here</Link> to create a new bundle.
 				</p>
 		}
-	</PageTemplate>
+	</PageTemplate>;
 
 export default Preview;

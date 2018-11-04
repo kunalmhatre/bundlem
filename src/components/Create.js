@@ -1,9 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import PageTemplate from './templates/PageTemplate';
-import { Link } from 'react-router-dom';
 import { compose } from 'redux';
-import validator from 'validator';
 import validateCreateForm from '../lib/validators/validateCreateForm';
 import handleInputChange from '../lib/validators/eventHandlers/handleInputChange';
 import { FaChevronRight } from 'react-icons/fa';
@@ -15,8 +12,6 @@ import {
 	FormControl, 
 	Button, 
 	ControlLabel,
-	Grid,
-	Row,
 	HelpBlock 
 } from 'react-bootstrap/lib';
 import '../assets/css/general.scss';
@@ -37,7 +32,7 @@ class Create extends React.Component {
 			errors: {},
 			isFieldValid: {},
 			isFormValid: false
-		}
+		};
 
 	}
 
