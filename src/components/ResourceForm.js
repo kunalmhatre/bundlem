@@ -7,6 +7,7 @@ import handleInputChange from '../lib/validators/eventHandlers/handleInputChange
 import BSFormGroup from './bootstrap/ResourceForm/BSFormGroup';
 import { FaChevronLeft, FaChevronRight, FaMinusCircle, FaEye } from 'react-icons/fa';
 import { IconContext } from 'react-icons';
+import DelayedSpan from './DelayedSpan';
 import { 
 	Form, 
 	FormGroup, 
@@ -346,7 +347,13 @@ class ResourceForm extends React.Component {
 							}
 							defaultValue={ this.defaultValue(activeBundle, 'url') } />
 						<HelpBlock className='inputErrors'>
-							{ errors.resourceURL }
+							{ 
+								(errors.resourceURL) ?
+									<DelayedSpan 
+										content={ errors.resourceURL }
+										timeout={ 3000 } /> :
+									<span></span>	 
+							}
 						</HelpBlock>
 					</BSFormGroup>
 
