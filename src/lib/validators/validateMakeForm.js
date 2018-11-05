@@ -43,7 +43,7 @@ function validateMakeForm(event) {
 			} else if (!validator.isURL(fields['resourceURL'], {require_protocol: true})) {
 
 				isFieldValid['resourceURL'] = false;
-				errors['resourceURL'] = 'Please provide a full and valid URL (e.g. https://example.com)';
+				errors['resourceURL'] = 'Make sure you enter full and valid URL (e.g. https://example.com)';
 
 			} else {
 

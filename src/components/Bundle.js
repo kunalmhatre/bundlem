@@ -2,7 +2,7 @@ import React from 'react';
 import PageTemplate from './templates/PageTemplate';
 import { FiLoader } from 'react-icons/fi';
 import { IconContext } from 'react-icons';
-import { Alert, Button, ButtonToolbar } from 'react-bootstrap/lib';
+import { Alert, Button } from 'react-bootstrap/lib';
 import ResourceDetails from './ResourceDetails';
 import PropTypes from 'prop-types';
 import '../assets/css/general.scss';

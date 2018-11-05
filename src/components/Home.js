@@ -12,7 +12,7 @@ const Home = ({ history }) =>
 				Bundlem
 			</h1>
 
-			<h3 className='tagline'>
+			<h3 className='createTitle'>
 				Create your bundle of online resources
 			</h3>
 
