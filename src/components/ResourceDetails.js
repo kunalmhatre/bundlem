@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import { 
-	Well,
 	Label,
 	Badge,
 	Panel,
@@ -8,73 +7,89 @@ import {
 	ListGroup,
 	ListGroupItem
 } from 'react-bootstrap/lib';
+import '../assets/css/general.scss';
 
-const ResourceDetails = ({ activeBundle = {} }) =>
+const ResourceDetails = ({ activeBundle }) =>
 
 	<div id='bundle'>
+
+		<div id='bundleName'>
+			{
+				<h1 className='bundleName'>
+					{
+						activeBundle.name
+					}
+				</h1> 
+			}
+		</div>
+
 		<div id='bundleDescription'>
 			{
-				(activeBundle.description) ?
-					<Well>
+				<p className='bundleDescription'>
 					{
-						activeBundle.description
+						(activeBundle.description) ?
+							activeBundle.description : 
+							null
 					}
-					</Well> :
-					null
+				</p> 
 			}
 		</div>
+
 		<div id='totalResources'>
 			<p>
-				Total Resources: <Badge>{ activeBundle.resources.length }</Badge>
+				Resources: <Badge>{ activeBundle.resources.length }</Badge>
 			</p>
 		</div>
-		<hr />
-		<div id='bundleResources'>
-			<PanelGroup accordion id='resources'>
-			{
-				activeBundle.resources.map((resource, index) => 
-					
-					<Panel key={ index } bsStyle='primary' eventKey={ index }>
-						<Panel.Heading>
-							<Panel.Title toggle>
-								<div id='panelTitle'>
-								{ 
-									(resource.title) ? 
-										`${ index + 1 }. ${ resource.title }` : 
-										`${ index + 1 }. ${ resource.type }`
-								}
-								</div>
-							</Panel.Title>
-						</Panel.Heading>
-						<Panel.Body collapsible>
-							<ListGroup>
-								<ListGroupItem className='textColorGrey'>
-									<Label bsStyle='info'>{ resource.type }</Label>
-								</ListGroupItem>
-								<ListGroupItem>
-									<a href={ `${ resource.url }` }>{ resource.url }</a>
-								</ListGroupItem>
-								{
-									(resource.notes) ?
-										<ListGroupItem>
-											{ resource.notes }
-										</ListGroupItem> :
-										null		
-								}
-							</ListGroup>
-						</Panel.Body>
-					</Panel>
 
-				)
-			}
+		<hr />
+
+		<div id='bundleResources'>
+
+			<PanelGroup accordion id='resources'>
+				{
+					activeBundle.resources.map((resource, index) => 
+						
+						<Panel key={ index } bsStyle='primary' eventKey={ index }>
+							<Panel.Heading>
+								<Panel.Title toggle>
+									<div id='panelTitle'>
+										{ 
+											(resource.title) ? 
+												`${ index + 1 }. ${ resource.title }` : 
+												`${ index + 1 }. ${ resource.type }`
+										}
+									</div>
+								</Panel.Title>
+							</Panel.Heading>
+							<Panel.Body collapsible>
+								<ListGroup>
+									<ListGroupItem className='textColorGrey'>
+										<Label bsStyle='info'>{ resource.type }</Label>
+									</ListGroupItem>
+									<ListGroupItem>
+										<a href={ `${ resource.url }` }>{ resource.url }</a>
+									</ListGroupItem>
+										{
+											(resource.notes) ?
+												<ListGroupItem>
+													{ resource.notes }
+												</ListGroupItem> :
+												null		
+										}
+								</ListGroup>
+							</Panel.Body>
+						</Panel>
+
+					)
+				}
 			</PanelGroup>
+
 		</div>
+
 	</div>;
 
 ResourceDetails.propTypes = {
-
-	activeBundle: PropTypes.object,
-
+	activeBundle: PropTypes.object.isRequired
 };
 
 export default ResourceDetails;

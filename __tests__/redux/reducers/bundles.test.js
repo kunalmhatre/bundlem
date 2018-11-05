@@ -7,6 +7,7 @@ describe('Reducer - bundles', () => {
 	it('STORE_BUNDLE', () => {
 
 		const state = {};
+		
 		const action = storeBundle('1337', {
 			name: 'test',
 			description: 'test',

@@ -15,7 +15,7 @@ const CreateContainer = connect(
 				)
 			);
 		}
-	}) 
+	})
 )(Create);
 
 export default CreateContainer;

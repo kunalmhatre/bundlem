@@ -37,6 +37,13 @@ body {
 	color: $bundlemColor;
 }
 
+.bundleName {
+	font-family: $bundlemFont;
+	font-weight: 700;
+	font-size: 2.5rem;
+	color: $bundlemColor;
+}
+
 .bundleId {
 	font-family: $bundlemFont;
 	font-weight: 700;
@@ -61,6 +68,11 @@ body {
 
 .description { 
 	padding:  1.5rem;
+	color: $darkGrey;
+}
+
+.bundleDescription {
+	color: $darkGrey;
 }
 
 .flexCenter {
@@ -68,18 +80,9 @@ body {
 	justify-content: center;
 }
 
-.flexRight {
-	display: flex;
-	justify-content: right;
-}
-
 .inputLabels {
 	color: $bundlemColor;
 	font-size: 2rem;
-}
-
-.textareaHeight {
-	height: 3rem;
 }
 
 .createTitle {
@@ -90,20 +93,6 @@ body {
 
 .floatRight {
 	float: right;
-}
-
-.floatLeft {
-	float: left;
-}
-
-.headerBars {
-	font-family: $bundlemFont;
-	font-weight: 700;
-	font-size: 3rem;
-	color: white;
-	cursor: pointer;
-	margin-right: 1rem;
-	margin-left: 2rem; 
 }
 
 .verticalMiddle {
@@ -123,67 +112,14 @@ body {
 	color: $lightBlack;
 }
 
-.marginRight {
-	margin-right: 1rem;
-}
-
-/* #header {
-	padding-top: 1rem;
-	padding-bottom: 1rem;
-	border-bottom: 0.1rem solid $lightGrey;
-} */
-
-#sidebar {
-	position: fixed;
-	width: 300px;
-	height: 100%;
-	background: $bundlemColor;
-	border-right: 0.1rem solid white;
-	border-top: 0.1rem solid white; 
-}
-
-#sidebar ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-}
-
-#sidebar ul li {
-	list-style: none;
-	font-family: $bundlemFont;
-	font-weight: 700;
-	font-size: 2rem;
-	text-align: center;
-	color: white;
-	border-bottom: 0.1rem solid white;
-	padding: 1.5rem;
-}
-
-#sidebar ul li.active {
-	background-color: white;
-	color: $bundlemColor;
-}
-
-#sidebarContent {
-	margin-left: 300px;
-}
-
-#resourceDetails {
-	padding: 3rem;
-}
-
-.borderColor {
-	border: 0px solid green; 
-}
-
 //Credits: https://github.com/react-icons/react-icons/issues/52#issuecomment-343990710
 
-.icon-spin {
-  -webkit-animation: icon-spin 2s infinite linear;
-          animation: icon-spin 2s infinite linear;
+.iconSpin {
+  -webkit-animation: iconSpin 2s infinite linear;
+          animation: iconSpin 2s infinite linear;
 }
 
-@-webkit-keyframes icon-spin {
+@-webkit-keyframes iconSpin {
   0% {
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
@@ -194,7 +130,7 @@ body {
   }
 }
 
-@keyframes icon-spin {
+@keyframes iconSpin {
   0% {
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);

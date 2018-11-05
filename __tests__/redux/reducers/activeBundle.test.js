@@ -23,6 +23,7 @@ describe('Reducer - activeBundle', () => {
 			activeResourceId: 0,
 			editActiveResource: false
 		};
+		
 		const action = startBundle('test','test');
 
 		deepFreeze(state);

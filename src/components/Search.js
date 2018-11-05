@@ -16,8 +16,10 @@ class Search extends React.Component {
 		super(props);
 
 		this.history = this.props.history;
+
 		this.validateSearchForm = validateSearchForm.bind(this);
 		this.handleInputChange = handleInputChange.bind(this);
+		
 		this.state = {
 			fields: {},
 			errors: {},
@@ -60,7 +62,9 @@ class Search extends React.Component {
 		return (
 
 			<PageTemplate>
+
 				<div id='search'>
+
 					<Form horizontal>
 
 						<FormGroup>
@@ -72,8 +76,8 @@ class Search extends React.Component {
 						</FormGroup>
 
 						<FormGroup controlId='bundleId'>
-							<Col sm={3}></Col> 
-							<Col sm={6}>
+							<Col sm={ 3 }></Col> 
+							<Col sm={ 6 }>
 								<FormControl 
 									name='bundleId'
 									type='text' 
@@ -88,7 +92,7 @@ class Search extends React.Component {
 									{ errors.bundleId }
 								</HelpBlock>
 							</Col>
-							<Col sm={3}></Col>
+							<Col sm={ 3 }></Col>
 						</FormGroup>
 
 						<FormGroup>
@@ -101,7 +105,7 @@ class Search extends React.Component {
 										this.history.push(`/bundle/${fields['bundleId']}`)
 									}>
 									<span>
-										<IconContext.Provider value={{ className: 'verticalMiddle' }}>
+										<IconContext.Provider value={ { className: 'verticalMiddle' } }>
 											<FaSearch />
 										</IconContext.Provider>
 										&nbsp;
@@ -112,14 +116,15 @@ class Search extends React.Component {
 						</FormGroup>
 
 					</Form>
-				</div>
-			</PageTemplate>
 
+				</div>
+
+			</PageTemplate>
 
 		);
 
 	}
 
-}					
+}				
 
 export default Search;

@@ -10,15 +10,10 @@ import {
 } from '../../redux/actions';
 
 const MakeContainer = connect(
-
 	state => ({
-
 		activeBundle: state.activeBundle
-		
 	}),
-
 	dispatch => ({
-
 		addResourceAction(resource) {
 			dispatch(addResource(resource));
 		},
@@ -37,9 +32,7 @@ const MakeContainer = connect(
 		setEditActiveResourceAction(status) {
 			dispatch(setEditActiveResource(status));
 		}
-		
 	})
-
 )(Make);
 
 export default MakeContainer;

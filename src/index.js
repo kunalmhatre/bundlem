@@ -23,20 +23,22 @@ window.React = React;
 
 const store = storeFactory();
 
-render(
+render (
+
 	<Provider store={ store }>
 		<HashRouter>
 			<Switch>
 				<Route exact path='/' component={ Home } />
 				<Route path='/create' component={ CreateContainer } />
+				<Route path='/make' component={ MakeContainer } />
+				<Route path='/preview' component={ PreviewContainer } />
 				<Route path='/submit' component={ SubmitContainer } />
 				<Route path='/search' component={ Search } />
 				<Route path='/bundle/:bundleId' component={ BundleContainer } />
-				<Route path='/make' component={ MakeContainer } />
-				<Route path='/preview' component={ PreviewContainer } />
 				<Route component={ PageNotFound } />
 			</Switch>
 		</HashRouter>
 	</Provider>,
 	document.getElementById('root')
+
 );

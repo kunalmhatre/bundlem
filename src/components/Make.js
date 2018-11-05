@@ -1,41 +1,56 @@
 import PageTemplate from './templates/PageTemplate';
 import ResourceForm from './ResourceForm';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const Make = ({ activeBundle = {}, ...actions }) => {
 
 	const save = (resourceId, resource) => {
+
 		actions.addResourceAction(resource);
 		actions.setActiveResourceAction(resource);
 		actions.setActiveResourceIdAction(resourceId);
+	
 	};
 
 	const edit = (resourceId, resources) => {
+
 		actions.setEditActiveResourceAction(true);
 		actions.setActiveResourceAction(resources[resourceId]);
+
 	};
 
 	const update = (resourceId, resource) => {
+
 		actions.updateResourceAction(resourceId, resource);
 		actions.setEditActiveResourceAction(false);
+	
 	};
 
 	const nextResource = (resourceId, resources, updateState) => {
+
 		actions.setActiveResourceIdAction(resourceId);
 
 		if (resources[resourceId]) {
+
 			actions.setActiveResourceAction(resources[resourceId]);
 			updateState(false, resources[resourceId]);
+		
 		} else {
+			
 			actions.setActiveResourceAction(null);
 			updateState(true);
+		
 		}
+
 	};
 
 	const previousResource = (resourceId, resources, updateState) => {
+		
 		actions.setActiveResourceIdAction(resourceId);
 		actions.setActiveResourceAction(resources[resourceId]);
 		updateState(false, resources[resourceId]);
+	
 	};
 
 	const removeResource = (resourceId, resources, updateState) => {
@@ -77,25 +92,30 @@ const Make = ({ activeBundle = {}, ...actions }) => {
 	return (
 
 		<PageTemplate bundleName={ activeBundle.name }>
-		{	
-			(activeBundle.name) ? 
-				<ResourceForm
-					activeBundle={ activeBundle }
-					save={ save }
-					edit={ edit }
-					update={ update }
-					nextResource={ nextResource }
-					previousResource={ previousResource }
-					removeResource={ removeResource } /> :
-				<p>
-					Please click <Link to='/create'>here</Link> to create a bundle first.
-				</p>
+			{	
+				(activeBundle.name) ? 
+					<ResourceForm
+						activeBundle={ activeBundle }
+						save={ save }
+						edit={ edit }
+						update={ update }
+						nextResource={ nextResource }
+						previousResource={ previousResource }
+						removeResource={ removeResource } /> :
+					<p>
+						Please click <Link to='/create'>here</Link> to create a bundle first.
+					</p>
 
-		}
+			}
 		</PageTemplate>
 
 	);
 
+};
+
+Make.propTypes = {
+	activeBundle: PropTypes.object.isRequired,
+	actions: PropTypes.object.isRequired
 };
 
 export default Make;

@@ -5,6 +5,7 @@ import validateCreateForm from '../lib/validators/validateCreateForm';
 import handleInputChange from '../lib/validators/eventHandlers/handleInputChange';
 import { FaChevronRight } from 'react-icons/fa';
 import { IconContext } from 'react-icons';
+import PropTypes from 'prop-types';
 import { 
 	Form, 
 	FormGroup, 
@@ -23,10 +24,12 @@ class Create extends React.Component {
 
 		super(props);
 
-		this.history = this.props.history; 
-		this.startBundleAction = this.props.startBundleAction; 
+		this.history = props.history; 
+		this.startBundleAction = props.startBundleAction;
+
 		this.validateCreateForm = validateCreateForm.bind(this);
 		this.handleInputChange = handleInputChange.bind(this);
+		
 		this.state = {
 			fields: {},
 			errors: {},
@@ -82,27 +85,27 @@ class Create extends React.Component {
 
 						<FormGroup>
 							<Col 
-								smOffset={3} 
-								sm={9}
-								lgOffset={2}
-								lg={10}>
+								smOffset={ 3 } 
+								sm={ 9 }
+								lgOffset={ 2 }
+								lg={ 10 }>
 								<h2 className='centeredContent createTitle'>
-									Give a cool name for your Bundle!
+									Give a name for your Bundle!
 								</h2>
 							</Col>
 						</FormGroup>
 
 						<FormGroup controlId='bundleName'>
 							<Col 
-								sm={3}
-								lg={2}
-								componentClass={ControlLabel} 
+								sm={ 3 }
+								lg={ 2 }
+								componentClass={ ControlLabel } 
 								className='inputLabels'>
 								Name:
 							</Col>
 							<Col 
-								sm={9}
-								lg={10}>
+								sm={ 9 }
+								lg={ 10 }>
 								<FormControl 
 									name='bundleName'
 									type='text' 
@@ -123,15 +126,15 @@ class Create extends React.Component {
 
 						<FormGroup controlId='bundleDescription'>
 							<Col 
-								sm={3}
-								lg={2}
-								componentClass={ControlLabel} 
+								sm={ 3 }
+								lg={ 2 }
+								componentClass={ ControlLabel } 
 								className='inputLabels'>
 								Description:
 							</Col>
 							<Col 
-								sm={9}
-								lg={10}>
+								sm={ 9 }
+								lg={ 10 }>
 								<FormControl
 									name='bundleDescription' 
 									componentClass='textarea' 
@@ -153,10 +156,10 @@ class Create extends React.Component {
 
 						<FormGroup>
 							<Col
-								smOffset={3}
-								sm={9}
-								lgOffset={2}
-								lg={10}>
+								smOffset={ 3 }
+								sm={ 9 }
+								lgOffset={ 2 }
+								lg={ 10 }>
 								<Button
 									bsStyle='primary'
 									bsSize='large'
@@ -172,7 +175,7 @@ class Create extends React.Component {
 										)
 									}>
 									Next&nbsp;
-									<IconContext.Provider value={{ className: 'verticalMiddle' }}>
+									<IconContext.Provider value={ { className: 'verticalMiddle' } }>
 										<FaChevronRight />
 									</IconContext.Provider>
 								</Button>
@@ -190,5 +193,10 @@ class Create extends React.Component {
 	}
 
 }
+
+Create.propTypes = {
+	startBundleAction: PropTypes.func.isRequired,
+	activeBundle: PropTypes.object.isRequired
+};
 
 export default Create;

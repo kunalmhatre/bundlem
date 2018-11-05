@@ -7,6 +7,7 @@ import { IconContext } from 'react-icons';
 import { Button, ButtonToolbar, Alert } from 'react-bootstrap/lib';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 import ReCAPTCHA from 'react-google-recaptcha';
+import PropTypes from 'prop-types';
 
 class Submit extends React.Component {
 	
@@ -18,8 +19,10 @@ class Submit extends React.Component {
 		this.storeBundleAction = props.storeBundleAction;
 		this.clearActiveBundleAction = props.clearActiveBundleAction;
 		this.activeBundle = props.activeBundle;
+
 		this.verifySpam = this.verifySpam.bind(this);
 		this.publishBundle = this.publishBundle.bind(this);
+
 		this.state = {
 			loaded: false,
 			bundleId: null,
@@ -139,13 +142,14 @@ class Submit extends React.Component {
 
 		return (
 
-			<PageTemplate bundleName={ this.activeBundle.name }>
+			<PageTemplate>
+
 				{
 					(this.activeBundle.name) ?
 						(spammer) ?
 							<section>
 								<div className='lightSeparation'>
-									<h3 className='createTitle centeredContent'>You gotta prove it!</h3>
+									<h3 className='createTitle centeredContent'>Are you a robot?</h3>
 								</div>
 								<div className='flexCenter'>
 									<ReCAPTCHA
@@ -159,29 +163,31 @@ class Submit extends React.Component {
 									className='centeredContent'>
 									
 									<h4 className='lightSeparation'>
-									{
-										(loaded) ?
-											<Alert bsStyle='success'>
-												<p className='centeredContent'>
-													<b>Congrats, your bundle has been published.</b>
-												</p>
-											</Alert> :
-											<Alert bsStyle='info'>
-												<p className='centeredContent'>
-													<b>Publishing your bundle, a moment please.</b>
-												</p>
-											</Alert>
-
-									}
+										{
+											(loaded) ?
+												<Alert bsStyle='success'>
+													<p className='centeredContent'>
+														<b>Congrats, your bundle has been published.</b>
+													</p>
+												</Alert> :
+												<Alert bsStyle='info'>
+													<p className='centeredContent'>
+														<b>Publishing your bundle, a moment please.</b>
+													</p>
+												</Alert>
+										}
 									</h4>
 									
 									<h3 className='bundleIdHeader'>Bundle ID</h3>
+
 									{
 										(loaded) ? 
 											<div id='bundleLoaded'>
+
 												<h1 className='bundleId'>
 													<Link to={`/bundle/${bundleId}`}>{ bundleId }</Link>
 												</h1>
+
 												<CopyToClipboard 
 													text={ `https://bundlem.in/#/bundle/${bundleId}` }
 													onCopy={ () => this.setState({ copied: true }) }>
@@ -191,28 +197,21 @@ class Submit extends React.Component {
 													}
 													</Button>
 												</CopyToClipboard>
+
 												<hr />
-												<div 
-													id='nextActions'
-													className='centeredContent'>
-													<ButtonToolbar className='flexCenter'>
-														<Button 
-															bsStyle='primary'
-															onClick={() => this.history.push('/create')}>
-															Create Bundle
-														</Button>
-														<Button 
-															bsStyle='primary'
-															onClick={() => this.history.push('/search')}>
-															Search Bundle
-														</Button>
-													</ButtonToolbar>
+												
+												<div className='centeredContent'>
+
+													<h3 className='bundleIdHeader'>Thank you for using Bundlem</h3>
+
 												</div>
+
 											</div> :
-											<IconContext.Provider value={{color: '#296193', size: '3em', className: 'icon-spin'}}>
+											<IconContext.Provider value={{color: '#296193', size: '3em', className: 'iconSpin'}}>
 												<FiLoader />
 											</IconContext.Provider>
 									}
+
 								</div> :
 								(spamCheckStatusCode == 406) ?
 									<Alert bsStyle='danger'>
@@ -258,12 +257,15 @@ class Submit extends React.Component {
 										</ButtonToolbar>
 									</Alert> :
 						<div id='noBundle'>
+
 							<p>
 								You might want to consider making a bundle first. 
 								Please click <Link to='/create'>here</Link> to create a bundle.
 							</p>
+						
 						</div>
 				}
+
 			</PageTemplate>
 
 		);
@@ -271,5 +273,11 @@ class Submit extends React.Component {
 	}
 
 }
+
+Submit.propTypes = {
+	storeBundleAction: PropTypes.func.isRequired,
+	clearActiveBundleAction: PropTypes.func.isRequired,
+	activeBundle: PropTypes.object.isRequired
+};
 
 export default Submit;

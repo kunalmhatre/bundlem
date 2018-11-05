@@ -31,7 +31,6 @@ class ResourceForm extends React.Component {
 		this.nextResource = props.nextResource;
 		this.previousResource = props.previousResource;
 		this.removeResource = props.removeResource;
-
 		this.history = props.history;
 
 		this.validateMakeForm = validateMakeForm.bind(this);
@@ -60,46 +59,44 @@ class ResourceForm extends React.Component {
 		let isFieldValid = {};
 		let isFormValid = false;
 
-		if (this.editResourceStatus || !(this.props.activeBundle['showPreview'])) {
 
-			if (this.resourceTitle.value) {
+		if (this.resourceTitle.value) {
 
-				fields['resourceTitle'] = this.resourceTitle.value;
-				errors['resourceTitle'] = null;
-				isFieldValid['resourceTitle'] = true;
+			fields['resourceTitle'] = this.resourceTitle.value;
+			errors['resourceTitle'] = null;
+			isFieldValid['resourceTitle'] = true;
 
-			}
+		}
 
-			if (this.resourceURL.value) {
+		if (this.resourceURL.value) {
 
-				fields['resourceURL'] = this.resourceURL.value;
-				errors['resourceURL'] = null;
-				isFieldValid['resourceURL'] = true;
+			fields['resourceURL'] = this.resourceURL.value;
+			errors['resourceURL'] = null;
+			isFieldValid['resourceURL'] = true;
 
-			}
+		}
 
-			if (this.resourceNotes.value) {
+		if (this.resourceNotes.value) {
 
-				fields['resourceNotes'] = this.resourceNotes.value;
-				errors['resourceNotes'] = null;
-				isFieldValid['resourceNotes'] = true;
+			fields['resourceNotes'] = this.resourceNotes.value;
+			errors['resourceNotes'] = null;
+			isFieldValid['resourceNotes'] = true;
 
-			}
+		}
 
-			if (isFieldValid['resourceURL']) {
+		if (isFieldValid['resourceURL']) {
 
-				isFormValid = true;
+			isFormValid = true;
 
-			}
+		}
 
-			this.setState({
-				fields,
-				errors,
-				isFieldValid,
-				isFormValid
-			});
+		this.setState({
+			fields,
+			errors,
+			isFieldValid,
+			isFormValid
+		});
 
-		} 
 
 	}
 
@@ -221,6 +218,7 @@ class ResourceForm extends React.Component {
 			<div id='resourceForm'>
 
 				<div id='beforePublish'>
+
 					<Modal show={ this.state.publishBundle } onHide={ () => this.publishBundle(false) }>
 						<Modal.Header closeButton>
 							<Modal.Title>Publish Bundle</Modal.Title>
@@ -228,13 +226,19 @@ class ResourceForm extends React.Component {
 						<Modal.Body>
 							{
 								(activeBundle.resources.length == 1) ?
-									<h4><b>Are you sure you want to bundle only one resource?</b></h4> :
-									<h4><b>{ `Are you sure you want bundle ${activeBundle.resources.length} resources?` }</b></h4>
+									<h4>
+										<b>Are you sure you want to bundle only one resource?</b>
+									</h4> :
+									<h4>
+										<b>{ `Are you sure you want bundle ${activeBundle.resources.length} resources?` }</b>
+									</h4>
 							}
 							{	
 								<section>
 									<hr />
-									<p><b>Note:</b> Once published, you won't be able to edit the bundle again.</p>
+									<p>
+										<b>Note:</b> Once published, you won't be able to edit the bundle again.
+									</p>
 								</section>
 							}
 						</Modal.Body>
@@ -247,16 +251,17 @@ class ResourceForm extends React.Component {
 							<Button onClick={ () => this.publishBundle(false) }>Wait</Button>
 						</Modal.Footer>
 					</Modal>
+
 				</div>
 
 				<Form horizontal>
 
 					<FormGroup>
 						<Col 
-							smOffset={3}
-							sm={9}
-							lgOffset={2}
-							lg={10}>
+							smOffset={ 3 }
+							sm={ 9 }
+							lgOffset={ 2 }
+							lg={ 10 }>
 							<h2 className='createTitle centeredContent'>
 								{
 									(editActiveResource) ?
@@ -270,9 +275,9 @@ class ResourceForm extends React.Component {
 					</FormGroup>
 
 					<BSFormGroup
-						controlId={'formHorizontalText'}
-						content={'Title:'} 
-						className={'inputLabels'}>
+						controlId='formHorizontalText'
+						content='Title:' 
+						className='inputLabels'>
 						<FormControl
 							disabled={ (!(activeResource) || editActiveResource) ? false : true }
 							inputRef={ input => this.resourceTitle = input }
@@ -293,9 +298,9 @@ class ResourceForm extends React.Component {
 					</BSFormGroup>
 
 					<BSFormGroup
-						controlId={'formHorizontalSelect'}
-						content={'Type:'}
-						className={'inputLabels'}>
+						controlId='formHorizontalSelect'
+						content='Type:'
+						className='inputLabels'>
 						<FormControl
 							disabled={ (!(activeResource) || editActiveResource) ? false : true }
 							inputRef={ input => this.resourceType = input }
@@ -323,9 +328,9 @@ class ResourceForm extends React.Component {
 					</BSFormGroup>
 
 					<BSFormGroup
-						controlId={'formHorizontalURL'}
-						content={'URL:'}
-						className={'inputLabels'}>
+						controlId='formHorizontalURL'
+						content='URL:'
+						className='inputLabels'>
 						<FormControl 
 							disabled={ (!(activeResource) || editActiveResource) ? false : true }
 							inputRef={ input => this.resourceURL = input }
@@ -346,11 +351,11 @@ class ResourceForm extends React.Component {
 					</BSFormGroup>
 
 					<BSFormGroup
-						controlId={'formHorizontalTextArea'}
-						content={'Notes:'}
-						className={'inputLabels'}>
+						controlId='formHorizontalTextArea'
+						content='Notes:'
+						className='inputLabels'>
 						<FormControl
-							disabled={(!(activeResource) || editActiveResource) ? false : true }
+							disabled={ (!(activeResource) || editActiveResource) ? false : true }
 							inputRef={ input =>  this.resourceNotes = input }
 							name='resourceNotes' 
 							componentClass='textarea' 
@@ -371,12 +376,12 @@ class ResourceForm extends React.Component {
 
 					<FormGroup>
 						<Col 
-							sm={3}
-							lg={2}>	
+							sm={ 3 }
+							lg={ 2 }>	
 						</Col>
 						<Col
-							sm={9}
-							lg={10}>
+							sm={ 9 }
+							lg={ 10 }>
 							{
 								(activeBundle.editActiveResource) ?
 									<ButtonGroup justified>
@@ -384,11 +389,15 @@ class ResourceForm extends React.Component {
 											bsStyle='danger'
 											bsSize='large'
 											href='#'
-											onClick={ () => this.removeResource(currentResourceId - 1, activeBundle.resources, this.updateState.bind(this)) }>
+											onClick={ () => this.removeResource(
+												currentResourceId - 1, 
+												activeBundle.resources, 
+												this.updateState.bind(this)
+											) }>
 											<span>
 												Remove
 												&nbsp;
-												<IconContext.Provider value={{ className: 'verticalMiddle' }}>
+												<IconContext.Provider value={ { className: 'verticalMiddle' } }>
 													<FaMinusCircle />
 												</IconContext.Provider>
 											</span>
@@ -398,7 +407,10 @@ class ResourceForm extends React.Component {
 											bsStyle='primary'
 											bsSize='large'
 											href='#'
-											onClick={ () => this.update(currentResourceId - 1, this.getFieldValues()) }>
+											onClick={ () => this.update(
+												currentResourceId - 1, 
+												this.getFieldValues()
+											) }>
 											Save & Update
 										</Button>
 									</ButtonGroup> :
@@ -408,18 +420,22 @@ class ResourceForm extends React.Component {
 											bsStyle='primary'
 											bsSize='large'
 											href='#'
-											onClick={ () => this.previousResource(currentResourceId - 2, activeBundle.resources, this.updateState.bind(this)) }>
+											onClick={ () => this.previousResource(
+												currentResourceId - 2, 
+												activeBundle.resources, 
+												this.updateState.bind(this)
+											) }>
 											{
 												(currentResourceId - 1) ? 
 													<span>
-														<IconContext.Provider value={{ className: 'verticalMiddle' }}>
+														<IconContext.Provider value={ { className: 'verticalMiddle' } }>
 															<FaChevronLeft />
 														</IconContext.Provider>
 														&nbsp;
 														{ `Resource ${ currentResourceId - 1 }` }
 													</span> :
 													<span>
-														<IconContext.Provider value={{ className: 'verticalMiddle' }}>
+														<IconContext.Provider value={ { className: 'verticalMiddle' } }>
 															<FaChevronLeft />
 														</IconContext.Provider>
 														&nbsp;
@@ -427,34 +443,44 @@ class ResourceForm extends React.Component {
 													</span>
 											}
 										</Button>
-										{
-											(activeBundle.activeResource) ?
-												<Button
-													bsSize='large'
-													href='#'
-													onClick={ () => this.edit(currentResourceId - 1, activeBundle.resources) }>
-													Edit
-												</Button> :
-												<Button
-													disabled={ !(isFormValid) }
-													bsStyle='primary'
-													bsSize='large'
-													href='#'
-													onClick={ () => this.save(currentResourceId - 1, this.getFieldValues()) }>
-													Save
-												</Button>		
-										}
+											{
+												(activeBundle.activeResource) ?
+													<Button
+														bsSize='large'
+														href='#'
+														onClick={ () => this.edit(
+															currentResourceId - 1, 
+															activeBundle.resources
+														) }>
+														Edit
+													</Button> :
+													<Button
+														disabled={ !(isFormValid) }
+														bsStyle='primary'
+														bsSize='large'
+														href='#'
+														onClick={ () => this.save(
+															currentResourceId - 1, 
+															this.getFieldValues()
+														) }>
+														Save
+													</Button>		
+											}
 										<Button
 											disabled={ (activeResource) ? false : true }
 											type='submit'
 											bsStyle='primary'
 											bsSize='large'
 											href='#'
-											onClick={ () => this.nextResource(currentResourceId, activeBundle.resources, this.updateState.bind(this)) }>
+											onClick={ () => this.nextResource(
+												currentResourceId, 
+												activeBundle.resources, 
+												this.updateState.bind(this)
+											) }>
 											<span>
 												{ `Resource ${ currentResourceId + 1 }` }
 												&nbsp;
-												<IconContext.Provider value={{ className: 'verticalMiddle' }}>
+												<IconContext.Provider value={ { className: 'verticalMiddle' } }>
 													<FaChevronRight />
 												</IconContext.Provider>
 											</span>
@@ -466,12 +492,12 @@ class ResourceForm extends React.Component {
 
 					<FormGroup>
 						<Col 
-							sm={3}
-							lg={2}>	
+							sm={ 3 }
+							lg={ 2 }>	
 						</Col>
 						<Col 
-							sm={9}
-							lg={10}>
+							sm={ 9 }
+							lg={ 10 }>
 							<ButtonGroup justified>
 								<Button
 									disabled={ (activeBundle.resources.length) ? false : true }
@@ -482,7 +508,7 @@ class ResourceForm extends React.Component {
 									<span>
 										Preview Bundle
 										&nbsp;
-										<IconContext.Provider value={{ className: 'verticalMiddle' }}>
+										<IconContext.Provider value={ { className: 'verticalMiddle' } }>
 											<FaEye />
 										</IconContext.Provider>
 									</span>
@@ -511,17 +537,13 @@ class ResourceForm extends React.Component {
 
 ResourceForm.propTypes = {
 
-	addResource: PropTypes.func,
-	activeResource: PropTypes.object,
-	editResource: PropTypes.bool
-
-};
-
-ResourceForm.defaultProps = {
-
-	addResource: f => f,
-	activeResource: {},
-	editResourceStatus: false
+	activeBundle: PropTypes.object.isRequired,
+	save: PropTypes.func.isRequired,
+	edit: PropTypes.func.isRequired,
+	update: PropTypes.func.isRequired,
+	nextResource: PropTypes.func.isRequired,
+	previousResource: PropTypes.func.isRequired,
+	removeResource: PropTypes.func.isRequired
 
 };
 
