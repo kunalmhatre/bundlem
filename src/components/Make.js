@@ -114,8 +114,7 @@ const Make = ({ activeBundle = {}, ...actions }) => {
 };
 
 Make.propTypes = {
-	activeBundle: PropTypes.object.isRequired,
-	actions: PropTypes.object.isRequired
+	activeBundle: PropTypes.object.isRequired
 };
 
 export default Make;
