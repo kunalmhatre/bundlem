@@ -6,15 +6,17 @@ function validateSearchForm() {
 	let errors = {};
 	let isFormValid = true;
 
+	fields['bundleId'] = fields['bundleId'].trim();
+
 	if (!fields['bundleId']) {
 
 		isFormValid = false;
-		errors['bundleId'] = 'Please enter the Bundle ID';
+		errors['bundleId'] = null;
 
 	} else if (!validator.isNumeric(fields['bundleId'])) {
 
 		isFormValid = false;
-		errors['bundleId'] = 'Please enter valid Bundle ID';
+		errors['bundleId'] = 'Please enter a valid Bundle ID';
 
 	} 
 

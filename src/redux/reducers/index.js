@@ -10,12 +10,9 @@ const activeBundle = (state = {}, action) => {
 		case CONSTANTS.START_BUNDLE:
 
 			return {
+				...clone,
 				name: action.bundleName,
 				description: action.bundleDescription,
-				resources: [],
-				activeResource: null,
-				activeResourceId: null,
-				editActiveResource: false
 			};
 
 		case CONSTANTS.ADD_RESOURCE:
@@ -58,6 +55,17 @@ const activeBundle = (state = {}, action) => {
 			return {
 				...clone,
 				editActiveResource: action.status
+			};
+
+		case CONSTANTS.CLEAR_ACTIVE_BUNDLE:
+
+			return {
+				name: null,
+				description: null,
+				resources: [],
+				activeResource: null,
+				activeResourceId: 0,
+				editActiveResource: false
 			};
 
 		default:

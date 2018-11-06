@@ -1,106 +1,87 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import PageTemplate from './templates/PageTemplate';
 import ResourceForm from './ResourceForm';
-import ResourceDetails from './ResourceDetails';
-import _ from 'lodash';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const Make = ({ activeBundle = {}, ...actions }) => {
-	
-	const addNewResource = () => {
 
-		actions.setActiveResourceAction(null);
-		actions.setActiveResourceIdAction(null);
-		actions.setEditActiveResourceAction(false);
-
-	};
-
-	const addResource = resource => {
+	const save = (resourceId, resource) => {
 
 		actions.addResourceAction(resource);
 		actions.setActiveResourceAction(resource);
-		actions.setActiveResourceIdAction(
-			(activeBundle.resources.length) ? 
-				activeBundle.resources.length : 0
-		);
-
-	};
-
-	const updateResource = updatedResource => {	
-
-		actions.updateResourceAction(
-			activeBundle.activeResourceId,
-			updatedResource
-		);
-		actions.setActiveResourceAction(updatedResource);
-		actions.setEditActiveResourceAction(false);
-
-	}; 
-
-	const editActiveResource = () => {
-
-		actions.setEditActiveResourceAction(true);
-
-	};
-
-	const activeResourceId = resourceId => {
-		
-		actions.setActiveResourceAction(
-			activeBundle.resources[resourceId]
-		);
 		actions.setActiveResourceIdAction(resourceId);
 	
 	};
 
-	const removeResource = (resources, resourceId) => 
+	const edit = (resourceId, resources) => {
 
-		resources.filter(
-			(item, index) => 
-				(index != resourceId) ? true : false
-		);
+		actions.setEditActiveResourceAction(true);
+		actions.setActiveResourceAction(resources[resourceId]);
 
-	const removeActiveResource = () => {
+	};
 
-		let resources = removeResource(
-			activeBundle.resources,
-			activeBundle.activeResourceId
-		);
+	const update = (resourceId, resource) => {
 
-		let previousLength = resources.length + 1;
+		actions.updateResourceAction(resourceId, resource);
+		actions.setEditActiveResourceAction(false);
+	
+	};
 
-		actions.removeResourceAction(
-			activeBundle.activeResourceId
-		);
+	const nextResource = (resourceId, resources, updateState) => {
 
-		if ((activeBundle.activeResourceId + 1) < previousLength) {
+		actions.setActiveResourceIdAction(resourceId);
+
+		if (resources[resourceId]) {
+
+			actions.setActiveResourceAction(resources[resourceId]);
+			updateState(false, resources[resourceId]);
 		
-			actions.setActiveResourceIdAction(
-				activeBundle.activeResourceId
-			);
-			actions.setActiveResourceAction(
-				resources[activeBundle.activeResourceId]
-			);
+		} else {
+			
+			actions.setActiveResourceAction(null);
+			updateState(true);
+		
+		}
 
-		} else if ((activeBundle.activeResourceId + 1) == previousLength) {
+	};
 
-			if ((activeBundle.activeResourceId - 1) == -1) {
+	const previousResource = (resourceId, resources, updateState) => {
+		
+		actions.setActiveResourceIdAction(resourceId);
+		actions.setActiveResourceAction(resources[resourceId]);
+		updateState(false, resources[resourceId]);
+	
+	};
 
-				actions.setActiveResourceIdAction(
-					null
-				);
-				actions.setActiveResourceAction(
-					null
-				);
+	const removeResource = (resourceId, resources, updateState) => {
+		
+		let predictedResources = resources.filter((item, index) => 
+			(index != resourceId) ? true : false);
+		
+		let previousLength = predictedResources.length + 1;
+
+		actions.removeResourceAction(resourceId);
+		actions.setEditActiveResourceAction(false);
+
+		if ((resourceId + 1) < previousLength) {
+		
+			actions.setActiveResourceIdAction(resourceId);
+			actions.setActiveResourceAction(predictedResources[resourceId]);
+			updateState(false, predictedResources[resourceId]);
+
+		} else if ((resourceId + 1) == previousLength) {
+
+			if ((resourceId - 1) == -1) {
+
+				actions.setActiveResourceIdAction(0);
+				actions.setActiveResourceAction(null);
+				updateState(true);
 
 			} else {
 
-				actions.setActiveResourceIdAction(
-					activeBundle.activeResourceId - 1
-				);
-				actions.setActiveResourceAction(
-					resources[activeBundle.activeResourceId - 1]
-				);
+				actions.setActiveResourceIdAction(resourceId - 1);
+				actions.setActiveResourceAction(predictedResources[resourceId - 1]);
+				updateState(false, predictedResources[resourceId - 1]);
 
 			}
 
@@ -108,85 +89,32 @@ const Make = ({ activeBundle = {}, ...actions }) => {
 
 	};
 
-	const bundleup = (event) => {
-
-		let totalResources = activeBundle.resources.length;
-		let choice;
-
-		choice = confirm(`Are you sure you want to bundl 'em up?`);
-
-		if (!choice) {
-
-			event.preventDefault();
-		
-		}
-
-	}
-
 	return (
 
-		<PageTemplate 
-			bundleName={ activeBundle.name }>
-			<div 
-				id='sidebar'>
-				<nav>
-					{
-						(activeBundle.resources.length == 0) ?
-							<a key={0} onClick={ () => activeResourceId(0) }>
-								{ 'Resource-1' }
-							</a> :
-							activeBundle.resources.map((item, index) => 
-								
-								<a key={index} onClick={ () => activeResourceId(index) }>
-									{ `Resource-${index + 1}` }
-								</a>
+		<PageTemplate bundleName={ activeBundle.name }>
+			{	
+				(activeBundle.name) ? 
+					<ResourceForm
+						activeBundle={ activeBundle }
+						save={ save }
+						edit={ edit }
+						update={ update }
+						nextResource={ nextResource }
+						previousResource={ previousResource }
+						removeResource={ removeResource } /> :
+					<p>
+						Please click <Link to='/create'>here</Link> to create a bundle first.
+					</p>
 
-							)
-					}
-					<a 
-						onClick={ addNewResource }>
-						Add
-					</a>
-				</nav>
-			</div>
-			<div 
-				id='main'>
-				{	
-					(activeBundle.editActiveResource) ? 
-						<ResourceForm 
-							addResource={ updateResource }
-							activeResource={ activeBundle.activeResource }
-							editResourceStatus={ true } /> :
-							(activeBundle.activeResource) ? 
-								<ResourceDetails 
-									activeResource={ activeBundle.activeResource }
-									editActiveResource={ editActiveResource }
-									removeActiveResource={ removeActiveResource } /> :
-									<ResourceForm 
-										addResource={ addResource } />
-				}
-			</div>
-			<Link 
-				to={{
-					pathname: '/submit',
-					state: {
-						activeBundle: {
-							name: activeBundle.name,
-							description: activeBundle.description,
-							resources: activeBundle.resources
-						}
-					}
-				}}>
-				<button 
-					disabled={ !(activeBundle.resources.length) || activeBundle.editActiveResource } 
-					onClick={ (event) => bundleup(event) }>
-					Bundle up!
-				</button>
-			</Link>
+			}
 		</PageTemplate>
 
 	);
 
-}
+};
+
+Make.propTypes = {
+	activeBundle: PropTypes.object.isRequired
+};
 
 export default Make;

@@ -1,25 +1,19 @@
 import { connect } from 'react-redux';
 import Make from '../Make';
-import _ from 'lodash';
 import { 
 	addResource, 
 	removeResource, 
 	updateResource, 
 	setActiveResource, 
 	setActiveResourceId, 
-	setEditActiveResource 
+	setEditActiveResource
 } from '../../redux/actions';
 
 const MakeContainer = connect(
-
 	state => ({
-
 		activeBundle: state.activeBundle
-		
 	}),
-
 	dispatch => ({
-
 		addResourceAction(resource) {
 			dispatch(addResource(resource));
 		},
@@ -38,9 +32,7 @@ const MakeContainer = connect(
 		setEditActiveResourceAction(status) {
 			dispatch(setEditActiveResource(status));
 		}
-
 	})
-
 )(Make);
 
 export default MakeContainer;

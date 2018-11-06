@@ -1,10 +1,13 @@
 import React from 'react';
 import validator from 'validator';
 import PageTemplate from './templates/PageTemplate';
-import { Redirect } from 'react-router-dom';
 import { compose } from 'redux';
 import validateSearchForm from '../lib/validators/validateSearchForm';
 import handleInputChange from '../lib/validators/eventHandlers/handleInputChange';
+import '../assets/css/general.scss';
+import { Form, FormControl, FormGroup, Col, HelpBlock, Button } from 'react-bootstrap/lib';
+import { FaSearch } from 'react-icons/fa';
+import { IconContext } from 'react-icons';
 
 class Search extends React.Component {
 
@@ -13,13 +16,15 @@ class Search extends React.Component {
 		super(props);
 
 		this.history = this.props.history;
+
 		this.validateSearchForm = validateSearchForm.bind(this);
 		this.handleInputChange = handleInputChange.bind(this);
+		
 		this.state = {
 			fields: {},
 			errors: {},
 			isFormValid: false
-		}
+		};
 
 	}
 
@@ -44,7 +49,7 @@ class Search extends React.Component {
 		this.setState({
 			errors,
 			isFormValid
-		})
+		});
 
 		return isFormValid;
 
@@ -57,52 +62,69 @@ class Search extends React.Component {
 		return (
 
 			<PageTemplate>
-				<center>
-					<h1>Enter the Bundle ID</h1>
-					<form 
-						onSubmit={ (event) => event.preventDefault() }>
-						<table>
-							<tbody>
-								<tr>
-									<td>
-										<input 
-											name='bundleId'
-											type='text'
-											onChange={ event => 
-												compose(
-													this.handleInputChange(event),
-													this.validateSearchForm()
-												) 
-											} />
-									</td>
-								</tr>
-								<tr>
-									<td>
-										{ errors.bundleId }
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<button 
-											disabled={ !(isFormValid) }
-											onClick={ () => 
-												this.history.push(`/bundle/${fields['bundleId']}`) 
-											}>
-											Search
-										</button>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</form>
-				</center>
-			</PageTemplate>
 
+				<div id='search'>
+
+					<Form horizontal>
+
+						<FormGroup>
+							<Col>
+								<h2 className='centeredContent searchBundleTitle'>
+									Enter the Bundle ID
+								</h2>
+							</Col>
+						</FormGroup>
+
+						<FormGroup controlId='bundleId'>
+							<Col sm={ 3 }></Col> 
+							<Col sm={ 6 }>
+								<FormControl 
+									name='bundleId'
+									type='text' 
+									bsSize='large'
+									className='centeredContent'
+									onChange={ event => compose(
+											this.handleInputChange(event),
+											this.validateSearchForm()
+										) 
+									} />
+								<HelpBlock className='inputErrors centeredContent'>
+									{ errors.bundleId }
+								</HelpBlock>
+							</Col>
+							<Col sm={ 3 }></Col>
+						</FormGroup>
+
+						<FormGroup>
+							<Col className='centeredContent'>
+								<Button
+									disabled={ !(isFormValid) }
+									bsStyle='primary'
+									bsSize='large'
+									onClick={ () =>
+										this.history.push(`/bundle/${fields['bundleId']}`)
+									}>
+									<span>
+										<IconContext.Provider value={ { className: 'verticalMiddle' } }>
+											<FaSearch />
+										</IconContext.Provider>
+										&nbsp;
+										Search
+									</span>
+								</Button>
+							</Col>
+						</FormGroup>
+
+					</Form>
+
+				</div>
+
+			</PageTemplate>
 
 		);
 
 	}
 
-}					
+}				
 
 export default Search;

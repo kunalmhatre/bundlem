@@ -1,5 +1,6 @@
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
 	entry: './src/index.js',
@@ -15,12 +16,35 @@ module.exports = {
 				use: {
 					loader: 'babel-loader'
 				}
+			},
+			{
+				test: /\.scss$/,
+				use: [
+					'style-loader',
+					'css-loader',
+					'sass-loader',
+					{
+						loader: 'postcss-loader',
+						options: {
+							plugins: () => [
+								require('autoprefixer')
+							]
+						}
+					}
+				]
 			}
 		]
 	},
 	plugins: [
 		new HTMLWebpackPlugin({
 			template: './src/index.html'
-		})
+		}),
+		new CopyWebpackPlugin([
+			{
+				from: './src/assets/images/favicons',
+				to: 'assets/images/favicons',
+				toType: 'dir'
+			}
+		])
 	]
 };

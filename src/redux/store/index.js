@@ -7,7 +7,7 @@ const saveToLocalStorage = store => next => action => {
 
 	localStorage['bundlem'] = JSON.stringify(store.getState());
 
-}
+};
 
 const storeFactory = () => 
 
@@ -18,17 +18,17 @@ const storeFactory = () =>
 		}),
 		(localStorage['bundlem']) ? 
 			JSON.parse(localStorage['bundlem']) :
-				{
-					bundles: {},
-					activeBundle: {
-						name: null,
-						description: null,
-						resources: [],
-						activeResource: null,
-						activeResourceId: null,
-						editActiveResource: false 
-					}
+			{
+				bundles: {},
+				activeBundle: {
+					name: null,
+					description: null,
+					resources: [],
+					activeResource: null,
+					activeResourceId: 0,
+					editActiveResource: false
 				}
+			}
 	);
 
 export default storeFactory;
