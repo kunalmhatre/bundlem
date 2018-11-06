@@ -5,15 +5,15 @@
 
 Bundlem can be used to bundle and share your online resources.
 
-Checkout here: https://bundlem.in
+Live: https://bundlem.in
 
 ### Objectives
 
-#### Primary
-Sometimes we get stuck on understanding certain concept or topic, which after checking up few videos or articles online gets totally cleared. And that's pretty much the primary objective of Bundlem - to bundle those curated resources in order to share or keep a track of it for later use. 
+- #### Primary
+  Sometimes we get stuck on understanding certain concept or topic, which after checking up few videos or articles online gets totally cleared. And that's pretty much the primary objective of Bundlem - to bundle those curated resources in order to share or keep a track of it for later use. 
 
-#### Secondary
-You can as well make mini-courses on various topics, all you need to do is align the set of resources in serial order. Writing well formatted content can be tricky since the notes section of resources is not well equipped with formatting options, but we might upgrade that soon. 
+- #### Secondary
+  You can as well make mini-courses on various topics, all you need to do is align the set of resources in serial order. Writing well formatted content can be tricky since the notes section of resources is not well equipped with formatting options, but we might upgrade that soon. 
 
 ### Tech Stack
 - Frontend is powered by [React](https://reactjs.org/) and [Redux](https://redux.js.org/). UI Library: [React-Bootstap](https://react-bootstrap.github.io/)
@@ -24,7 +24,7 @@ You can as well make mini-courses on various topics, all you need to do is align
 - Our Node.js server is on [Heroku](https://www.heroku.com/) and MongoDB is provided by [mLab](https://mlab.com/).
 
 ### Do you want to collaborate code?
-- You are more than welcome. Currently, I am working on documenting the code and writing test cases to cover at least 50% of the code. Once the documentation is done, code will be more understandable, and more efficient the collaboration would be. Therefore, if you can, please wait for collaborating code. Issues (bugs or improvements) are always welcome. 
+You are more than welcome. Currently, I am working on documenting the code and writing test cases to cover at least 50% of the code. Once the documentation is done, code will be more understandable (I hope so), and more efficient the collaboration would be. Issues (bugs or improvements) are always welcome. 
 
 ### License
 MIT
