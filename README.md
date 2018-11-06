@@ -1,6 +1,6 @@
 # Bundlem
 
-![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg?style=flat-square)
+![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
 [![Build Status](https://travis-ci.com/kunalmhatre/bundlem.svg?token=rqM3wT2oavxkwLkqCg8X&branch=master)](https://travis-ci.com/kunalmhatre/bundlem)
 
 Bundlem can be used to bundle and share your online resources.
