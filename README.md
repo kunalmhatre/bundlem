@@ -24,7 +24,7 @@ Live: https://bundlem.in
 - Backend (not yet open sourced) runs on [Node.js](https://nodejs.org/en/) and [MongoDB](https://www.mongodb.com/).
 
 ### Active services
-- Frontend is proudly hosted on [Netlify](https://www.netlify.com/). *A really good service.*
+- Frontend is proudly hosted on [Netlify](https://www.netlify.com/). *A truly good service.*
 - Our Node.js server is on [Heroku](https://www.heroku.com/) and MongoDB is provided by [mLab](https://mlab.com/).
 
 ### Do you want to collaborate code?
