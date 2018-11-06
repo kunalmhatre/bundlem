@@ -28,7 +28,7 @@ Live: https://bundlem.in
 - Our Node.js server is on [Heroku](https://www.heroku.com/) and MongoDB is provided by [mLab](https://mlab.com/).
 
 ### Do you want to collaborate code?
-You are more than welcome. Currently, I am working on documenting the code and writing test cases to cover at least 50% of the code. Once the documentation is done, code will be more understandable (I hope so), and more efficient the collaboration would be. Issues (bugs or improvements) are always welcome. 
+You are more than welcome. Currently, I am working on documenting the code and writing test cases to cover at least 50% of the code. Once the documentation is done, code will be more understandable (I hope so), and more efficient the collaboration would be. Issues (bugs or improvements) are always welcome. Please do read CONTRIBUTING.md before collaborating your valuable efforts.
 
 ### License
 MIT
