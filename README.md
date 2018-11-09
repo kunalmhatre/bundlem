@@ -20,8 +20,8 @@ Live: https://bundlem.in
 - **URL**: https://bundlem.in/#/bundle/1 
 
 ### Tech Stack
-- Frontend is powered by [React](https://reactjs.org/) and [Redux](https://redux.js.org/). UI Library: [React-Bootstap](https://react-bootstrap.github.io/)
-- Backend (not yet open sourced) runs on [Node.js](https://nodejs.org/en/) and [MongoDB](https://www.mongodb.com/).
+- Frontend is powered by [React](https://reactjs.org/) and [Redux](https://redux.js.org/). UI Library: [React-Bootstrap](https://react-bootstrap.github.io/)
+- Backend (not yet open sourced) runs on [Node.js](https://nodejs.org/en/about/) and [MongoDB](https://www.mongodb.com/what-is-mongodb).
 
 ### Active services
 - Frontend is proudly hosted on [Netlify](https://www.netlify.com/). *A truly good service.*
