@@ -1,5 +1,5 @@
 ---
-name: Feature Request or Improvements
+name: Feature Request
 about: Help us improve by requesting a feature or improvements
 ---
 
