@@ -423,7 +423,7 @@ class ResourceForm extends React.Component {
 									</ButtonGroup> :
 									<ButtonGroup justified>
 										<Button
-											disabled={ (currentResourceId - 1) ? false : true }
+											disabled={ !(currentResourceId - 1) }
 											bsStyle='primary'
 											bsSize='large'
 											href='#'
