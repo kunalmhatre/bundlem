@@ -1,5 +1,5 @@
 ---
-name: Bug Report
+name: Bug
 about: Report a functional or UI bug
 ---
 
