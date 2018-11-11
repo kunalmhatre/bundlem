@@ -11,7 +11,7 @@ const FooterMenu = () =>
 			&copy; Bundlem 2018 &bull;&nbsp;
 			<a href='https://reactjs.org/'>Powered by React</a> &bull;&nbsp;
 			<a href='https://github.com/kunalmhatre/bundlem'>Source</a> &bull;&nbsp;
-			<a href='https://github.com/kunalmhatre/bundlem/issues/new'>Report Issue</a>
+			<a href='https://github.com/kunalmhatre/bundlem/issues/new/choose'>Report Issue</a>
 		</div>
 	</div>;
 
