@@ -190,21 +190,10 @@ class ResourceForm extends React.Component {
 
 	publishBundle(status) {
 
-		if (status) {
-
-			this.setState({
-				publishBundle: true
-			});
-
-		} else {
-
-			this.setState({
-				publishBundle: false
-			});
-
-		}
-
-		
+		this.setState({
+			publishBundle: status
+		});
+	
 	}
 
 	render() {
