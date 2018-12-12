@@ -238,7 +238,9 @@ class ResourceForm extends React.Component {
 								onClick={ () => this.history.push('/submit') }>
 								Yes
 							</Button>
-							<Button onClick={ () => this.publishBundle(false) }>Wait</Button>
+							<Button onClick={ () => this.publishBundle(false) }>
+								Wait
+							</Button>
 						</Modal.Footer>
 					</Modal>
 
