@@ -1,3 +1,4 @@
+import React from 'react';
 import PageTemplate from './templates/PageTemplate';
 import { Button, ButtonToolbar } from 'react-bootstrap/lib';
 import '../assets/css/general.scss';
