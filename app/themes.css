@@ -1,0 +1,11 @@
+/* Blue theme */
+.theme-blue {
+    background: #004392;
+    color: #FFFFFF
+}
+
+/* Dark theme */
+.theme-dark {
+    background: #000000;
+    color: #FFFFFF;
+}

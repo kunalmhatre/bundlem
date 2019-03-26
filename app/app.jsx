@@ -13,8 +13,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router/immutable';
+import WebFont from 'webfontloader';
 import history from 'utils/history';
 import 'sanitize.css/sanitize.css';
+import './themes.css';
 
 // Import root app
 import App from 'containers/App/index.jsx';
@@ -81,3 +83,10 @@ if (!window.Intl) {
 if (process.env.NODE_ENV === 'production') {
   require('offline-plugin/runtime').install(); // eslint-disable-line global-require
 }
+
+// Load font
+WebFont.load({
+  google: {
+    families: ['Roboto:400,700', 'sans-serif'],
+  },
+});
