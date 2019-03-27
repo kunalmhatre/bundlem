@@ -9,8 +9,8 @@ import { defineMessages } from 'react-intl';
 export const scope = 'app.components.Header';
 
 export default defineMessages({
-  header: {
-    id: `${scope}.header`,
+  defaultHeaderTitle: {
+    id: `${scope}.defaultHeaderTitle`,
     defaultMessage: 'Bundlem',
     description: 'Name of the application',
   },

@@ -13,18 +13,18 @@ const propTypes = {
 };
 
 const defaultProps = {
-  headerTitle: messages.header,
+  headerTitle: messages.defaultHeaderTitle,
 };
 
 /**
- * Header for the application
- * @param {object} headerTitle - Header title to be shown
+ * Header component
+ * @param {object} headerTitle - Header title to be shown (react-intl message object)
  */
 function Header({ headerTitle }) {
   return (
-    <div className="header theme-blue">
+    <header className="header theme-blue">
       <FormattedMessage {...headerTitle} />
-    </div>
+    </header>
   );
 }
 
