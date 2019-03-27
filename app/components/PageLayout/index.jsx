@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'antd';
 import Header from '../Header';
-
-import './page-layout.css';
+import Footer from '../Footer';
+import messages from '../Header/messages';
 
 const propTypes = {
   setHeader: PropTypes.bool,
@@ -21,17 +21,14 @@ const propTypes = {
 const defaultProps = {
   setHeader: true,
   setFooter: true,
-  headerTitle: {
-    id: 'defaultMessage',
-    defaultMessage: 'Default message',
-  },
+  headerTitle: messages.defaultHeaderTitle,
 };
 
 /**
- * Layout for all the pages in the app
- * @param {boolean} setHeader - Renders header when set to true
- * @param {boolean} setFooter - Renders footer when set to true
- * @param {object} headerTitle - Header title to be shown
+ * Layout for all the pages used in the app
+ * @param {boolean} [setHeader=true] - Renders header when set to true
+ * @param {boolean} [setFooter=true] - Renders footer when set to true
+ * @param {object} [headerTitle=Bundlem] - Header title to be shown (react-intl message object)
  * @param {object} children - React component to render as a child
  */
 function PageLayout({
@@ -41,11 +38,11 @@ function PageLayout({
   children,
 }) {
   return (
-    <Row className="page-layout-blue">
+    <Row className="theme-blue">
       <Col span={22} offset={1}>
-        {setHeader ? <Header /> : null}
+        {setHeader ? <Header headerTitle={headerTitle} /> : null}
         {<section>{children}</section>}
-        {setFooter ? <footer /> : null}
+        {setFooter ? <Footer /> : null}
       </Col>
     </Row>
   );
