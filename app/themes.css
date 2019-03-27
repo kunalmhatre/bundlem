@@ -1,11 +1,29 @@
 /* Blue theme */
 .theme-blue {
     background: #004392;
-    color: #FFFFFF
+    color: #FFFFFF;
+}
+
+.theme-blue-border {
+    border-color: #FFFFFF;
+}
+
+.theme-blue-inverse {
+    background: #FFFFFF;
+    color: #004392
 }
 
 /* Dark theme */
 .theme-dark {
     background: #000000;
     color: #FFFFFF;
+}
+
+.theme-dark-border {
+    border-color: #FFFFFF;
+}
+
+.theme-dark-inverse {
+    background: #FFFFFF;
+    color: #000000
 }
