@@ -1,32 +1,37 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mountWithIntl } from '../../../../internals/testing/reactIntlHelperFunction';
 
 import PageLayout from '../index';
+import Header from '../../Header';
 
 describe('<PageLayout />', () => {
-  it('renders <header /> component', () => {
+  const TestComponent = () => <div />;
+
+  it('renders <Header /> component', () => {
     expect(
-      mount(
-        <PageLayout setHeader />,
-      ).find('header')
+      mountWithIntl(
+        <PageLayout setHeader>
+          <TestComponent />
+        </PageLayout>,
+      ).find('Header')
         .length,
     ).toBe(1);
   });
 
   it('renders <section /> component', () => {
     expect(
-      mount(
-        <PageLayout />,
+      mountWithIntl(
+        <PageLayout>
+          <TestComponent />
+        </PageLayout>,
       ).find('section')
         .length,
     ).toBe(1);
   });
 
   it('renders child component', () => {
-    const TestComponent = () => <div />;
-
     expect(
-      mount(
+      mountWithIntl(
         <PageLayout>
           <TestComponent />
         </PageLayout>,
@@ -37,26 +42,32 @@ describe('<PageLayout />', () => {
 
   it('renders <footer /> component', () => {
     expect(
-      mount(
-        <PageLayout setFooter />,
+      mountWithIntl(
+        <PageLayout setFooter>
+          <TestComponent />
+        </PageLayout>,
       ).find('footer')
         .length,
     ).toBe(1);
   });
 
-  it('does not render <header /> component', () => {
+  it('does not render <Header /> component', () => {
     expect(
-      mount(
-        <PageLayout setHeader={false} />,
-      ).find('header')
+      mountWithIntl(
+        <PageLayout setHeader={false}>
+          <TestComponent />
+        </PageLayout>,
+      ).find(Header)
         .length,
     ).toBe(0);
   });
 
   it('does not render <footer /> component', () => {
     expect(
-      mount(
-        <PageLayout setFooter={false} />,
+      mountWithIntl(
+        <PageLayout setFooter={false}>
+          <TestComponent />
+        </PageLayout>,
       ).find('footer')
         .length,
     ).toBe(0);
