@@ -1,6 +1,6 @@
 import React from 'react';
-import { mountWithIntl } from '../../../../internals/testing/reactIntlHelperFunction';
 
+import { mountWithIntl } from '../../../../internals/testing/reactIntlHelperFunction';
 import Header from '../index';
 
 describe('<Header />', () => {

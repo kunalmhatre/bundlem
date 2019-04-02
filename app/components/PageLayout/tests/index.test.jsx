@@ -1,6 +1,6 @@
 import React from 'react';
-import { mountWithIntl } from '../../../../internals/testing/reactIntlHelperFunction';
 
+import { mountWithIntl } from '../../../../internals/testing/reactIntlHelperFunction';
 import PageLayout from '../index';
 import Header from '../../Header';
 
