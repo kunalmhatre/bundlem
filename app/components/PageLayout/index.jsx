@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'antd';
+
 import Header from '../Header';
 import Footer from '../Footer';
 import messages from '../Header/messages';
+import './page-layout.css';
 
 const propTypes = {
   setHeader: PropTypes.bool,
@@ -38,10 +40,10 @@ function PageLayout({
   children,
 }) {
   return (
-    <Row className="theme-blue">
+    <Row className="page-layout theme-blue">
       <Col span={22} offset={1}>
         {setHeader ? <Header headerTitle={headerTitle} /> : null}
-        {<section>{children}</section>}
+        {<section className="page-layout-content">{children}</section>}
         {setFooter ? <Footer /> : null}
       </Col>
     </Row>

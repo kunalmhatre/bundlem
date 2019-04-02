@@ -1,0 +1,18 @@
+.page-layout {
+    height: 100%;
+
+    .page-layout-content {
+        min-height: 100%;
+        margin-bottom: -60px;
+
+        &::after {
+            content: "";
+            display: block;
+            height: 60px;
+        }
+    }
+
+    div.ant-col-22 {
+        height: 100%;
+    }
+}
