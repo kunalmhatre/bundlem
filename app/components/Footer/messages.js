@@ -9,20 +9,8 @@ import { defineMessages } from 'react-intl';
 export const scope = 'app.components.Footer';
 
 export default defineMessages({
-  source: {
-    id: `${scope}.source`,
-    defaultMessage: 'source',
-  },
-  reportIssue: {
-    id: `${scope}.reportIssue`,
-    defaultMessage: 'REPORT ISSUE',
-  },
-  story: {
-    id: `${scope}.story`,
-    defaultMessage: 'STORY',
-  },
-  author: {
-    id: `${scope}.author`,
-    defaultMessage: 'AUTHOR',
+  defaultFooterItem: {
+    id: `${scope}.defaultFooterItem`,
+    defaultMessage: 'Default Footer Item',
   },
 });

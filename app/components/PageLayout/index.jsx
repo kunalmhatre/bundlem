@@ -4,7 +4,8 @@ import { Row, Col } from 'antd';
 
 import Header from '../Header';
 import Footer from '../Footer';
-import messages from '../Header/messages';
+import headerMessages from '../Header/messages';
+import messages from './messages';
 import './page-layout.css';
 
 const propTypes = {
@@ -23,7 +24,7 @@ const propTypes = {
 const defaultProps = {
   setHeader: true,
   setFooter: true,
-  headerTitle: messages.defaultHeaderTitle,
+  headerTitle: headerMessages.defaultHeaderTitle,
 };
 
 /**
@@ -39,12 +40,27 @@ function PageLayout({
   headerTitle,
   children,
 }) {
+  const footerProps = {
+    linkTitles: [
+      messages.source,
+      messages.reportIssue,
+      messages.story,
+      messages.author,
+    ],
+    links: [
+      'https://github.com/kunalmhatre/bundlem/',
+      'https://github.com/kunalmhatre/bundlem/issues/new/choose',
+      'https://kunalmhatre.com/bundlem/',
+      'https://kunalmhatre.com/',
+    ],
+  };
+
   return (
     <Row className="page-layout theme-blue">
       <Col span={22} offset={1}>
         {setHeader ? <Header headerTitle={headerTitle} /> : null}
         {<section className="page-layout-content">{children}</section>}
-        {setFooter ? <Footer /> : null}
+        {setFooter ? <Footer {...footerProps} /> : null}
       </Col>
     </Row>
   );

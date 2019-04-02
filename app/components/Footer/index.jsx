@@ -18,16 +18,10 @@ const propTypes = {
 
 const defaultProps = {
   linkTitles: [
-    messages.source,
-    messages.reportIssue,
-    messages.story,
-    messages.author,
+    messages.defaultFooterItem,
   ],
   links: [
-    'https://github.com/kunalmhatre/bundlem/',
-    'https://github.com/kunalmhatre/bundlem/issues/new/choose',
-    'https://kunalmhatre.com/bundlem/',
-    'https://kunalmhatre.com/',
+    'https://bundlem.in',
   ],
 };
 

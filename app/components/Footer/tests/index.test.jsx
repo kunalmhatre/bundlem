@@ -4,13 +4,13 @@ import { mountWithIntl } from '../../../../internals/testing/reactIntlHelperFunc
 import Footer from '../index';
 
 describe('<Footer />', () => {
-  it('renders 4 default items', () => {
+  it('renders the default footer item when no props are provided', () => {
     expect(
       mountWithIntl(
         <Footer />,
       ).find('a')
         .length,
-    ).toBe(4);
+    ).toBe(1);
   });
 
   it('renders nothing when number of linkTitles and links are unequal', () => {
