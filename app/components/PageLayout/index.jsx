@@ -58,8 +58,10 @@ function PageLayout({
   return (
     <Row className="page-layout theme-blue">
       <Col span={22} offset={1}>
-        {setHeader ? <Header headerTitle={headerTitle} /> : null}
-        {<section className="page-layout-content">{children}</section>}
+        <div className="page-layout-header-content">
+          {setHeader ? <Header headerTitle={headerTitle} /> : null}
+          {<section className="page-layout-content">{children}</section>}
+        </div>
         {setFooter ? <Footer {...footerProps} /> : null}
       </Col>
     </Row>
