@@ -7,255 +7,261 @@ exports[`<Welcome /> renders old snapshot 1`] = `
   <div
     className="ant-col-22 ant-col-offset-1"
   >
-    <section
-      className="page-layout-content"
+    <div
+      className="page-layout-header-content"
     >
-      <div
-        className="welcome"
+      <section
+        className="page-layout-content"
       >
         <div
-          className="ant-row"
+          className="welcome"
         >
           <div
-            className="welcome-logo"
-          >
-            <span>
-              Bundlem
-            </span>
-          </div>
-        </div>
-        <div
-          className="ant-row"
-        >
-          <div
-            className="welcome-headline"
-          >
-            <span>
-              Create and share your bundle of online resources
-            </span>
-          </div>
-        </div>
-        <div
-          className="ant-row"
-        >
-          <div
-            className="welcome-description ant-col-xs-24 ant-col-sm-22 ant-col-md-18 ant-col-xl-10 ant-col-xxl-8"
-          >
-            <span>
-              An easy way to bundle, store, and share your online resources like links of articles, videos or documents.
-            </span>
-          </div>
-        </div>
-        <div
-          className="ant-row"
-        >
-          <div
-            className="welcome-buttons"
-          >
-            <button
-              className="button theme-blue-inverse theme-blue-border"
-              onClick={[Function]}
-              type="button"
-            >
-              <span>
-                CREATE
-              </span>
-            </button>
-            <button
-              className="button theme-blue"
-              onClick={[Function]}
-              type="button"
-            >
-              <span>
-                SEARCH
-              </span>
-            </button>
-          </div>
-        </div>
-        <hr />
-        <div
-          className="ant-row"
-        >
-          <div
-            className=""
+            className="ant-row"
           >
             <div
-              className="welcome-featured-bundles"
+              className="welcome-logo"
             >
               <span>
-                FEATURED BUNDLES
+                Bundlem
               </span>
             </div>
+          </div>
+          <div
+            className="ant-row"
+          >
             <div
-              className="welcome-featured-bundles-lg"
+              className="welcome-headline"
+            >
+              <span>
+                Create and share your bundle of online resources
+              </span>
+            </div>
+          </div>
+          <div
+            className="ant-row"
+          >
+            <div
+              className="welcome-description ant-col-xs-24 ant-col-sm-22 ant-col-md-18 ant-col-xl-10 ant-col-xxl-8"
+            >
+              <span>
+                An easy way to bundle, store, and share your online resources like links of articles, videos or documents.
+              </span>
+            </div>
+          </div>
+          <div
+            className="ant-row"
+          >
+            <div
+              className="welcome-buttons"
+            >
+              <button
+                className="button theme-blue-inverse theme-blue-border"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                <span>
+                  CREATE
+                </span>
+              </button>
+              <button
+                className="button theme-blue"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                <span>
+                  SEARCH
+                </span>
+              </button>
+            </div>
+          </div>
+          <hr />
+          <div
+            className="ant-row"
+          >
+            <div
+              className=""
             >
               <div
-                className="ant-row"
+                className="welcome-featured-bundles"
+              >
+                <span>
+                  FEATURED BUNDLES
+                </span>
+              </div>
+              <div
+                className="welcome-featured-bundles-lg"
               >
                 <div
-                  className="ant-col-md-10 ant-col-xl-8 ant-col-xxl-6"
+                  className="ant-row"
                 >
                   <div
-                    className="bundle-card theme-blue-inverse"
+                    className="ant-col-md-10 ant-col-xl-8 ant-col-xxl-6"
                   >
                     <div
-                      className="bundle-card-title"
+                      className="bundle-card theme-blue-inverse"
                     >
-                      <a
-                        className="theme-blue-inverse"
-                        href="https://bundlem.in/bundle/1"
+                      <div
+                        className="bundle-card-title"
                       >
-                        UX Principles - Few useful and important articles for building better products and make your users satisfied
-                      </a>
-                    </div>
-                    <div
-                      className="bundle-card-actions"
-                    >
-                      <div>
-                        <span>
-                          10
-                        </span>
-                        <span>
-                           Res.
-                        </span>
-                      </div>
-                      <div>
                         <a
+                          className="theme-blue-inverse"
                           href="https://bundlem.in/bundle/1"
                         >
-                          <span>
-                            view
-                          </span>
+                          UX Principles - Few useful and important articles for building better products and make your users satisfied
                         </a>
+                      </div>
+                      <div
+                        className="bundle-card-actions"
+                      >
+                        <div>
+                          <span>
+                            10
+                          </span>
+                          <span>
+                             Res.
+                          </span>
+                        </div>
+                        <div>
+                          <a
+                            href="https://bundlem.in/bundle/1"
+                          >
+                            <span>
+                              view
+                            </span>
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div
-                  className="ant-col-md-10 ant-col-xl-8 ant-col-xxl-6"
-                >
                   <div
-                    className="bundle-card theme-blue-inverse"
+                    className="ant-col-md-10 ant-col-xl-8 ant-col-xxl-6"
                   >
                     <div
-                      className="bundle-card-title"
+                      className="bundle-card theme-blue-inverse"
                     >
-                      <a
-                        className="theme-blue-inverse"
-                        href="https://bundlem.in/bundle/2"
+                      <div
+                        className="bundle-card-title"
                       >
-                        React libraries that will save your time and efforts
-                      </a>
-                    </div>
-                    <div
-                      className="bundle-card-actions"
-                    >
-                      <div>
-                        <span>
-                          13
-                        </span>
-                        <span>
-                           Res.
-                        </span>
-                      </div>
-                      <div>
                         <a
+                          className="theme-blue-inverse"
                           href="https://bundlem.in/bundle/2"
                         >
-                          <span>
-                            view
-                          </span>
+                          React libraries that will save your time and efforts
                         </a>
+                      </div>
+                      <div
+                        className="bundle-card-actions"
+                      >
+                        <div>
+                          <span>
+                            13
+                          </span>
+                          <span>
+                             Res.
+                          </span>
+                        </div>
+                        <div>
+                          <a
+                            href="https://bundlem.in/bundle/2"
+                          >
+                            <span>
+                              view
+                            </span>
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div
-              className="welcome-featured-bundles-sm"
-            >
               <div
-                className="ant-row"
+                className="welcome-featured-bundles-sm"
               >
                 <div
-                  className=""
+                  className="ant-row"
                 >
                   <div
-                    className="bundle-card theme-blue-inverse"
+                    className=""
                   >
                     <div
-                      className="bundle-card-title"
+                      className="bundle-card theme-blue-inverse"
                     >
-                      <a
-                        className="theme-blue-inverse"
-                        href="https://bundlem.in/bundle/1"
+                      <div
+                        className="bundle-card-title"
                       >
-                        UX Principles - Few useful and important articles for building better products and make your users satisfied
-                      </a>
-                    </div>
-                    <div
-                      className="bundle-card-actions"
-                    >
-                      <div>
-                        <span>
-                          10
-                        </span>
-                        <span>
-                           Res.
-                        </span>
-                      </div>
-                      <div>
                         <a
+                          className="theme-blue-inverse"
                           href="https://bundlem.in/bundle/1"
                         >
-                          <span>
-                            view
-                          </span>
+                          UX Principles - Few useful and important articles for building better products and make your users satisfied
                         </a>
+                      </div>
+                      <div
+                        className="bundle-card-actions"
+                      >
+                        <div>
+                          <span>
+                            10
+                          </span>
+                          <span>
+                             Res.
+                          </span>
+                        </div>
+                        <div>
+                          <a
+                            href="https://bundlem.in/bundle/1"
+                          >
+                            <span>
+                              view
+                            </span>
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div
-                className="ant-row"
-              >
                 <div
-                  className=""
+                  className="ant-row"
                 >
                   <div
-                    className="bundle-card theme-blue-inverse"
+                    className=""
                   >
                     <div
-                      className="bundle-card-title"
+                      className="bundle-card theme-blue-inverse"
                     >
-                      <a
-                        className="theme-blue-inverse"
-                        href="https://bundlem.in/bundle/2"
+                      <div
+                        className="bundle-card-title"
                       >
-                        React libraries that will save your time and efforts
-                      </a>
-                    </div>
-                    <div
-                      className="bundle-card-actions"
-                    >
-                      <div>
-                        <span>
-                          13
-                        </span>
-                        <span>
-                           Res.
-                        </span>
-                      </div>
-                      <div>
                         <a
+                          className="theme-blue-inverse"
                           href="https://bundlem.in/bundle/2"
                         >
-                          <span>
-                            view
-                          </span>
+                          React libraries that will save your time and efforts
                         </a>
+                      </div>
+                      <div
+                        className="bundle-card-actions"
+                      >
+                        <div>
+                          <span>
+                            13
+                          </span>
+                          <span>
+                             Res.
+                          </span>
+                        </div>
+                        <div>
+                          <a
+                            href="https://bundlem.in/bundle/2"
+                          >
+                            <span>
+                              view
+                            </span>
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -264,13 +270,13 @@ exports[`<Welcome /> renders old snapshot 1`] = `
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
     <footer
       className="footer theme-blue"
     >
       <a
-        className="theme-blue"
+        className="footer-link theme-blue"
         href="https://github.com/kunalmhatre/bundlem/"
       >
         <span>
@@ -278,7 +284,7 @@ exports[`<Welcome /> renders old snapshot 1`] = `
         </span>
       </a>
       <a
-        className="theme-blue"
+        className="footer-link theme-blue"
         href="https://github.com/kunalmhatre/bundlem/issues/new/choose"
       >
         <span>
@@ -286,7 +292,7 @@ exports[`<Welcome /> renders old snapshot 1`] = `
         </span>
       </a>
       <a
-        className="theme-blue"
+        className="footer-link theme-blue"
         href="https://kunalmhatre.com/bundlem/"
       >
         <span>
@@ -294,7 +300,7 @@ exports[`<Welcome /> renders old snapshot 1`] = `
         </span>
       </a>
       <a
-        className="theme-blue"
+        className="footer-link theme-blue"
         href="https://kunalmhatre.com/"
       >
         <span>
