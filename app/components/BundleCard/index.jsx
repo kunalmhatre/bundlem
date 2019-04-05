@@ -10,12 +10,14 @@ const propTypes = {
   bundleID: PropTypes.number,
   bundleTitle: PropTypes.string,
   resourcesCount: PropTypes.number,
+  clickable: PropTypes.bool,
 };
 
 const defaultProps = {
   bundleID: 1,
   bundleTitle: 'Online Privacy',
   resourcesCount: 13,
+  clickable: true,
 };
 
 /**
@@ -23,14 +25,20 @@ const defaultProps = {
  * @param {number} bundleID - Unique ID given to the bundle
  * @param {string} bundleTitle - Bundle title
  * @param {number} resourcesCount - Number of resources present in the bundle
+ * @param {boolean} [clickable=true] - Sets the state of the links on the card; clickable or not
  */
-function BundleCard({ bundleID, bundleTitle, resourcesCount }) {
+function BundleCard({
+  bundleID,
+  bundleTitle,
+  resourcesCount,
+  clickable,
+}) {
   return (
     <div className="bundle-card theme-blue-inverse">
       <div className="bundle-card-title">
         <a
           className="theme-blue-inverse"
-          href={`https://bundlem.in/bundle/${bundleID}`}
+          href={clickable ? `https://bundlem.in/bundle/${bundleID}` : null}
         >
           { bundleTitle }
         </a>
@@ -41,7 +49,7 @@ function BundleCard({ bundleID, bundleTitle, resourcesCount }) {
           <FormattedMessage {...messages.res} />
         </div>
         <div>
-          <a href={`https://bundlem.in/bundle/${bundleID}`}>
+          <a href={clickable ? `https://bundlem.in/bundle/${bundleID}` : null}>
             <FormattedMessage {...messages.view} />
           </a>
         </div>

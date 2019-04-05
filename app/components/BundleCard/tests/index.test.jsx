@@ -20,6 +20,18 @@ describe('<BundleCard />', () => {
     ).toBe(`https://bundlem.in/bundle/${testProps.bundleID}`);
   });
 
+  it('renders card with no link for bundle title', () => {
+    expect(
+      mountWithIntl(
+        <BundleCard
+          {...testProps}
+          clickable={false}
+        />,
+      ).find('div.bundle-card-title a')
+        .prop('href'),
+    ).toBe(null);
+  });
+
   it('renders card with correct link for view action', () => {
     expect(
       mountWithIntl(
@@ -27,6 +39,18 @@ describe('<BundleCard />', () => {
       ).find('div.bundle-card-actions a')
         .prop('href'),
     ).toBe(`https://bundlem.in/bundle/${testProps.bundleID}`);
+  });
+
+  it('renders card with no link for view action', () => {
+    expect(
+      mountWithIntl(
+        <BundleCard
+          {...testProps}
+          clickable={false}
+        />,
+      ).find('div.bundle-card-actions a')
+        .prop('href'),
+    ).toBe(null);
   });
 
   it('renders card with correct title', () => {
