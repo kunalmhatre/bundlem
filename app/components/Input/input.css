@@ -1,0 +1,32 @@
+.input {
+    font-weight: 700;
+}
+
+.input-label {
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    margin-bottom: 0.4rem;
+}
+
+.input-field {
+    width: 100%;
+    border-bottom: 2px solid;
+    font-size: 0.9rem;
+    font-weight: 700;
+    outline: none;
+}
+
+.input-error-message {
+    height: 2rem;
+    padding: 0.5rem 0 0.5rem 0;
+    font-size: 0.9rem;
+}
+
+@media only screen and (max-width: 767px) {
+    .input-label {
+        font-size: 0.9rem;
+    }
+    .input, .input-error-message {
+        font-size: 0.8rem;
+    }
+}
