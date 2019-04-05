@@ -17,6 +17,8 @@ const propTypes = {
   ]),
   highlight: PropTypes.bool,
   onClick: PropTypes.func,
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
 };
 
 const defaultProps = {
@@ -24,6 +26,8 @@ const defaultProps = {
   size: 'default',
   highlight: true,
   onClick: () => null,
+  className: null,
+  disabled: false,
 };
 
 /**
@@ -32,18 +36,23 @@ const defaultProps = {
  * @param {string} [size=default] - Set width for the button (default or block)
  * @param {boolean} [highlight=true] - Highlight button (true or false)
  * @param {function} onClick - On click handler function
+ * @param {string} className - Extra class(es) to be applied on button
+ * @param {boolean} [disabled=false] - Sets disable attribute for the button
  */
 function Button({
   text,
   size,
   highlight,
   onClick,
+  className,
+  disabled,
 }) {
   const classes = classNames(
     { button: true },
     { 'button-block': size === 'block' },
     { 'theme-blue': !highlight },
     { 'theme-blue-inverse theme-blue-border': highlight },
+    { [className]: className },
   );
 
   return (
@@ -51,6 +60,7 @@ function Button({
       className={classes}
       type="button"
       onClick={onClick}
+      disabled={disabled}
     >
       <FormattedMessage {...text} />
     </button>
