@@ -8,6 +8,9 @@ import BundleCard from '../BundleCard';
 import messages from './messages';
 import './welcome.css';
 
+/**
+ * Welcome page
+ */
 function Welcome() {
   const responsiveDescription = {
     xs: 24,
