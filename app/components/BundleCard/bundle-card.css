@@ -5,18 +5,19 @@
     border-radius: 3px;
     font-weight: 700;
     font-size: 0.9rem;
+}
 
-    .bundle-card-title {
-        padding: 1.2rem 1rem 1.2rem 1rem;
-    }
-    
-    .bundle-card-actions {
-        display: flex;
-        padding: 0.7rem 0 0.7rem 0;
-        justify-content: space-around;
-        border-top: 1px solid;
-        text-transform: uppercase;
-    }
+.bundle-card-title {
+    padding: 1.2rem 1rem 1.2rem 1rem;
+    word-break: break-all;
+}
+
+.bundle-card-actions {
+    display: flex;
+    padding: 0.7rem 0 0.7rem 0;
+    justify-content: space-around;
+    border-top: 1px solid;
+    text-transform: uppercase;
 }
 
 @media only screen and (max-width: 991px) {
