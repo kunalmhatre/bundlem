@@ -1,0 +1,185 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Create /> renders successfully 1`] = `
+<div
+  className="ant-row page-layout theme-blue"
+>
+  <div
+    className="ant-col-22 ant-col-offset-1"
+  >
+    <div
+      className="page-layout-header-content"
+    >
+      <header
+        className="header theme-blue"
+      >
+        <span>
+          Bundlem
+        </span>
+      </header>
+      <section
+        className="page-layout-content"
+      >
+        <div
+          className="ant-row"
+        >
+          <div
+            className="ant-col-xs-24 ant-col-sm-24 ant-col-md-24 ant-col-lg-10 ant-col-xl-10 ant-col-xxl-10"
+          >
+            <div
+              className="create-title"
+            >
+              <span>
+                Set a title for your Bundle
+              </span>
+            </div>
+            <form>
+              <div
+                className="input theme-blue"
+              >
+                <label
+                  htmlFor="title"
+                >
+                  <div
+                    className="input-label"
+                  >
+                    <span>
+                      TITLE
+                    </span>
+                  </div>
+                  <input
+                    autoFocus={true}
+                    className="input-field"
+                    id="title"
+                    name="title"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Enter title"
+                    value=""
+                  />
+                </label>
+                <div
+                  className="input-error-message theme-blue-error-message"
+                />
+              </div>
+              <div
+                className="input theme-blue"
+              >
+                <label
+                  htmlFor="description"
+                >
+                  <div
+                    className="input-label"
+                  >
+                    <span>
+                      DESCRIPTION
+                    </span>
+                  </div>
+                  <input
+                    autoFocus={false}
+                    className="input-field"
+                    id="description"
+                    name="description"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Enter more description (Optional)"
+                    value=""
+                  />
+                </label>
+                <div
+                  className="input-error-message theme-blue-error-message"
+                />
+              </div>
+              <button
+                className="button theme-blue-inverse theme-blue-border create-button"
+                disabled={true}
+                onClick={[Function]}
+                type="button"
+              >
+                <span>
+                  NEXT
+                </span>
+              </button>
+            </form>
+          </div>
+          <div
+            className="ant-col-14 create-bundle-card"
+          >
+            <div
+              className="bundle-card theme-blue-inverse"
+            >
+              <div
+                className="bundle-card-title"
+              >
+                <a
+                  className="theme-blue-inverse"
+                  href={null}
+                >
+                  Bundle
+                </a>
+              </div>
+              <div
+                className="bundle-card-actions"
+              >
+                <div>
+                  <span>
+                    0
+                  </span>
+                  <span>
+                     Res.
+                  </span>
+                </div>
+                <div>
+                  <a
+                    href={null}
+                  >
+                    <span>
+                      view
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <footer
+      className="footer theme-blue"
+    >
+      <a
+        className="footer-link theme-blue"
+        href="https://github.com/kunalmhatre/bundlem/"
+      >
+        <span>
+          source
+        </span>
+      </a>
+      <a
+        className="footer-link theme-blue"
+        href="https://github.com/kunalmhatre/bundlem/issues/new/choose"
+      >
+        <span>
+          REPORT ISSUE
+        </span>
+      </a>
+      <a
+        className="footer-link theme-blue"
+        href="https://kunalmhatre.com/bundlem/"
+      >
+        <span>
+          STORY
+        </span>
+      </a>
+      <a
+        className="footer-link theme-blue"
+        href="https://kunalmhatre.com/"
+      >
+        <span>
+          AUTHOR
+        </span>
+      </a>
+    </footer>
+  </div>
+</div>
+`;
