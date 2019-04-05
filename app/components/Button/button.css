@@ -9,8 +9,10 @@
     text-transform: uppercase;
     cursor: pointer;
     &:hover {
-        font-weight: initial;
         opacity: 0.95;
+    }
+    &:disabled {
+        cursor: not-allowed;
     }
 }
 
