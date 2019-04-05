@@ -38,7 +38,7 @@ function Footer({ linkTitles, links }) {
       {
         linkTitles.map((item, index) => (
           <a
-            className="theme-blue"
+            className="footer-link theme-blue"
             key={shortid.generate()}
             href={links[index]}
           >
