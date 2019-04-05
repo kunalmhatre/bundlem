@@ -10,7 +10,7 @@
 
 .theme-blue-inverse {
     background: #FFFFFF;
-    color: #004392
+    color: #004392;
 }
 
 /* Dark theme */
@@ -25,5 +25,14 @@
 
 .theme-dark-inverse {
     background: #FFFFFF;
-    color: #000000
+    color: #000000;
+}
+
+/* Common elements */
+.theme-blue-error-message, .theme-dark-error-message {
+    color: #E87E7E;
+}
+
+.theme-blue-error-border, .theme-dark-error-border {
+    border-color: #E87E7E;
 }
