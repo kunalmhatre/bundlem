@@ -24,7 +24,7 @@
 
 @media only screen and (max-width: 767px) {
     .input-label {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
     .input, .input-error-message {
         font-size: 0.8rem;
