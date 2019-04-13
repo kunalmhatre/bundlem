@@ -34,12 +34,12 @@ const defaultProps = {
 
 /**
  * Form for Create page
- * @param {object} values - BY FORMIK HOC (contains values for the input fields)
- * @param {object} errors - BY FORMIK HOC (contains errors for the input fields)
- * @param {object} touched - BY FORMIK HOC (states whether specific input field was touched)
- * @param {function} handleChange - BY FORMIK HOC (on change handler function)
- * @param {function} handleBlur - BY FORMIK HOC (on blur handler function)
- * @param {boolean} isValid - BY FORMIK HOC (states whether form is valid for submission)
+ * @param {object} values - By Formik HOC (contains values for the input fields)
+ * @param {object} errors - By Formik HOC (contains errors for the input fields)
+ * @param {object} touched - By Formik HOC (states whether specific input field was touched)
+ * @param {function} handleChange - By Formik HOC (on change handler function)
+ * @param {function} handleBlur - By Formik HOC (on blur handler function)
+ * @param {boolean} isValid - By Formik HOC (states whether form is valid for submission)
  * @param {function} onSubmit - On submit handler function
  */
 function BaseForm({
@@ -55,7 +55,7 @@ function BaseForm({
     xs: 24,
     sm: 24,
     md: 24,
-    lg: 10,
+    lg: 24,
     xl: 10,
     xxl: 10,
   };
@@ -87,7 +87,7 @@ function BaseForm({
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.description}
-            showError={!!(errors.description)}
+            showError={!!errors.description}
             errorMessage={messages[errors.description]}
           />
           <Button
@@ -102,11 +102,15 @@ function BaseForm({
         className="create-bundle-card"
         span={14}
       >
-        <BundleCard
-          bundleTitle={values.title || 'Bundle'}
-          resourcesCount={0}
-          clickable={false}
-        />
+        {
+          values.title ? (
+            <BundleCard
+              bundleTitle={values.title}
+              resourcesCount={0}
+              clickable={false}
+            />
+          ) : null
+        }
       </Col>
     </Row>
   );
