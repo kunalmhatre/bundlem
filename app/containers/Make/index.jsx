@@ -10,7 +10,7 @@ import { FormattedMessage } from 'react-intl';
 import Button from '../../components/Button';
 import messages from './messages';
 import PageLayout from '../../components/PageLayout';
-import Form from './Form';
+import Form, { yupValidationSchema } from './Form';
 import injectReducer from '../../utils/injectReducer';
 import reducer from './reducer';
 import './make.css';
@@ -86,8 +86,7 @@ function Make({
 
   const previousResource = (resource) => {
     /* istanbul ignore else */
-    if (resource.resourceType && resource.link) {
-      // Add after validating
+    if (yupValidationSchema.isValidSync(resource)) {
       addResource(currentResource, resource);
     }
 

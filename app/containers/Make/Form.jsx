@@ -197,6 +197,29 @@ function BaseForm({
 BaseForm.propTypes = propTypes;
 BaseForm.defaultProps = defaultProps;
 
+const yupValidationSchema = yup.object().shape({
+  resourceType: yup
+    .mixed()
+    .oneOf([
+      'WEB PAGE',
+      'VIDEO',
+      'DOCUMENT',
+      'IMAGE',
+      'OTHER',
+    ])
+    .required('errorTypeInputEmpty'),
+  link: yup
+    .string()
+    .url('errorLinkInputInvalid')
+    .required('errorLinkInputEmpty'),
+  title: yup
+    .string()
+    .max(120, 'errorTitleInputLength'),
+  notes: yup
+    .string()
+    .max(1024, 'errorNotesInputLength'),
+});
+
 const Form = withFormik({
   enableReinitialize: true,
   mapPropsToValues({
@@ -212,31 +235,11 @@ const Form = withFormik({
       notes: notes || '',
     };
   },
-  validationSchema: yup.object().shape({
-    resourceType: yup
-      .mixed()
-      .oneOf([
-        'WEB PAGE',
-        'VIDEO',
-        'DOCUMENT',
-        'IMAGE',
-        'OTHER',
-      ])
-      .required('errorTypeInputEmpty'),
-    link: yup
-      .string()
-      .url('errorLinkInputInvalid')
-      .required('errorLinkInputEmpty'),
-    title: yup
-      .string()
-      .max(120, 'errorTitleInputLength'),
-    notes: yup
-      .string()
-      .max(1024, 'errorNotesInputLength'),
-  }),
+  validationSchema: yupValidationSchema,
   isInitialValid({ resourceType, link }) {
     return !!(resourceType && link);
   },
 })(BaseForm);
 
 export default Form;
+export { yupValidationSchema };
