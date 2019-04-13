@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Create /> renders successfully 1`] = `
+exports[`<Create /> renders old snapshot 1`] = `
 <div
   className="ant-row page-layout theme-blue"
 >
@@ -24,7 +24,7 @@ exports[`<Create /> renders successfully 1`] = `
           className="ant-row"
         >
           <div
-            className="ant-col-xs-24 ant-col-sm-24 ant-col-md-24 ant-col-lg-10 ant-col-xl-10 ant-col-xxl-10"
+            className="ant-col-xs-24 ant-col-sm-24 ant-col-md-24 ant-col-lg-24 ant-col-xl-10 ant-col-xxl-10"
           >
             <div
               className="create-title"
@@ -99,48 +99,13 @@ exports[`<Create /> renders successfully 1`] = `
                 <span>
                   NEXT
                 </span>
+                
               </button>
             </form>
           </div>
           <div
             className="ant-col-14 create-bundle-card"
-          >
-            <div
-              className="bundle-card theme-blue-inverse"
-            >
-              <div
-                className="bundle-card-title"
-              >
-                <a
-                  className="theme-blue-inverse"
-                  href={null}
-                >
-                  Bundle
-                </a>
-              </div>
-              <div
-                className="bundle-card-actions"
-              >
-                <div>
-                  <span>
-                    0
-                  </span>
-                  <span>
-                     Res.
-                  </span>
-                </div>
-                <div>
-                  <a
-                    href={null}
-                  >
-                    <span>
-                      view
-                    </span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+          />
         </div>
       </section>
     </div>
