@@ -11,6 +11,7 @@ const propTypes = {
     id: PropTypes.string.isRequired,
     defaultMessage: PropTypes.string.isRequired,
   }),
+  extraText: PropTypes.string,
   size: PropTypes.oneOf([
     'default',
     'block',
@@ -23,6 +24,7 @@ const propTypes = {
 
 const defaultProps = {
   text: messages.defaultButtonText,
+  extraText: '',
   size: 'default',
   highlight: true,
   onClick: () => null,
@@ -33,6 +35,7 @@ const defaultProps = {
 /**
  * Button component
  * @param {object} text - Button's text (react-intl message object)
+ * @param {string} extraText - Extra text to be appended
  * @param {string} [size=default] - Set width for the button (default or block)
  * @param {boolean} [highlight=true] - Highlight button (true or false)
  * @param {function} onClick - On click handler function
@@ -41,6 +44,7 @@ const defaultProps = {
  */
 function Button({
   text,
+  extraText,
   size,
   highlight,
   onClick,
@@ -63,6 +67,7 @@ function Button({
       disabled={disabled}
     >
       <FormattedMessage {...text} />
+      { extraText }
     </button>
   );
 }
