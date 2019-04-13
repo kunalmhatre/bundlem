@@ -9,7 +9,7 @@ import createBundleAction from '../actions';
 describe('<Create />', () => {
   const store = configureStore({}, history);
 
-  it('renders successfully', () => {
+  it('renders old snapshot', () => {
     expect(
       createComponentWithIntl(
         <Provider store={store}>

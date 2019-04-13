@@ -5,52 +5,35 @@ import {
   makeSelectDescription,
 } from '../selectors';
 
-describe('selectCreateDomain', () => {
-  it('should select the create domain from the state', () => {
-    const createState = fromJS({
+describe('Create selectors', () => {
+  const mockedState = fromJS({
+    create: {
       title: 'testTitle',
       description: 'testDescription',
-    });
-    const mockedState = fromJS({
-      create: createState,
-    });
-
-    expect(
-      selectCreateDomain(mockedState),
-    ).toEqual(createState);
+    },
   });
-});
 
-describe('makeSelectTitle', () => {
-  const titleSelector = makeSelectTitle();
-
-  it('should select the title from the state', () => {
-    const title = 'testTitle';
-    const mockedState = fromJS({
-      create: {
-        title,
-      },
+  describe('selectCreateDomain', () => {
+    it('should select the create domain from the state', () => {
+      expect(
+        selectCreateDomain(mockedState),
+      ).toEqual(mockedState.get('create'));
     });
-
-    expect(
-      titleSelector(mockedState),
-    ).toEqual(title);
   });
-});
 
-describe('makeSelectDescription', () => {
-  const descriptionSelector = makeSelectDescription();
-
-  it('should select the description from the state', () => {
-    const description = 'testDescription';
-    const mockedState = fromJS({
-      create: {
-        description,
-      },
+  describe('makeSelectTitle', () => {
+    it('should select the title from the state', () => {
+      expect(
+        makeSelectTitle()(mockedState),
+      ).toEqual(mockedState.getIn(['create', 'title']));
     });
+  });
 
-    expect(
-      descriptionSelector(mockedState),
-    ).toEqual(description);
+  describe('makeSelectDescription', () => {
+    it('should select the description from the state', () => {
+      expect(
+        makeSelectDescription()(mockedState),
+      ).toEqual(mockedState.getIn(['create', 'description']));
+    });
   });
 });
