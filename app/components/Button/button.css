@@ -22,8 +22,16 @@
 
 @media only screen and (max-width: 767px) {
     .button {
-        min-width: 6.5rem;
-        padding: 0.3rem;
-        font-size: 0.75rem;
+        min-width: 6rem;
+        padding: 0.2rem;
+        font-size: 0.65rem;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .button {
+        min-width: 5rem;
+        padding: 0.2rem;
+        font-size: 0.5rem;
     }
 }
