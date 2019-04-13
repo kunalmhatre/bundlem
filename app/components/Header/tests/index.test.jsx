@@ -26,4 +26,16 @@ describe('<Header />', () => {
         .text(),
     ).toBe('Bundlem');
   });
+
+  it('renders title in string format', () => {
+    expect(
+      mountWithIntl(
+        <Header
+          setString
+          headerTitleString="testTitle"
+        />,
+      ).find('header')
+        .text(),
+    ).toBe('testTitle');
+  });
 });

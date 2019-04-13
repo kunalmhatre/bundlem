@@ -15,6 +15,8 @@ const propTypes = {
     id: PropTypes.string,
     defaultMessage: PropTypes.string,
   }),
+  headerTitleString: PropTypes.string,
+  setString: PropTypes.bool,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
@@ -25,19 +27,25 @@ const defaultProps = {
   setHeader: true,
   setFooter: true,
   headerTitle: headerMessages.defaultHeaderTitle,
+  headerTitleString: 'Bundlem',
+  setString: false,
 };
 
 /**
  * Layout for all the pages used in the app
  * @param {boolean} [setHeader=true] - Renders header when set to true
  * @param {boolean} [setFooter=true] - Renders footer when set to true
- * @param {object} [headerTitle=Bundlem] - Header title to be shown (react-intl message object)
+ * @param {object} headerTitle - Header title to be shown (react-intl message object)
+ * @param {string} [headerTitleString=Bundlem] - Header title in string
+ * @param {boolean} [setString=false] - States whether the header title is in string format
  * @param {object} children - React component to render as a child
  */
 function PageLayout({
   setHeader,
   setFooter,
   headerTitle,
+  headerTitleString,
+  setString,
   children,
 }) {
   const footerProps = {
@@ -59,7 +67,15 @@ function PageLayout({
     <Row className="page-layout theme-blue">
       <Col span={22} offset={1}>
         <div className="page-layout-header-content">
-          {setHeader ? <Header headerTitle={headerTitle} /> : null}
+          {
+            setHeader ? (
+              <Header
+                headerTitle={headerTitle}
+                headerTitleString={headerTitleString}
+                setString={setString}
+              />
+            ) : null
+          }
           {<section className="page-layout-content">{children}</section>}
         </div>
         {setFooter ? <Footer {...footerProps} /> : null}
