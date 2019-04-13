@@ -64,6 +64,7 @@ exports[`<Welcome /> renders old snapshot 1`] = `
                 <span>
                   CREATE
                 </span>
+                
               </button>
               <button
                 className="button theme-blue"
@@ -74,6 +75,7 @@ exports[`<Welcome /> renders old snapshot 1`] = `
                 <span>
                   SEARCH
                 </span>
+                
               </button>
             </div>
           </div>
