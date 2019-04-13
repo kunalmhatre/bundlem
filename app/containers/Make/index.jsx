@@ -125,7 +125,7 @@ function Make({
       />
       <PageLayout
         setString
-        headerTitleString="Bundlem"
+        headerTitleString={title}
       >
         <Row>
           <Col {...responsiveForm}>
