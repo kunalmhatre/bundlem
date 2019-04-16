@@ -1,0 +1,45 @@
+.robot-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10rem;
+}
+
+.robot-title {
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 1rem;
+}
+
+.robot-separator {
+    width: 15rem;
+    margin: 2rem 0 2rem 0;
+}
+
+.robot-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.robot-messages-loader {
+    margin-bottom: 0.9rem; 
+}
+
+@media only screen and (max-width: 991px) {
+    .robot-content {
+        margin-top: 3rem;
+    }
+    .robot-title {
+        font-size: 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .robot-title {
+        font-size: 1.3rem;
+    }
+}
