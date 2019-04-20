@@ -13,6 +13,15 @@
     color: #004392;
 }
 
+a.theme-blue {
+    &:active, &:hover {
+        color: #FFFFFF;
+    }
+    &:focus {
+        text-decoration: none;
+    }
+}
+
 /* Dark theme */
 .theme-dark {
     background: #000000;
@@ -26,6 +35,15 @@
 .theme-dark-inverse {
     background: #FFFFFF;
     color: #000000;
+}
+
+a.theme-dark {
+    &:active, &:hover {
+        color: #FFFFFF;
+    }
+    &:focus {
+        text-decoration: none;
+    }
 }
 
 /* Common elements */
