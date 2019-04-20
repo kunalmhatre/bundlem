@@ -25,7 +25,8 @@ const defaultProps = {
 
 /**
  * RobotContent component
- * Note: This component is redundant and needs to be moved into Robot container
+ * NOTE: The code for this component belongs in Robot container and hence
+ * this component is redundant. It is created only to make the Robot container easily testable.
  * @param {boolean} isVerifyingToken - States whether the verification is in progress
  * @param {boolean} isPublishingBundle - States whether the bundle is getting published
  * @param {boolean} isBundlePublished - States whether the bundle is published

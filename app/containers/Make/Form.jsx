@@ -9,25 +9,7 @@ import Button from '../../components/Button';
 import Input from '../../components/Input';
 import RadioInput from '../../components/RadioInput';
 
-const formikValuesPropType = PropTypes.shape({
-  resourceType: PropTypes.string,
-  link: PropTypes.string,
-  title: PropTypes.string,
-  notes: PropTypes.string,
-});
-
 const propTypes = {
-  values: formikValuesPropType.isRequired,
-  errors: formikValuesPropType.isRequired,
-  touched: PropTypes.shape({
-    resourceType: PropTypes.bool,
-    link: PropTypes.bool,
-    title: PropTypes.bool,
-    notes: PropTypes.bool,
-  }).isRequired,
-  handleChange: PropTypes.func.isRequired,
-  handleBlur: PropTypes.func.isRequired,
-  isValid: PropTypes.bool.isRequired,
   currentResource: PropTypes.number,
   nextResource: PropTypes.func,
   previousResource: PropTypes.func,
@@ -45,12 +27,6 @@ const defaultProps = {
 
 /**
  * Form for Make page
- * @param {object} values - By Formik HOC (contains values for the input fields)
- * @param {object} errors - By Formik HOC (contains errors for the input fields)
- * @param {object} touched - By Formik HOC (states whether specific input field was touched)
- * @param {function} handleChange - By Formik HOC (on change handler function)
- * @param {function} handleBlur - By Formik HOC (on blur handler function)
- * @param {boolean} isValid - By Formik HOC (states whether form is valid for submission)
  * @param {number} [currentResource=0] - Current resource number
  * @param {function} nextResource - Function for traversing to next resource
  * @param {function} previousResource - Function for traversing to previous resource
@@ -58,6 +34,7 @@ const defaultProps = {
  * @param {boolean} [isAddedResource=false] - States whether the current resource is already added
  */
 function BaseForm({
+  /* eslint-disable react/prop-types */ // formik props
   values,
   errors,
   touched,
