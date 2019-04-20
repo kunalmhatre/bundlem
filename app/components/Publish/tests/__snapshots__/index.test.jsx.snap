@@ -13,9 +13,15 @@ exports[`<Publish /> renders old snapshot 1`] = `
       <header
         className="header theme-blue"
       >
-        <span>
-          Bundlem
-        </span>
+        <a
+          className="theme-blue"
+          href="/"
+          onClick={[Function]}
+        >
+          <span>
+            Bundlem
+          </span>
+        </a>
       </header>
       <section
         className="page-layout-content"

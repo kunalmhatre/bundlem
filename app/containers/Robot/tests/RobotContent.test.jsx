@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
 import RobotContent from '../RobotContent';
 import Publish from '../../../components/Publish';
@@ -15,16 +16,22 @@ describe('<RobotContent />', () => {
   };
 
   it('renders successfully', () => {
-    mountWithIntl(<RobotContent {...defaultProps} />);
+    mountWithIntl(
+      <BrowserRouter>
+        <RobotContent {...defaultProps} />
+      </BrowserRouter>,
+    );
   });
 
   it('renders Publish component after publishing bundle', () => {
     expect(
       mountWithIntl(
-        <RobotContent
-          {...defaultProps}
-          isBundlePublished
-        />,
+        <BrowserRouter>
+          <RobotContent
+            {...defaultProps}
+            isBundlePublished
+          />
+        </BrowserRouter>,
       ).find(Publish)
         .length,
     ).toBe(1);
@@ -33,10 +40,12 @@ describe('<RobotContent />', () => {
   it('renders RobotMessage while token verification is in progress', () => {
     expect(
       mountWithIntl(
-        <RobotContent
-          {...defaultProps}
-          isVerifyingToken
-        />,
+        <BrowserRouter>
+          <RobotContent
+            {...defaultProps}
+            isVerifyingToken
+          />
+        </BrowserRouter>,
       ).find(RobotMessage)
         .props()
         .message,
@@ -46,10 +55,12 @@ describe('<RobotContent />', () => {
   it('renders RobotMessage while publishing bundle', () => {
     expect(
       mountWithIntl(
-        <RobotContent
-          {...defaultProps}
-          isPublishingBundle
-        />,
+        <BrowserRouter>
+          <RobotContent
+            {...defaultProps}
+            isPublishingBundle
+          />
+        </BrowserRouter>,
       ).find(RobotMessage)
         .props()
         .message,
@@ -59,10 +70,12 @@ describe('<RobotContent />', () => {
   it('renders RobotMessage when there is an API error', () => {
     expect(
       mountWithIntl(
-        <RobotContent
-          {...defaultProps}
-          error="error500"
-        />,
+        <BrowserRouter>
+          <RobotContent
+            {...defaultProps}
+            error="error500"
+          />
+        </BrowserRouter>,
       ).find(RobotMessage)
         .props()
         .message,

@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
 import { mountWithIntl } from '../../../../internals/testing/reactIntlHelperFunction';
 import PageLayout from '../index';
@@ -10,9 +11,11 @@ describe('<PageLayout />', () => {
   it('renders <Header /> component', () => {
     expect(
       mountWithIntl(
-        <PageLayout setHeader>
-          <TestComponent />
-        </PageLayout>,
+        <BrowserRouter>
+          <PageLayout setHeader>
+            <TestComponent />
+          </PageLayout>
+        </BrowserRouter>,
       ).find('Header')
         .length,
     ).toBe(1);
@@ -21,9 +24,11 @@ describe('<PageLayout />', () => {
   it('renders <section /> component', () => {
     expect(
       mountWithIntl(
-        <PageLayout>
-          <TestComponent />
-        </PageLayout>,
+        <BrowserRouter>
+          <PageLayout>
+            <TestComponent />
+          </PageLayout>
+        </BrowserRouter>,
       ).find('section')
         .length,
     ).toBe(1);
@@ -32,9 +37,11 @@ describe('<PageLayout />', () => {
   it('renders child component', () => {
     expect(
       mountWithIntl(
-        <PageLayout>
-          <TestComponent />
-        </PageLayout>,
+        <BrowserRouter>
+          <PageLayout>
+            <TestComponent />
+          </PageLayout>
+        </BrowserRouter>,
       ).find(TestComponent)
         .length,
     ).toBe(1);
@@ -43,9 +50,11 @@ describe('<PageLayout />', () => {
   it('renders <footer /> component', () => {
     expect(
       mountWithIntl(
-        <PageLayout setFooter>
-          <TestComponent />
-        </PageLayout>,
+        <BrowserRouter>
+          <PageLayout setFooter>
+            <TestComponent />
+          </PageLayout>
+        </BrowserRouter>,
       ).find('footer')
         .length,
     ).toBe(1);
@@ -54,9 +63,11 @@ describe('<PageLayout />', () => {
   it('does not render <Header /> component', () => {
     expect(
       mountWithIntl(
-        <PageLayout setHeader={false}>
-          <TestComponent />
-        </PageLayout>,
+        <BrowserRouter>
+          <PageLayout setHeader={false}>
+            <TestComponent />
+          </PageLayout>
+        </BrowserRouter>,
       ).find(Header)
         .length,
     ).toBe(0);
@@ -65,9 +76,11 @@ describe('<PageLayout />', () => {
   it('does not render <footer /> component', () => {
     expect(
       mountWithIntl(
-        <PageLayout setFooter={false}>
-          <TestComponent />
-        </PageLayout>,
+        <BrowserRouter>
+          <PageLayout setFooter={false}>
+            <TestComponent />
+          </PageLayout>
+        </BrowserRouter>,
       ).find('footer')
         .length,
     ).toBe(0);

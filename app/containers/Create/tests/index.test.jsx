@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import createComponentWithIntl from '../../../../internals/testing/createComponentWithIntl';
 import history from '../../../utils/history';
@@ -13,7 +14,9 @@ describe('<Create />', () => {
     expect(
       createComponentWithIntl(
         <Provider store={store}>
-          <Create />
+          <BrowserRouter>
+            <Create />
+          </BrowserRouter>
         </Provider>,
       ).toJSON(),
     ).toMatchSnapshot();

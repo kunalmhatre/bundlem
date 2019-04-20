@@ -13,15 +13,21 @@ exports[`<Create /> renders old snapshot 1`] = `
       <header
         className="header theme-blue"
       >
-        <span>
-          Bundlem
-        </span>
+        <a
+          className="theme-blue"
+          href="/"
+          onClick={[Function]}
+        >
+          <span>
+            Bundlem
+          </span>
+        </a>
       </header>
       <section
         className="page-layout-content"
       >
         <div
-          className="ant-row"
+          className="ant-row create-row"
         >
           <div
             className="ant-col-xs-24 ant-col-sm-24 ant-col-md-24 ant-col-lg-24 ant-col-xl-10 ant-col-xxl-10"

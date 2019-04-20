@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { mountWithIntl } from '../../../../internals/testing/reactIntlHelperFunction';
 import history from '../../../utils/history';
@@ -16,7 +17,9 @@ describe('<Make />', () => {
   it('renders successfully', () => {
     mountWithIntl(
       <Provider store={store}>
-        <Make />
+        <BrowserRouter>
+          <Make />
+        </BrowserRouter>
       </Provider>,
     );
   });
@@ -63,7 +66,9 @@ describe('<Make />', () => {
   describe('Filling form', () => {
     const tree = mountWithIntl(
       <Provider store={store}>
-        <Make />
+        <BrowserRouter>
+          <Make />
+        </BrowserRouter>
       </Provider>,
     );
     const resourceTypeField = tree.find('input#radio-input-0');

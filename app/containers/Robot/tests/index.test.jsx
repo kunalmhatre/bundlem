@@ -1,5 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 
 import history from '../../../utils/history';
 import configureStore from '../../../configureStore';
@@ -13,7 +14,9 @@ describe('<Robot />', () => {
   it('renders successfully', () => {
     mountWithIntl(
       <Provider store={store}>
-        <Robot />
+        <BrowserRouter>
+          <Robot />
+        </BrowserRouter>
       </Provider>,
     );
   });
