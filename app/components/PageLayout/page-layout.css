@@ -7,16 +7,21 @@
 }
 
 .page-layout-content {
+    display: flex;
+    flex-grow: 1;
+    overflow: auto;
     min-height: 100%;
+    flex-direction: column;
 }
 
 .page-layout-header-content {
-    min-height: 100%;
-    margin-bottom: -60px;
+    display: flex;
+    flex-direction: column;
+    min-height: 93%;
 
     &::after {
         content: "";
         display: block;
-        height: 60px;
+        height: 7%;
     }
 }
