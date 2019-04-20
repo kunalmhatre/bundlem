@@ -1,7 +1,7 @@
 import React from 'react';
 import numeral from 'numeral';
 
-import { mountWithIntl } from '../../../../internals/testing/reactIntlHelperFunction';
+import { mountWithIntl } from '../../../utils/reactIntlHelperFunction';
 import BundleCard from '../index';
 import { domain } from '../../../utils/apis';
 

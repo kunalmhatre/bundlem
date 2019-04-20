@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import history from '../../../utils/history';
 import configureStore from '../../../configureStore';
-import { mountWithIntl } from '../../../../internals/testing/reactIntlHelperFunction';
+import { mountWithIntl } from '../../../utils/reactIntlHelperFunction';
 import Bundle, { mapDispatchToProps } from '../index';
 import {
   setBundleAction,

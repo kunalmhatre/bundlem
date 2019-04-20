@@ -1,7 +1,7 @@
 import React from 'react';
 
-import createComponentWithIntl from '../../../../internals/testing/createComponentWithIntl';
-import { mountWithIntl } from '../../../../internals/testing/reactIntlHelperFunction';
+import createComponentWithIntl from '../../../utils/createComponentWithIntl';
+import { mountWithIntl } from '../../../utils/reactIntlHelperFunction';
 import ResourceInfo from '../index';
 
 describe('<ResourceInfo />', () => {

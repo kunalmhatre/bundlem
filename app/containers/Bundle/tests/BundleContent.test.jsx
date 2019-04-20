@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import BundleInfo from '../../../components/BundleInfo';
 import BundleContent from '../BundleContent';
-import { mountWithIntl } from '../../../../internals/testing/reactIntlHelperFunction';
+import { mountWithIntl } from '../../../utils/reactIntlHelperFunction';
 
 describe('<BundleContent />', () => {
   it('calls fetchBundle when bundleID is provided as a URL parameter', () => {

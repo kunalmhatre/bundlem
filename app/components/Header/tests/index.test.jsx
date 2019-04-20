@@ -1,8 +1,7 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { BrowserRouter, Link } from 'react-router-dom';
 
-import { mountWithIntl } from '../../../../internals/testing/reactIntlHelperFunction';
+import { mountWithIntl } from '../../../utils/reactIntlHelperFunction';
 import Header from '../index';
 
 describe('<Header />', () => {

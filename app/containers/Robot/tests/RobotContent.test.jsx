@@ -5,7 +5,7 @@ import RobotContent from '../RobotContent';
 import Publish from '../../../components/Publish';
 import RobotMessage from '../RobotMessage';
 import messages from '../messages';
-import { mountWithIntl } from '../../../../internals/testing/reactIntlHelperFunction';
+import { mountWithIntl } from '../../../utils/reactIntlHelperFunction';
 
 describe('<RobotContent />', () => {
   const defaultProps = {

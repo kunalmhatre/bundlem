@@ -1,6 +1,6 @@
 import React from 'react';
 
-import createComponentWithIntl from '../../../../internals/testing/createComponentWithIntl';
+import createComponentWithIntl from '../../../utils/createComponentWithIntl';
 import Welcome from '../index';
 
 describe('<Welcome />', () => {

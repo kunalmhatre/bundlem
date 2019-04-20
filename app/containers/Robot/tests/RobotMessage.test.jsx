@@ -1,7 +1,7 @@
 import React from 'react';
 import { Icon } from 'antd';
 
-import { mountWithIntl } from '../../../../internals/testing/reactIntlHelperFunction';
+import { mountWithIntl } from '../../../utils/reactIntlHelperFunction';
 import RobotMessage from '../RobotMessage';
 
 describe('<RobotMessage />', () => {

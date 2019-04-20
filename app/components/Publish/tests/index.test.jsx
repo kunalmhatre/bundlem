@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
-import createComponentWithIntl from '../../../../internals/testing/createComponentWithIntl';
+import createComponentWithIntl from '../../../utils/createComponentWithIntl';
 import Publish from '../index';
 
 describe('<Publish />', () => {

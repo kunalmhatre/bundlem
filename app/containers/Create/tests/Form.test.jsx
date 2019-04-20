@@ -2,7 +2,7 @@ import React from 'react';
 import messages from '../messages';
 
 import Form from '../Form';
-import { mountWithIntl } from '../../../../internals/testing/reactIntlHelperFunction';
+import { mountWithIntl } from '../../../utils/reactIntlHelperFunction';
 
 describe('<Form />', () => {
   const onSubmit = jest.fn((title, description) => ({ title, description }));

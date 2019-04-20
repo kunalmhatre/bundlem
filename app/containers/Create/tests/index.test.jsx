@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import createComponentWithIntl from '../../../../internals/testing/createComponentWithIntl';
+import createComponentWithIntl from '../../../utils/createComponentWithIntl';
 import history from '../../../utils/history';
 import configureStore from '../../../configureStore';
 import Create, { mapDispatchToProps } from '../index';

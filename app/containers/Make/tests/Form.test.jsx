@@ -2,7 +2,7 @@ import React from 'react';
 import messages from '../messages';
 
 import Form from '../Form';
-import { mountWithIntl } from '../../../../internals/testing/reactIntlHelperFunction';
+import { mountWithIntl } from '../../../utils/reactIntlHelperFunction';
 
 describe('<Form />', () => {
   it('calls default previousResource when clicked on previous resource button', () => {

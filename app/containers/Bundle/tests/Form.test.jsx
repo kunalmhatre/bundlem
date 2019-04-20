@@ -1,8 +1,7 @@
 import React from 'react';
 import messages from '../messages';
-import * as services from '../services';
 import Form from '../Form';
-import { mountWithIntl } from '../../../../internals/testing/reactIntlHelperFunction';
+import { mountWithIntl } from '../../../utils/reactIntlHelperFunction';
 
 describe('<Form />', () => {
   describe('setBundle', () => {
