@@ -1,9 +1,18 @@
 import React from 'react';
 
-import { mountWithIntl } from '../../../utils/reactIntlHelperFunction';
+import { mountWithIntl, shallowWithIntl } from '../../../utils/reactIntlHelperFunction';
 import Button from '../index';
 
 describe('<Button />', () => {
+  it('renders successfully', () => {
+    expect(
+      shallowWithIntl(
+        <Button />,
+      ).find('button')
+        .length,
+    ).toBe(1);
+  });
+
   it('renders with given text', () => {
     const text = {
       id: 'testID',
