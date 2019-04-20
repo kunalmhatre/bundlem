@@ -27,6 +27,7 @@ function robotReducer(state = initialState, action) {
   switch (action.type) {
     case TOKEN_VERIFICATION_INITIATED:
       return state
+        .set('error', null)
         .set('isVerifyingToken', true);
     case TOKEN_VERIFICATION_SUCCESSFUL:
       return state
@@ -37,6 +38,7 @@ function robotReducer(state = initialState, action) {
         .set('error', action.error);
     case BUNDLE_PUBLISHING_INITIATED:
       return state
+        .set('error', null)
         .set('isPublishingBundle', true);
     case BUNDLE_PUBLISHING_SUCCESSFUL:
       return state
