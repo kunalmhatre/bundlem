@@ -1,4 +1,6 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { mountWithIntl } from '../../../../internals/testing/reactIntlHelperFunction';
 import Header from '../index';
@@ -12,7 +14,9 @@ describe('<Header />', () => {
 
     expect(
       mountWithIntl(
-        <Header headerTitle={headerTitle} />,
+        <BrowserRouter>
+          <Header headerTitle={headerTitle} />
+        </BrowserRouter>,
       ).find('span')
         .text(),
     ).toBe('testMessage');
@@ -21,7 +25,9 @@ describe('<Header />', () => {
   it('renders default title', () => {
     expect(
       mountWithIntl(
-        <Header />,
+        <BrowserRouter>
+          <Header />
+        </BrowserRouter>,
       ).find('span')
         .text(),
     ).toBe('Bundlem');
@@ -30,12 +36,25 @@ describe('<Header />', () => {
   it('renders title in string format', () => {
     expect(
       mountWithIntl(
-        <Header
-          setString
-          headerTitleString="testTitle"
-        />,
+        <BrowserRouter>
+          <Header
+            setString
+            headerTitleString="testTitle"
+          />
+        </BrowserRouter>,
       ).find('header')
         .text(),
     ).toBe('testTitle');
+  });
+
+  it('does not redirects to / when homeRedirection is set to false', () => {
+    expect(
+      mountWithIntl(
+        <BrowserRouter>
+          <Header homeRedirection={false} />
+        </BrowserRouter>,
+      ).find(Link)
+        .length,
+    ).toBe(0);
   });
 });

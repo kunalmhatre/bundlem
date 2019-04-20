@@ -17,6 +17,7 @@ const propTypes = {
   }),
   headerTitleString: PropTypes.string,
   setString: PropTypes.bool,
+  homeRedirection: PropTypes.bool,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
@@ -29,6 +30,7 @@ const defaultProps = {
   headerTitle: headerMessages.defaultHeaderTitle,
   headerTitleString: 'Bundlem',
   setString: false,
+  homeRedirection: true,
 };
 
 /**
@@ -38,6 +40,7 @@ const defaultProps = {
  * @param {object} headerTitle - Header title to be shown (react-intl message object)
  * @param {string} [headerTitleString=Bundlem] - Header title in string
  * @param {boolean} [setString=false] - States whether the header title is in string format
+ * @param {boolean} homeRedirection - States whether clicking on header redirects user to /
  * @param {object} children - React component to render as a child
  */
 function PageLayout({
@@ -46,6 +49,7 @@ function PageLayout({
   headerTitle,
   headerTitleString,
   setString,
+  homeRedirection,
   children,
 }) {
   const footerProps = {
@@ -73,6 +77,7 @@ function PageLayout({
                 headerTitle={headerTitle}
                 headerTitleString={headerTitleString}
                 setString={setString}
+                homeRedirection={homeRedirection}
               />
             ) : null
           }
