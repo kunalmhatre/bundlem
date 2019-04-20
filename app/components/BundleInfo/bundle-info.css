@@ -1,0 +1,30 @@
+.bundle-info {
+  font-weight: 700;
+  border-bottom: 1px solid;
+}
+
+.bundle-info-title {
+  padding: 1rem 0 0.5rem 0;
+  font-size: 1.5rem;
+}
+
+.bundle-info-description {
+  padding: 0.5rem 0 0.5rem 0;
+  opacity: 0.7;
+}
+
+.bundle-info-resources-count {
+  padding: 0.5rem 0 1rem 0;
+}
+
+@media only screen and (max-width: 767px) {
+  .bundle-info-title {
+    font-size: 1.2rem;
+  }
+  .bundle-info-description {
+    font-size: 0.8rem;
+  }
+  .bundle-info-resources-count {
+    font-size: 0.8rem;
+  }
+}

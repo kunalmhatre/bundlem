@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<BundleInfo /> renders old snapshot 1`] = `
+<div
+  className="bundle-info theme-blue"
+>
+  <div
+    className="bundle-info-title"
+  >
+    testTitle
+  </div>
+  <div
+    className="bundle-info-resources-count"
+  >
+    <span>
+      Resources: 
+    </span>
+    1337
+  </div>
+</div>
+`;
