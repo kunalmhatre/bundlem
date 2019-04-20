@@ -3,6 +3,7 @@ import numeral from 'numeral';
 
 import { mountWithIntl } from '../../../../internals/testing/reactIntlHelperFunction';
 import BundleCard from '../index';
+import { domain } from '../../../utils/apis';
 
 describe('<BundleCard />', () => {
   const testProps = {
@@ -17,7 +18,7 @@ describe('<BundleCard />', () => {
         <BundleCard {...testProps} />,
       ).find('div.bundle-card-title a')
         .prop('href'),
-    ).toBe(`https://bundlem.in/bundle/${testProps.bundleID}`);
+    ).toBe(`${domain}/bundle/?bundleID=${testProps.bundleID}`);
   });
 
   it('renders card with no link for bundle title', () => {
@@ -38,7 +39,7 @@ describe('<BundleCard />', () => {
         <BundleCard {...testProps} />,
       ).find('div.bundle-card-actions a')
         .prop('href'),
-    ).toBe(`https://bundlem.in/bundle/${testProps.bundleID}`);
+    ).toBe(`${domain}/bundle/?bundleID=${testProps.bundleID}`);
   });
 
   it('renders card with no link for view action', () => {
