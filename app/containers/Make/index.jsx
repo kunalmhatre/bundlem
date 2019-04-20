@@ -125,8 +125,9 @@ function Make({
       <PageLayout
         setString
         headerTitleString={title}
+        homeRedirection={false}
       >
-        <Row>
+        <Row className="make-row">
           <Col {...responsiveForm}>
             <div className="make-resource-count">
               <FormattedMessage {...messages.resource} />

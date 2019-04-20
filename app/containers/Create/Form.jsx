@@ -61,7 +61,7 @@ function BaseForm({
   };
 
   return (
-    <Row>
+    <Row className="create-row">
       <Col {...responsiveForm}>
         <div className="create-title">
           <FormattedMessage {...messages.createTitle} />

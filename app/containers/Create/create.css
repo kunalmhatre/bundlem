@@ -12,7 +12,11 @@
 .create-bundle-card {
     display: flex;
     justify-content: center;
-    margin-top: 10rem;
+    align-items: center;
+}
+.create-row {
+    display: flex;
+    flex-grow: 1;
 }
 
 @media only screen and (max-width: 1199px) {

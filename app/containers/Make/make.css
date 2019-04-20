@@ -9,7 +9,9 @@
 }
 
 .make-button-section {
-    margin-top: 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .make-bundle-up-button {
@@ -18,6 +20,11 @@
 
 .make-button-group {
     margin-bottom: 1.5rem;
+}
+
+.make-row {
+    display: flex;
+    flex-grow: 1;
 }
 
 @media only screen and (max-width: 1199px) {
