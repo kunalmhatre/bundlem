@@ -12,15 +12,21 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
+import PageLayout from '../../components/PageLayout';
 import messages from './messages';
+import './notfoundpage.css';
 
 /* eslint-disable react/prefer-stateless-function */
 export default class NotFound extends React.PureComponent {
   render() {
     return (
-      <h1>
-        <FormattedMessage {...messages.header} />
-      </h1>
+      <PageLayout>
+        <div className="notfoundpage-alignment">
+          <h1 className="notfoundpage-title theme-blue">
+            <FormattedMessage {...messages.title} />
+          </h1>
+        </div>
+      </PageLayout>
     );
   }
 }
