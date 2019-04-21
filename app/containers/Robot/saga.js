@@ -87,14 +87,13 @@ export function* publishBundle() {
 
     switch (response.status) {
       case 201: {
-        yield put({ type: BUNDLE_PUBLISHING_SUCCESSFUL });
-
         const data = yield response.json();
 
         yield put({
           bundleID: data.id,
           type: SET_BUNDLE_ID,
         });
+        yield put({ type: BUNDLE_PUBLISHING_SUCCESSFUL });
         break;
       }
       case 400:

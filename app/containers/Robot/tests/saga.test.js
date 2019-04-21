@@ -190,7 +190,7 @@ describe('publishBundle Saga', () => {
     }]);
   });
 
-  it('calls BUNDLE_PUBLISHING_SUCCESSFUL action and SET_BUNDLE_ID action on 201', async () => {
+  it('calls SET_BUNDLE_ID action and BUNDLE_PUBLISHING_SUCCESSFUL action on 201', async () => {
     const bundleID = 1337;
 
     global.fetch = jest
@@ -208,11 +208,11 @@ describe('publishBundle Saga', () => {
     expect(
       dispatched,
     ).toEqual([
-      { type: BUNDLE_PUBLISHING_SUCCESSFUL },
       {
         bundleID,
         type: SET_BUNDLE_ID,
       },
+      { type: BUNDLE_PUBLISHING_SUCCESSFUL },
     ]);
   });
 
