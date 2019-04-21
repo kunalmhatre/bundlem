@@ -16,7 +16,10 @@ import { ConnectedRouter } from 'connected-react-router/immutable';
 import WebFont from 'webfontloader';
 import history from './utils/history';
 import 'sanitize.css/sanitize.css';
-import 'antd/dist/antd.css';
+import 'antd/lib/row/style/css';
+import 'antd/lib/col/style/css';
+import 'antd/lib/tooltip/style/css';
+import 'antd/lib/icon/style/css';
 
 // Import root app
 import App from './containers/App';
