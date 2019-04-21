@@ -1,4 +1,4 @@
-import { fromJS } from 'immutable';
+import { fromJS, List } from 'immutable';
 
 import {
   setCurrentResourceAction,
@@ -91,7 +91,7 @@ describe('makeReducer', () => {
     });
     const expectedState = testState
       .set('currentResource', 0)
-      .set('resources', []);
+      .set('resources', List());
 
     expect(
       makeReducer(
