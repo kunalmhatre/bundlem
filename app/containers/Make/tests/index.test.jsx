@@ -193,7 +193,7 @@ describe('<MakeComponent />', () => {
         history={testHistory}
       />,
     ).find('button')
-      .at(1)
+      .at(2)
       .simulate('click');
 
     expect(testHistory.push).toHaveReturnedWith('/robot');
@@ -211,7 +211,7 @@ describe('<MakeComponent />', () => {
         history={testHistory}
       />,
     ).find('button')
-      .at(2)
+      .at(3)
       .simulate('click');
 
     expect(testHistory.push).toHaveReturnedWith('/robot');

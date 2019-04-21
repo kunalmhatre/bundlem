@@ -58,7 +58,6 @@ function Make({
   /* eslint-disable react/prop-types */ // react-router-dom prop
   history,
 }) {
-  const [shouldRenderRemoveButton, setShouldRenderRemoveButton] = useState(false);
   const [buttonChoice, setButtonChoice] = useState(null);
 
   const responsiveForm = {
@@ -77,13 +76,8 @@ function Make({
   } : null;
 
   const nextResource = (resource) => {
-    if (!resources[currentResource + 1]) {
-      setShouldRenderRemoveButton(false);
-    }
-
     addResource(currentResource, resource);
     setButtonChoice('next');
-    setShouldRenderRemoveButton(true);
   };
 
   const previousResource = (resource) => {
@@ -93,7 +87,6 @@ function Make({
     }
 
     setButtonChoice('previous');
-    setShouldRenderRemoveButton(true);
   };
 
   const setCurrentResourceMemoized = useCallback(
@@ -141,7 +134,7 @@ function Make({
               nextResource={nextResource}
               previousResource={previousResource}
               removeResource={removeResource}
-              isAddedResource={!!(resources[currentResource]) && shouldRenderRemoveButton}
+              isAddedResource={!!(resources[currentResource])}
             />
             {
               resources.length >= 1 ? (
