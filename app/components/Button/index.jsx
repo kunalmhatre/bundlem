@@ -55,7 +55,7 @@ function Button({
     { button: true },
     { 'button-block': size === 'block' },
     { 'theme-blue': !highlight },
-    { 'theme-blue-inverse theme-blue-border': highlight },
+    { 'theme-blue-inverse': highlight },
     { [className]: className },
   );
 

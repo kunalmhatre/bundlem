@@ -4,10 +4,6 @@
     color: #FFFFFF;
 }
 
-.theme-blue-border {
-    border-color: #FFFFFF;
-}
-
 .theme-blue-inverse {
     background: #FFFFFF;
     color: #004392;
@@ -26,10 +22,6 @@ a.theme-blue {
 .theme-dark {
     background: #000000;
     color: #FFFFFF;
-}
-
-.theme-dark-border {
-    border-color: #FFFFFF;
 }
 
 .theme-dark-inverse {
@@ -53,4 +45,11 @@ a.theme-dark {
 
 .theme-blue-error-border, .theme-dark-error-border {
     border-color: #E87E7E;
+}
+
+button.theme-blue,
+button.theme-blue-inverse,
+button.theme-dark,
+button.theme-dark-inverse {
+    border: 3px solid #FFFFFF;
 }
