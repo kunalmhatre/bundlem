@@ -55,6 +55,8 @@ function Make({
   resources,
   removeResource,
   title,
+  /* eslint-disable react/prop-types */ // react-router-dom prop
+  history,
 }) {
   const [shouldRenderRemoveButton, setShouldRenderRemoveButton] = useState(false);
   const [buttonChoice, setButtonChoice] = useState(null);
@@ -147,6 +149,7 @@ function Make({
                   className="make-bundle-up-button"
                   text={messages.bundleUpButton}
                   size="block"
+                  onClick={() => history.push('/robot')}
                 />
               ) : null
             }
@@ -161,6 +164,7 @@ function Make({
                 <Button
                   text={messages.bundleUpButton}
                   size="block"
+                  onClick={() => history.push('/robot')}
                 />
               ) : null
             }
@@ -205,4 +209,4 @@ export default compose(
   withConnect,
 )(Make);
 
-export { mapDispatchToProps };
+export { mapDispatchToProps, Make as MakeComponent };

@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { mountWithIntl } from '../../../utils/reactIntlHelperFunction';
 import history from '../../../utils/history';
 import configureStore from '../../../configureStore';
-import Make, { mapDispatchToProps } from '../index';
+import Make, { mapDispatchToProps, MakeComponent } from '../index';
 import {
   setCurrentResourceAction,
   addResourceAction,
@@ -160,5 +160,60 @@ describe('<Make />', () => {
         .at(1)
         .simulate('click');
     });
+  });
+});
+
+describe('<MakeComponent />', () => {
+  const title = 'testTitle';
+  const resources = [
+    {
+      title: 'testTitle',
+      link: 'https://google.com',
+      notes: 'testNotes',
+      resourceType: 'testResourceType',
+    },
+  ];
+  let testHistory;
+
+  beforeEach(() => {
+    testHistory = {
+      push: jest.fn(pathname => pathname),
+    };
+  });
+
+  it('BUNDLE UP button (in mobile view) redirects to /robot', () => {
+    mountWithIntl(
+      <MakeComponent
+        setCurrentResource={() => {}}
+        currentResource={0}
+        addResource={() => {}}
+        resources={resources}
+        removeResource={() => {}}
+        title={title}
+        history={testHistory}
+      />,
+    ).find('button')
+      .at(1)
+      .simulate('click');
+
+    expect(testHistory.push).toHaveReturnedWith('/robot');
+  });
+
+  it('BUNDLE UP button (in desktop view) redirects to /robot', () => {
+    mountWithIntl(
+      <MakeComponent
+        setCurrentResource={() => {}}
+        currentResource={0}
+        addResource={() => {}}
+        resources={resources}
+        removeResource={() => {}}
+        title={title}
+        history={testHistory}
+      />,
+    ).find('button')
+      .at(2)
+      .simulate('click');
+
+    expect(testHistory.push).toHaveReturnedWith('/robot');
   });
 });

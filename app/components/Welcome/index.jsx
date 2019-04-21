@@ -1,6 +1,7 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Row, Col } from 'antd';
+import { withRouter } from 'react-router-dom';
 
 import PageLayout from '../PageLayout';
 import Button from '../Button';
@@ -11,7 +12,10 @@ import './welcome.css';
 /**
  * Welcome page
  */
-function Welcome() {
+function Welcome({
+  /* eslint-disable react/prop-types */
+  history,
+}) {
   const responsiveDescription = {
     xs: 24,
     sm: 22,
@@ -49,10 +53,15 @@ function Welcome() {
         </Row>
         <Row>
           <Col className="welcome-buttons">
-            <Button text={messages.createButton} />
+            <Button
+              className="welcome-create-button"
+              text={messages.createButton}
+              onClick={() => history.push('/create')}
+            />
             <Button
               text={messages.searchButton}
               highlight={false}
+              onClick={() => history.push('/bundle')}
             />
           </Col>
         </Row>
@@ -107,4 +116,6 @@ function Welcome() {
   );
 }
 
-export default React.memo(Welcome);
+export default React.memo(withRouter(Welcome));
+
+export { Welcome as WelcomeComponent };

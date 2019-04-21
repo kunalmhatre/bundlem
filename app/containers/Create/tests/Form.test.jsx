@@ -1,6 +1,7 @@
 import React from 'react';
-import messages from '../messages';
+import { BrowserRouter } from 'react-router-dom';
 
+import messages from '../messages';
 import Form from '../Form';
 import { mountWithIntl } from '../../../utils/reactIntlHelperFunction';
 
@@ -13,11 +14,13 @@ describe('<Form />', () => {
 
   it('calls onSubmit with correct title and description', () => {
     mountWithIntl(
-      <Form
-        title={expected.title}
-        description={expected.description}
-        onSubmit={onSubmit}
-      />,
+      <BrowserRouter>
+        <Form
+          title={expected.title}
+          description={expected.description}
+          onSubmit={onSubmit}
+        />
+      </BrowserRouter>,
     ).find('button')
       .simulate('click');
 
@@ -26,16 +29,22 @@ describe('<Form />', () => {
 
   it('calls default on submit handler when none is provided', () => {
     mountWithIntl(
-      <Form
-        title={expected.title}
-        description={expected.description}
-      />,
+      <BrowserRouter>
+        <Form
+          title={expected.title}
+          description={expected.description}
+        />
+      </BrowserRouter>,
     ).find('button')
       .simulate('click');
   });
 
   describe('Title input', () => {
-    const tree = mountWithIntl(<Form />);
+    const tree = mountWithIntl(
+      <BrowserRouter>
+        <Form />
+      </BrowserRouter>,
+    );
     const titleField = tree.find('input#title');
 
     titleField.simulate(
@@ -64,7 +73,11 @@ describe('<Form />', () => {
   });
 
   describe('Description input', () => {
-    const tree = mountWithIntl(<Form />);
+    const tree = mountWithIntl(
+      <BrowserRouter>
+        <Form />
+      </BrowserRouter>,
+    );
     const titleField = tree.find('input#title');
     const descriptionField = tree.find('input#description');
 

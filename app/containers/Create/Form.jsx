@@ -1,5 +1,6 @@
 import React from 'react';
 import { withFormik } from 'formik';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import * as yup from 'yup';
 import { Row, Col } from 'antd';
@@ -31,6 +32,8 @@ function BaseForm({
   handleBlur,
   isValid,
   onSubmit,
+  /* eslint-disable react/prop-types */ // react-router-dom prop
+  history,
 }) {
   const responsiveForm = {
     xs: 24,
@@ -74,7 +77,10 @@ function BaseForm({
           <Button
             className="create-button"
             text={messages.nextButton}
-            onClick={() => onSubmit(values.title.trim(), values.description.trim())}
+            onClick={() => {
+              onSubmit(values.title.trim(), values.description.trim());
+              history.push('/make');
+            }}
             disabled={!isValid}
           />
         </form>
@@ -123,5 +129,5 @@ const Form = withFormik({
   },
 })(BaseForm);
 
-export default Form;
+export default withRouter(Form);
 export { BaseForm };
