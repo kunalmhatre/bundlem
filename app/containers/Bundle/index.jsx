@@ -96,6 +96,7 @@ function Bundle({
         <Row className="bundle-search-form-mobile">
           <Col>
             <Form setBundle={setBundle} />
+            <hr />
           </Col>
         </Row>
         <Row className="bundle-resource-content">
