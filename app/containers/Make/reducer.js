@@ -4,7 +4,7 @@
  *
  */
 
-import { fromJS } from 'immutable';
+import { fromJS, List } from 'immutable';
 import {
   SET_CURRENT_RESOURCE,
   ADD_RESOURCE,
@@ -31,7 +31,7 @@ function makeReducer(state = initialState, action) {
     case RESET_MAKE_DOMAIN:
       return state
         .set('currentResource', 0)
-        .set('resources', []);
+        .set('resources', List());
     default:
       return state;
   }
