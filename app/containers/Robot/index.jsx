@@ -19,7 +19,7 @@ import {
   makeSelectError,
   makeSelectBundleID,
 } from './selectors';
-import verifyTokenAction from './actions';
+import { verifyTokenAction } from './actions';
 import reducer from './reducer';
 import saga from './saga';
 import messages from './messages';

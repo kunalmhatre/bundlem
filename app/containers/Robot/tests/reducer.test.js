@@ -1,6 +1,6 @@
 import { fromJS } from 'immutable';
 import robotReducer from '../reducer';
-import verifyTokenAction from '../actions';
+import { verifyTokenAction, resetRobotDomainAction } from '../actions';
 import {
   TOKEN_VERIFICATION_SUCCESSFUL,
   TOKEN_VERIFICATION_FAILED,
@@ -33,6 +33,25 @@ describe('robotReducer', () => {
       robotReducer(
         state,
         verifyTokenAction(token),
+      ),
+    ).toEqual(expectedState);
+  });
+
+  it('state changed correctly by resetRobotDomainAction', () => {
+    const testState = fromJS({
+      isVerifyingToken: false,
+      isPublishingBundle: false,
+      isBundlePublished: false,
+      bundleID: 1337,
+      error: null,
+    });
+    const expectedState = testState
+      .set('bundleID', null);
+
+    expect(
+      robotReducer(
+        testState,
+        resetRobotDomainAction(),
       ),
     ).toEqual(expectedState);
   });

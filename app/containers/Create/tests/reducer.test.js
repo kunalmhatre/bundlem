@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable';
-import createBundleAction from '../actions';
+import { createBundleAction, resetCreateDomainAction } from '../actions';
 
 import createReducer from '../reducer';
 
@@ -27,6 +27,23 @@ describe('createReducer', () => {
           title,
           description,
         ),
+      ),
+    ).toEqual(expectedState);
+  });
+
+  it('state changed correctly by resetCreateDomainAction', () => {
+    const testState = fromJS({
+      title: 'testTitle',
+      description: 'testDescription',
+    });
+    const expectedState = state
+      .set('title', '')
+      .set('description', '');
+
+    expect(
+      createReducer(
+        testState,
+        resetCreateDomainAction(),
       ),
     ).toEqual(expectedState);
   });

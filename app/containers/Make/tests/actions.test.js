@@ -4,11 +4,13 @@ import {
   setCurrentResourceAction,
   addResourceAction,
   removeResourceAction,
+  resetMakeDomainAction,
 } from '../actions';
 import {
   SET_CURRENT_RESOURCE,
   ADD_RESOURCE,
   REMOVE_RESOURCE,
+  RESET_MAKE_DOMAIN,
 } from '../constants';
 
 describe('Make actions', () => {
@@ -49,6 +51,14 @@ describe('Make actions', () => {
       };
 
       expect(removeResourceAction(expected.resourceNumber)).toEqual(expected);
+    });
+  });
+
+  describe('resetMakeDomainAction', () => {
+    it('should return correct type', () => {
+      const expected = { type: RESET_MAKE_DOMAIN };
+
+      expect(resetMakeDomainAction()).toEqual(expected);
     });
   });
 });

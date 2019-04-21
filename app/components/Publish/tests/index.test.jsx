@@ -3,7 +3,10 @@ import * as ReactRouterDOM from 'react-router-dom';
 
 import createComponentWithIntl from '../../../utils/createComponentWithIntl';
 import { mountWithIntl } from '../../../utils/reactIntlHelperFunction';
-import { PublishComponent } from '../index';
+import { PublishComponent, mapDispatchToProps } from '../index';
+import { resetCreateDomainAction } from '../../../containers/Create/actions';
+import { resetMakeDomainAction } from '../../../containers/Make/actions';
+import { resetRobotDomainAction } from '../../../containers/Robot/actions';
 
 describe('<Publish />', () => {
   const location = {
@@ -16,7 +19,12 @@ describe('<Publish />', () => {
     expect(
       createComponentWithIntl(
         <ReactRouterDOM.BrowserRouter>
-          <PublishComponent location={location} />
+          <PublishComponent
+            resetCreateDomain={() => null}
+            resetMakeDomain={() => null}
+            resetRobotDomain={() => null}
+            location={location}
+          />
         </ReactRouterDOM.BrowserRouter>,
       ).toJSON(),
     ).toMatchSnapshot();
@@ -34,7 +42,12 @@ describe('<Publish />', () => {
     expect(
       mountWithIntl(
         <ReactRouterDOM.BrowserRouter>
-          <PublishComponent location={testLocation} />
+          <PublishComponent
+            resetCreateDomain={() => null}
+            resetMakeDomain={() => null}
+            resetRobotDomain={() => null}
+            location={testLocation}
+          />
         </ReactRouterDOM.BrowserRouter>,
       ).find(ReactRouterDOM.Redirect)
         .props()
@@ -50,6 +63,9 @@ describe('<Publish />', () => {
     mountWithIntl(
       <ReactRouterDOM.BrowserRouter>
         <PublishComponent
+          resetCreateDomain={() => null}
+          resetMakeDomain={() => null}
+          resetRobotDomain={() => null}
           history={history}
           location={location}
         />
@@ -59,5 +75,30 @@ describe('<Publish />', () => {
       .simulate('click');
 
     expect(history.push).toHaveReturnedWith('/bundle/?bundleID=1337');
+  });
+
+  describe('dispatches correct actions', () => {
+    let dispatch;
+    let props;
+
+    beforeEach(() => {
+      dispatch = jest.fn();
+      props = mapDispatchToProps(dispatch);
+    });
+
+    it('dispatches resetCreateDomainAction', () => {
+      props.resetCreateDomain();
+      expect(dispatch).toHaveBeenCalledWith(resetCreateDomainAction());
+    });
+
+    it('dispatches resetMakeDomainAction', () => {
+      props.resetMakeDomain();
+      expect(dispatch).toHaveBeenCalledWith(resetMakeDomainAction());
+    });
+
+    it('dispatches resetRobotDomainAction', () => {
+      props.resetRobotDomain();
+      expect(dispatch).toHaveBeenCalledWith(resetRobotDomainAction());
+    });
   });
 });

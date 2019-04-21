@@ -5,7 +5,7 @@ import createComponentWithIntl from '../../../utils/createComponentWithIntl';
 import history from '../../../utils/history';
 import configureStore from '../../../configureStore';
 import Create, { mapDispatchToProps } from '../index';
-import createBundleAction from '../actions';
+import { createBundleAction } from '../actions';
 
 describe('<Create />', () => {
   const store = configureStore({}, history);

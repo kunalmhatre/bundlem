@@ -1,5 +1,5 @@
-import verifyTokenAction from '../actions';
-import { TOKEN_VERIFICATION_INITIATED } from '../constants';
+import { verifyTokenAction, resetRobotDomainAction } from '../actions';
+import { TOKEN_VERIFICATION_INITIATED, RESET_ROBOT_DOMAIN } from '../constants';
 
 describe('Robot actions', () => {
   describe('verifyTokenAction', () => {
@@ -10,6 +10,16 @@ describe('Robot actions', () => {
       };
 
       expect(verifyTokenAction(expected.token)).toEqual(expected);
+    });
+  });
+
+  describe('resetRobotDomainAction', () => {
+    it('should return correct type', () => {
+      const expected = {
+        type: RESET_ROBOT_DOMAIN,
+      };
+
+      expect(resetRobotDomainAction()).toEqual(expected);
     });
   });
 });

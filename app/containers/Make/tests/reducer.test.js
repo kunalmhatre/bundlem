@@ -4,6 +4,7 @@ import {
   setCurrentResourceAction,
   addResourceAction,
   removeResourceAction,
+  resetMakeDomainAction,
 } from '../actions';
 import makeReducer from '../reducer';
 
@@ -72,6 +73,30 @@ describe('makeReducer', () => {
       makeReducer(
         newState,
         removeResourceAction(resourceNumber),
+      ),
+    ).toEqual(expectedState);
+  });
+
+  it('state changed correctly by resetMakeDomainAction', () => {
+    const testState = fromJS({
+      currentResource: 2,
+      resources: [
+        {
+          resourceType: 'WEB PAGE',
+          link: 'https://google.com',
+          title: 'Google',
+          notes: 'A good search engine.',
+        },
+      ],
+    });
+    const expectedState = testState
+      .set('currentResource', 0)
+      .set('resources', []);
+
+    expect(
+      makeReducer(
+        testState,
+        resetMakeDomainAction(),
       ),
     ).toEqual(expectedState);
   });

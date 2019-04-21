@@ -9,6 +9,7 @@ import {
   SET_CURRENT_RESOURCE,
   ADD_RESOURCE,
   REMOVE_RESOURCE,
+  RESET_MAKE_DOMAIN,
 } from './constants';
 
 export function setCurrentResourceAction(currentResource) {
@@ -30,5 +31,11 @@ export function removeResourceAction(resourceNumber) {
   return {
     resourceNumber,
     type: REMOVE_RESOURCE,
+  };
+}
+
+export function resetMakeDomainAction() {
+  return {
+    type: RESET_MAKE_DOMAIN,
   };
 }

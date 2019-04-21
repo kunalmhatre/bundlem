@@ -9,7 +9,7 @@ import Form from './Form';
 import PageLayout from '../../components/PageLayout';
 import injectReducer from '../../utils/injectReducer';
 import reducer from './reducer';
-import createBundleAction from './actions';
+import { createBundleAction } from './actions';
 import { makeSelectTitle, makeSelectDescription } from './selectors';
 import './create.css';
 

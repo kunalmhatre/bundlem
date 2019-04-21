@@ -6,7 +6,7 @@ import history from '../../../utils/history';
 import configureStore from '../../../configureStore';
 import { mountWithIntl } from '../../../utils/reactIntlHelperFunction';
 import Robot, { mapDispatchToProps, RobotComponent } from '../index';
-import verifyTokenAction from '../actions';
+import { verifyTokenAction } from '../actions';
 import messages from '../messages';
 import RobotMessage from '../RobotMessage';
 

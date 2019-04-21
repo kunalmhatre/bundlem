@@ -1,5 +1,5 @@
-import createBundleAction from '../actions';
-import CREATE_BUNDLE from '../constants';
+import { createBundleAction, resetCreateDomainAction } from '../actions';
+import { CREATE_BUNDLE, RESET_CREATE_DOMAIN } from '../constants';
 
 describe('Create actions', () => {
   describe('createBundleAction', () => {
@@ -12,6 +12,15 @@ describe('Create actions', () => {
         type: CREATE_BUNDLE,
       };
       expect(createBundleAction(title, description)).toEqual(expected);
+    });
+  });
+
+  describe('resetCreateDomainAction', () => {
+    it('should return correct type', () => {
+      const expected = {
+        type: RESET_CREATE_DOMAIN,
+      };
+      expect(resetCreateDomainAction()).toEqual(expected);
     });
   });
 });

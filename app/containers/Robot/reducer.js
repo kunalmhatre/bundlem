@@ -13,6 +13,7 @@ import {
   BUNDLE_PUBLISHING_SUCCESSFUL,
   BUNDLE_PUBLISHING_FAILED,
   SET_BUNDLE_ID,
+  RESET_ROBOT_DOMAIN,
 } from './constants';
 
 export const initialState = fromJS({
@@ -51,6 +52,13 @@ function robotReducer(state = initialState, action) {
     case SET_BUNDLE_ID:
       return state
         .set('bundleID', action.bundleID);
+    case RESET_ROBOT_DOMAIN:
+      return state
+        .set('isVerifyingToken', false)
+        .set('isPublishingBundle', false)
+        .set('isBundlePublished', false)
+        .set('bundleID', null)
+        .set('error', null);
     default:
       return state;
   }

@@ -5,7 +5,10 @@
  */
 
 import { fromJS } from 'immutable';
-import CREATE_BUNDLE from './constants';
+import {
+  CREATE_BUNDLE,
+  RESET_CREATE_DOMAIN,
+} from './constants';
 
 export const initialState = fromJS({
   title: '',
@@ -18,6 +21,10 @@ function createReducer(state = initialState, action) {
       return state
         .set('title', action.title)
         .set('description', action.description);
+    case RESET_CREATE_DOMAIN:
+      return state
+        .set('title', '')
+        .set('description', '');
     default:
       return state;
   }

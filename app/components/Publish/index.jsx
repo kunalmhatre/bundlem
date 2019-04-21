@@ -1,22 +1,41 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { Tooltip } from 'antd';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { withRouter, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
 
+import { resetCreateDomainAction } from '../../containers/Create/actions';
+import { resetMakeDomainAction } from '../../containers/Make/actions';
+import { resetRobotDomainAction } from '../../containers/Robot/actions';
 import Button from '../Button';
 import PageLayout from '../PageLayout';
 import messages from './messages';
 import './publish.css';
 
+const propTypes = {
+  resetCreateDomain: PropTypes.func.isRequired,
+  resetMakeDomain: PropTypes.func.isRequired,
+  resetRobotDomain: PropTypes.func.isRequired,
+};
+
 /**
  * Publish component
  */
 function Publish({
+  resetCreateDomain,
+  resetMakeDomain,
+  resetRobotDomain,
   /* eslint-disable react/prop-types */ // react-router-dom props
   history,
   location,
 }) {
+  resetCreateDomain();
+  resetMakeDomain();
+  resetRobotDomain();
+
   return (
     <PageLayout>
       {
@@ -64,6 +83,21 @@ function Publish({
   );
 }
 
-export default withRouter(Publish);
+Publish.propTypes = propTypes;
 
-export { Publish as PublishComponent };
+function mapDispatchToProps(dispatch) {
+  return {
+    resetCreateDomain: () => dispatch(resetCreateDomainAction()),
+    resetMakeDomain: () => dispatch(resetMakeDomainAction()),
+    resetRobotDomain: () => dispatch(resetRobotDomainAction()),
+  };
+}
+
+const withConnect = connect(null, mapDispatchToProps);
+
+export default compose(
+  withConnect,
+  withRouter,
+)(Publish);
+
+export { Publish as PublishComponent, mapDispatchToProps };
