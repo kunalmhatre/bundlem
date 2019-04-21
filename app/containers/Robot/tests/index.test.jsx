@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
+import * as ReactRouterDOM from 'react-router-dom';
 
 import history from '../../../utils/history';
 import configureStore from '../../../configureStore';
@@ -8,7 +8,6 @@ import { mountWithIntl } from '../../../utils/reactIntlHelperFunction';
 import Robot, { mapDispatchToProps, RobotComponent } from '../index';
 import verifyTokenAction from '../actions';
 import messages from '../messages';
-import Publish from '../../../components/Publish';
 import RobotMessage from '../RobotMessage';
 
 describe('<Robot />', () => {
@@ -17,9 +16,9 @@ describe('<Robot />', () => {
   it('renders successfully', () => {
     mountWithIntl(
       <Provider store={store}>
-        <BrowserRouter>
+        <ReactRouterDOM.BrowserRouter>
           <Robot />
-        </BrowserRouter>
+        </ReactRouterDOM.BrowserRouter>
       </Provider>,
     );
   });
@@ -46,35 +45,44 @@ describe('<RobotComponent />', () => {
 
   it('renders successfully', () => {
     mountWithIntl(
-      <BrowserRouter>
+      <ReactRouterDOM.BrowserRouter>
         <RobotComponent {...defaultProps} />
-      </BrowserRouter>,
+      </ReactRouterDOM.BrowserRouter>,
     );
   });
 
-  it('renders Publish component after publishing bundle', () => {
+  it('redirects to Publish page after publishing bundle', () => {
+    const bundleID = 1337;
+    ReactRouterDOM.Redirect = jest
+      .fn()
+      .mockImplementation(() => null);
     expect(
       mountWithIntl(
-        <BrowserRouter>
+        <ReactRouterDOM.BrowserRouter>
           <RobotComponent
             {...defaultProps}
             isBundlePublished
+            bundleID={bundleID}
           />
-        </BrowserRouter>,
-      ).find(Publish)
-        .length,
-    ).toBe(1);
+        </ReactRouterDOM.BrowserRouter>,
+      ).find(ReactRouterDOM.Redirect)
+        .props()
+        .to,
+    ).toEqual({
+      pathname: '/publish',
+      state: { bundleID },
+    });
   });
 
   it('renders RobotMessage while token verification is in progress', () => {
     expect(
       mountWithIntl(
-        <BrowserRouter>
+        <ReactRouterDOM.BrowserRouter>
           <RobotComponent
             {...defaultProps}
             isVerifyingToken
           />
-        </BrowserRouter>,
+        </ReactRouterDOM.BrowserRouter>,
       ).find(RobotMessage)
         .props()
         .message,
@@ -84,12 +92,12 @@ describe('<RobotComponent />', () => {
   it('renders RobotMessage while publishing bundle', () => {
     expect(
       mountWithIntl(
-        <BrowserRouter>
+        <ReactRouterDOM.BrowserRouter>
           <RobotComponent
             {...defaultProps}
             isPublishingBundle
           />
-        </BrowserRouter>,
+        </ReactRouterDOM.BrowserRouter>,
       ).find(RobotMessage)
         .props()
         .message,
@@ -99,12 +107,12 @@ describe('<RobotComponent />', () => {
   it('renders RobotMessage when there is an API error', () => {
     expect(
       mountWithIntl(
-        <BrowserRouter>
+        <ReactRouterDOM.BrowserRouter>
           <RobotComponent
             {...defaultProps}
             error="error500"
           />
-        </BrowserRouter>,
+        </ReactRouterDOM.BrowserRouter>,
       ).find(RobotMessage)
         .props()
         .message,

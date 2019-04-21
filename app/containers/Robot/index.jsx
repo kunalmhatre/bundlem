@@ -6,8 +6,8 @@ import { compose } from 'redux';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { Helmet } from 'react-helmet';
 import { FormattedMessage } from 'react-intl';
+import { Redirect } from 'react-router-dom';
 
-import Publish from '../../components/Publish';
 import RobotMessage from './RobotMessage';
 import PageLayout from '../../components/PageLayout';
 import injectSaga from '../../utils/injectSaga';
@@ -72,7 +72,11 @@ function Robot({
     <React.Fragment>
       {
         isBundlePublished ? (
-          <Publish bundleID={bundleID} />
+          <Redirect to={{
+            pathname: '/publish',
+            state: { bundleID },
+          }}
+          />
         ) : (
           <React.Fragment>
             <Helmet
