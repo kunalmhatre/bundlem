@@ -17,6 +17,7 @@ import Create from '../Create/Loadable';
 import Robot from '../Robot/Loadable';
 import Welcome from '../../components/Welcome/Loadable';
 import ProtectedRoute from '../../components/ProtectedRoute';
+import Publish from '../../components/Publish/Loadable';
 import getGlobalStyle from '../../global-styles';
 import '../../themes.css';
 
@@ -29,6 +30,7 @@ export default function App() {
         <Route path="/create" component={Create} />
         <ProtectedRoute path="/make" component={Make} />
         <ProtectedRoute path="/robot" component={Robot} />
+        <Route path="/publish" component={Publish} />
         <Route path="/bundle" component={Bundle} />
         <Route component={NotFoundPage} />
       </Switch>
