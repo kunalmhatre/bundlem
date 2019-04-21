@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
+import { Helmet } from 'react-helmet';
+import { Row, Col, Icon } from 'antd';
+import queryString from 'query-string';
+import { FormattedMessage } from 'react-intl';
 
-import BundleContent from './BundleContent';
+import Form from './Form';
+import ResourceList from './ResourceList';
+import BundleInfo from '../../components/BundleInfo';
+import PageLayout from '../../components/PageLayout';
+import messages from './messages';
 import injectSaga from '../../utils/injectSaga';
 import injectReducer from '../../utils/injectReducer';
 import {
@@ -61,15 +69,107 @@ function Bundle({
   /* eslint-disable react/prop-types */ // react-router prop
   location = { search: '' }, // fix for location prop being absent while testing
 }) {
+  const responsiveContentColumn1 = {
+    xs: 24,
+    sm: 24,
+    md: 24,
+    lg: 24,
+    xl: 14,
+    xxl: 14,
+  };
+  // Checking if Bundle ID is provided as a URL parameter
+  const searchParams = queryString.parse(location.search);
+  const [isFetchRequest, setIsFetchRequest] = useState(!!(searchParams.bundleID));
+
+  if (isFetchRequest) {
+    fetchBundle(searchParams.bundleID);
+    setIsFetchRequest(false);
+  }
+
   return (
-    <BundleContent
-      bundle={bundle}
-      isFetchingBundle={isFetchingBundle}
-      error={error}
-      setBundle={setBundle}
-      fetchBundle={fetchBundle}
-      location={location}
-    />
+    <React.Fragment>
+      <Helmet>
+        <title>Bundle</title>
+        <meta name="description" content="Description of Bundle" />
+      </Helmet>
+      <PageLayout>
+        <Row className="bundle-search-form-mobile">
+          <Col>
+            <Form setBundle={setBundle} />
+          </Col>
+        </Row>
+        <Row className="bundle-resource-content">
+          {
+            (
+              bundle
+              || isFetchRequest
+              || isFetchingBundle
+              || error
+            ) ? (
+              <Col
+                {...responsiveContentColumn1}
+                className="bundle-resource-content-column-1"
+              >
+                {
+                  bundle ? (
+                    <React.Fragment>
+                      <Row>
+                        <Col>
+                          <BundleInfo
+                            bundleTitle={bundle.title}
+                            bundleDescription={bundle.description}
+                            resourcesCount={bundle.resources.length}
+                          />
+                        </Col>
+                      </Row>
+                      <Row className="bundle-resource-content-column-1-row-2">
+                        <Col className="bundle-resource-content-column-1-row-2-column-1">
+                          <ResourceList resources={bundle.resources} />
+                        </Col>
+                      </Row>
+                    </React.Fragment>
+                  ) : (
+                    <Row className="bundle-fetching-messages-row">
+                      <Col className="bundle-fetching-messages-row-column-1">
+                        {
+                          isFetchingBundle ? (
+                            <div className="bundle-fetching-message">
+                              <Icon className="bundle-fetching-loader theme-blue" type="loading" />
+                              <FormattedMessage {...messages.fetchingBundle} />
+                            </div>
+                          ) : (
+                            <React.Fragment>
+                              {
+                                error ? (
+                                  <div className="bundle-fetching-error theme-blue-error-message">
+                                    <FormattedMessage {...messages[error]} />
+                                  </div>
+                                ) : null
+                              }
+                            </React.Fragment>
+                          )
+                        }
+                      </Col>
+                    </Row>
+                  )
+                }
+              </Col>
+              ) : null
+          }
+          <Col
+            className="bundle-resource-content-column-2"
+            span={
+              bundle
+              || isFetchRequest
+              || isFetchingBundle
+              || error ? 10 : 24
+            }
+          >
+            <Form setBundle={setBundle} />
+          </Col>
+        </Row>
+      </PageLayout>
+    </React.Fragment>
   );
 }
 
@@ -103,4 +203,4 @@ export default compose(
   withConnect,
 )(Bundle);
 
-export { mapDispatchToProps };
+export { mapDispatchToProps, Bundle as BundleComponent };

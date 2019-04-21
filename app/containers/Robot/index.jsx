@@ -3,8 +3,13 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
+import ReCAPTCHA from 'react-google-recaptcha';
+import { Helmet } from 'react-helmet';
+import { FormattedMessage } from 'react-intl';
 
-import RobotContent from './RobotContent';
+import Publish from '../../components/Publish';
+import RobotMessage from './RobotMessage';
+import PageLayout from '../../components/PageLayout';
 import injectSaga from '../../utils/injectSaga';
 import injectReducer from '../../utils/injectReducer';
 import {
@@ -17,6 +22,7 @@ import {
 import verifyTokenAction from './actions';
 import reducer from './reducer';
 import saga from './saga';
+import messages from './messages';
 import './robot.css';
 
 const propTypes = {
@@ -50,15 +56,59 @@ function Robot({
   error,
   verifyToken,
 }) {
+  const currentTask = () => {
+    let messageElement = null;
+
+    if (isVerifyingToken) {
+      messageElement = <RobotMessage message={messages.verifyingToken} />;
+    } else if (isPublishingBundle) {
+      messageElement = <RobotMessage message={messages.publishingBundle} />;
+    }
+
+    return messageElement;
+  };
+
   return (
-    <RobotContent // Redundant component
-      isVerifyingToken={isVerifyingToken}
-      isPublishingBundle={isPublishingBundle}
-      isBundlePublished={isBundlePublished}
-      bundleID={bundleID}
-      error={error}
-      verifyToken={verifyToken}
-    />
+    <React.Fragment>
+      {
+        isBundlePublished ? (
+          <Publish bundleID={bundleID} />
+        ) : (
+          <React.Fragment>
+            <Helmet
+              title="Robot"
+              meta={[
+                {
+                  name: 'description',
+                  content: 'Description of Robot',
+                },
+              ]}
+            />
+            <PageLayout>
+              <div className="robot-content">
+                <div className="robot-title">
+                  <FormattedMessage {...messages.robotPageTitle} />
+                </div>
+                <ReCAPTCHA
+                  sitekey="6LdinngUAAAAAJv63RkqJmFqFh6sbxIlN42ZdFiu"
+                  onChange={verifyToken}
+                />
+                {
+                  error ? (
+                    <RobotMessage
+                      isError
+                      isLoading={false}
+                      message={messages[error]}
+                      errorClassName="theme-blue-error-message"
+                    />
+                  ) : currentTask()
+                }
+              </div>
+            </PageLayout>
+          </React.Fragment>
+        )
+      }
+    </React.Fragment>
   );
 }
 
@@ -93,4 +143,4 @@ export default compose(
   withConnect,
 )(Robot);
 
-export { mapDispatchToProps };
+export { mapDispatchToProps, Robot as RobotComponent };
