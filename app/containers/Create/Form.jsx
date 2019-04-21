@@ -10,21 +10,7 @@ import BundleCard from '../../components/BundleCard';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 
-const formikValuesPropType = PropTypes.shape({
-  title: PropTypes.string,
-  description: PropTypes.string,
-});
-
 const propTypes = {
-  values: formikValuesPropType.isRequired,
-  errors: formikValuesPropType.isRequired,
-  touched: PropTypes.shape({
-    title: PropTypes.bool,
-    description: PropTypes.bool,
-  }).isRequired,
-  handleChange: PropTypes.func.isRequired,
-  handleBlur: PropTypes.func.isRequired,
-  isValid: PropTypes.bool.isRequired,
   onSubmit: PropTypes.func,
 };
 
@@ -34,15 +20,10 @@ const defaultProps = {
 
 /**
  * Form for Create page
- * @param {object} values - By Formik HOC (contains values for the input fields)
- * @param {object} errors - By Formik HOC (contains errors for the input fields)
- * @param {object} touched - By Formik HOC (states whether specific input field was touched)
- * @param {function} handleChange - By Formik HOC (on change handler function)
- * @param {function} handleBlur - By Formik HOC (on blur handler function)
- * @param {boolean} isValid - By Formik HOC (states whether form is valid for submission)
  * @param {function} onSubmit - On submit handler function
  */
 function BaseForm({
+  /* eslint-disable react/prop-types */ // formik props
   values,
   errors,
   touched,
