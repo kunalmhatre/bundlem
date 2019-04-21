@@ -4,7 +4,7 @@ import { FormattedMessage, defineMessages } from 'react-intl';
 import { Provider } from 'react-redux';
 import { browserHistory } from 'react-router-dom';
 
-import ConnectedLanguageProvider, { LanguageProvider } from '../index';
+import ConnectedLanguageProvider, { LanguageProviderComponent } from '../index';
 import configureStore from '../../../configureStore';
 
 import { translationMessages } from '../../../i18n';
@@ -17,13 +17,13 @@ const messages = defineMessages({
   },
 });
 
-describe('<LanguageProvider />', () => {
+describe('<LanguageProviderComponent />', () => {
   it('should render its children', () => {
     const children = <h1>Test</h1>;
     const renderedComponent = shallow(
-      <LanguageProvider messages={messages} locale="en">
+      <LanguageProviderComponent messages={messages} locale="en">
         {children}
-      </LanguageProvider>,
+      </LanguageProviderComponent>,
     );
     expect(renderedComponent.contains(children)).toBe(true);
   });
