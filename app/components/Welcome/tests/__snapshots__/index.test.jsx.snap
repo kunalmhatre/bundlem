@@ -56,7 +56,7 @@ exports[`<Welcome /> renders old snapshot 1`] = `
               className="welcome-buttons"
             >
               <button
-                className="button theme-blue-inverse theme-blue-border"
+                className="button theme-blue-inverse welcome-create-button"
                 disabled={false}
                 onClick={[Function]}
                 type="button"

@@ -97,7 +97,7 @@ exports[`<Create /> renders old snapshot 1`] = `
                 />
               </div>
               <button
-                className="button theme-blue-inverse theme-blue-border create-button"
+                className="button theme-blue-inverse create-button"
                 disabled={true}
                 onClick={[Function]}
                 type="button"

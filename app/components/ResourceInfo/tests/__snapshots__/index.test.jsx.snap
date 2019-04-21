@@ -15,7 +15,7 @@ exports[`<ResourceInfo /> renders old snapshot 1`] = `
     className="resource-info-action"
   >
     <button
-      className="button theme-blue-inverse theme-blue-border"
+      className="button theme-blue-inverse"
       disabled={false}
       onClick={[Function]}
       type="button"
