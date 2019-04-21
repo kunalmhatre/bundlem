@@ -110,9 +110,9 @@ exports[`<Welcome /> renders old snapshot 1`] = `
                       >
                         <a
                           className="theme-blue-inverse"
-                          href="https://shielded-mesa-38298.herokuapp.com/bundle/?bundleID=1"
+                          href="https://shielded-mesa-38298.herokuapp.com/bundle/?bundleID=57"
                         >
-                          UX Principles - Few useful and important articles for building better products and make your users satisfied
+                          UX - Few amazing and useful resources to build better products and to make your users satisfied
                         </a>
                       </div>
                       <div
@@ -120,7 +120,7 @@ exports[`<Welcome /> renders old snapshot 1`] = `
                       >
                         <div>
                           <span>
-                            10
+                            7
                           </span>
                           <span>
                              Res.
@@ -128,7 +128,7 @@ exports[`<Welcome /> renders old snapshot 1`] = `
                         </div>
                         <div>
                           <a
-                            href="https://shielded-mesa-38298.herokuapp.com/bundle/?bundleID=1"
+                            href="https://shielded-mesa-38298.herokuapp.com/bundle/?bundleID=57"
                           >
                             <span>
                               view
@@ -149,9 +149,9 @@ exports[`<Welcome /> renders old snapshot 1`] = `
                       >
                         <a
                           className="theme-blue-inverse"
-                          href="https://shielded-mesa-38298.herokuapp.com/bundle/?bundleID=2"
+                          href="https://shielded-mesa-38298.herokuapp.com/bundle/?bundleID=60"
                         >
-                          React libraries that will save your time and efforts
+                          Songs which might make you feel good
                         </a>
                       </div>
                       <div
@@ -159,7 +159,7 @@ exports[`<Welcome /> renders old snapshot 1`] = `
                       >
                         <div>
                           <span>
-                            13
+                            6
                           </span>
                           <span>
                              Res.
@@ -167,7 +167,7 @@ exports[`<Welcome /> renders old snapshot 1`] = `
                         </div>
                         <div>
                           <a
-                            href="https://shielded-mesa-38298.herokuapp.com/bundle/?bundleID=2"
+                            href="https://shielded-mesa-38298.herokuapp.com/bundle/?bundleID=60"
                           >
                             <span>
                               view
@@ -196,9 +196,9 @@ exports[`<Welcome /> renders old snapshot 1`] = `
                       >
                         <a
                           className="theme-blue-inverse"
-                          href="https://shielded-mesa-38298.herokuapp.com/bundle/?bundleID=1"
+                          href="https://shielded-mesa-38298.herokuapp.com/bundle/?bundleID=57"
                         >
-                          UX Principles - Few useful and important articles for building better products and make your users satisfied
+                          UX - Few amazing and useful resources to build better products and to make your users satisfied
                         </a>
                       </div>
                       <div
@@ -206,7 +206,7 @@ exports[`<Welcome /> renders old snapshot 1`] = `
                       >
                         <div>
                           <span>
-                            10
+                            7
                           </span>
                           <span>
                              Res.
@@ -214,7 +214,7 @@ exports[`<Welcome /> renders old snapshot 1`] = `
                         </div>
                         <div>
                           <a
-                            href="https://shielded-mesa-38298.herokuapp.com/bundle/?bundleID=1"
+                            href="https://shielded-mesa-38298.herokuapp.com/bundle/?bundleID=57"
                           >
                             <span>
                               view
@@ -239,9 +239,9 @@ exports[`<Welcome /> renders old snapshot 1`] = `
                       >
                         <a
                           className="theme-blue-inverse"
-                          href="https://shielded-mesa-38298.herokuapp.com/bundle/?bundleID=2"
+                          href="https://shielded-mesa-38298.herokuapp.com/bundle/?bundleID=60"
                         >
-                          React libraries that will save your time and efforts
+                          Songs which might make you feel good
                         </a>
                       </div>
                       <div
@@ -249,7 +249,7 @@ exports[`<Welcome /> renders old snapshot 1`] = `
                       >
                         <div>
                           <span>
-                            13
+                            6
                           </span>
                           <span>
                              Res.
@@ -257,7 +257,7 @@ exports[`<Welcome /> renders old snapshot 1`] = `
                         </div>
                         <div>
                           <a
-                            href="https://shielded-mesa-38298.herokuapp.com/bundle/?bundleID=2"
+                            href="https://shielded-mesa-38298.herokuapp.com/bundle/?bundleID=60"
                           >
                             <span>
                               view

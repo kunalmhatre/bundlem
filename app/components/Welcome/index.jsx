@@ -75,16 +75,16 @@ function Welcome({
               <Row>
                 <Col {...responsiveFeaturedBundle}>
                   <BundleCard
-                    bundleID={1}
+                    bundleID={57}
                     bundleTitle={messages.firstFeaturedBundleTitle.defaultMessage}
-                    resourcesCount={10}
+                    resourcesCount={7}
                   />
                 </Col>
                 <Col {...responsiveFeaturedBundle}>
                   <BundleCard
-                    bundleID={2}
+                    bundleID={60}
                     bundleTitle={messages.secondFeaturedBundleTitle.defaultMessage}
-                    resourcesCount={13}
+                    resourcesCount={6}
                   />
                 </Col>
               </Row>
@@ -93,18 +93,18 @@ function Welcome({
               <Row>
                 <Col>
                   <BundleCard
-                    bundleID={1}
+                    bundleID={57}
                     bundleTitle={messages.firstFeaturedBundleTitle.defaultMessage}
-                    resourcesCount={10}
+                    resourcesCount={7}
                   />
                 </Col>
               </Row>
               <Row>
                 <Col>
                   <BundleCard
-                    bundleID={2}
+                    bundleID={60}
                     bundleTitle={messages.secondFeaturedBundleTitle.defaultMessage}
-                    resourcesCount={13}
+                    resourcesCount={6}
                   />
                 </Col>
               </Row>

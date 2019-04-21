@@ -35,10 +35,10 @@ export default defineMessages({
   },
   firstFeaturedBundleTitle: {
     id: `${scope}.firstFeaturedBundleTitle`,
-    defaultMessage: 'UX Principles - Few useful and important articles for building better products and make your users satisfied',
+    defaultMessage: 'UX - Few amazing and useful resources to build better products and to make your users satisfied',
   },
   secondFeaturedBundleTitle: {
     id: `${scope}.secondFeaturedBundleTitle`,
-    defaultMessage: 'React libraries that will save your time and efforts',
+    defaultMessage: 'Songs which might make you feel good',
   },
 });
