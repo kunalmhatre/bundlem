@@ -10,14 +10,14 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import NotFoundPage from '../NotFoundPage/Loadable';
-import Bundle from '../Bundle/Loadable';
-import Make from '../Make/Loadable';
-import Create from '../Create/Loadable';
-import Robot from '../Robot/Loadable';
-import Welcome from '../../components/Welcome/Loadable';
+import NotFoundPage from '../NotFoundPage';
+import Bundle from '../Bundle';
+import Make from '../Make';
+import Create from '../Create';
+import Robot from '../Robot';
+import Welcome from '../../components/Welcome';
 import ProtectedRoute from '../../components/ProtectedRoute';
-import Publish from '../../components/Publish/Loadable';
+import Publish from '../../components/Publish';
 import getGlobalStyle from '../../global-styles';
 import '../../themes.css';
 
