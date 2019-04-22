@@ -128,7 +128,6 @@
     "circular-dependency-plugin": "5.0.2",
     "compare-versions": "3.4.0",
     "compression-webpack-plugin": "2.0.0",
-    "coveralls": "^3.0.3",
     "css-loader": "1.0.0",
     "enzyme": "3.7.0",
     "enzyme-adapter-react-16": "^1.11.2",
