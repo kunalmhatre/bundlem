@@ -58,7 +58,7 @@ function Make({
   title,
   /* eslint-disable react/prop-types */ // react-router-dom prop
   history,
-  intl,
+  intl, // react-intl prop
 }) {
   const helmetTitleFM = intl.formatMessage(messages.helmetTitle);
   const helmetDescriptionFM = intl.formatMessage(messages.helmetDescription);

@@ -28,12 +28,17 @@ const defaultProps = {
 /**
  * Form for Make page
  * @param {number} [currentResource=0] - Current resource number
- * @param {function} nextResource - Function for traversing to next resource
- * @param {function} previousResource - Function for traversing to previous resource
- * @param {function} removeResource - Function to remove current resource
+ * @param {function} nextResource - Traverse to the next resource (default blank function)
+ * @param {function} previousResource - Traverse to the previous resource (default blank function)
+ * @param {function} removeResource - Remove current resource (default blank function)
  * @param {boolean} [isAddedResource=false] - States whether the current resource is already added
  */
 function BaseForm({
+  currentResource,
+  nextResource,
+  previousResource,
+  removeResource,
+  isAddedResource,
   /* eslint-disable react/prop-types */ // formik props
   values,
   errors,
@@ -41,11 +46,6 @@ function BaseForm({
   handleChange,
   handleBlur,
   isValid,
-  currentResource,
-  nextResource,
-  previousResource,
-  removeResource,
-  isAddedResource,
 }) {
   const responsiveResourceButton = {
     xs: 6,

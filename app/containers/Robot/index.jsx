@@ -45,8 +45,8 @@ const defaultProps = {
  * @param {boolean} isVerifyingToken - States whether the verification is in progress
  * @param {boolean} isPublishingBundle - States whether the bundle is getting published
  * @param {boolean} isBundlePublished - States whether the bundle is published
- * @param {number} bundleID - ID received for the bundle after publishing
- * @param {string} error - Errors received while performing any API calls
+ * @param {number} [bundleID=null] - ID received for the bundle after publishing
+ * @param {string} [error=null] - Errors received while performing any API calls
  * @param {function} verifyToken - Redux action to initiate verification of the token (ReCAPTCHA)
  */
 function Robot({
@@ -56,7 +56,7 @@ function Robot({
   bundleID,
   error,
   verifyToken,
-  intl,
+  intl, // react-intl prop
 }) {
   const helmetTitleFM = intl.formatMessage(messages.helmetTitle);
   const helmetDescriptionFM = intl.formatMessage(messages.helmetDescription);

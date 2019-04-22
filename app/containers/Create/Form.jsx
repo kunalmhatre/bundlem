@@ -21,9 +21,10 @@ const defaultProps = {
 
 /**
  * Form for Create page
- * @param {function} onSubmit - On submit handler function
+ * @param {function} onSubmit - Handler function for onSubmit (default blank function)
  */
 function BaseForm({
+  onSubmit,
   /* eslint-disable react/prop-types */ // formik props
   values,
   errors,
@@ -31,7 +32,6 @@ function BaseForm({
   handleChange,
   handleBlur,
   isValid,
-  onSubmit,
   /* eslint-disable react/prop-types */ // react-router-dom prop
   history,
 }) {

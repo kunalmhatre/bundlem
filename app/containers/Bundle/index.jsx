@@ -55,9 +55,9 @@ const defaultProps = {
 
 /**
  * Bundle page
- * @param {object} bundle - Bundle data
+ * @param {object} [bundle=null] - Bundle data
  * @param {boolean} isFetchingBundle - States whether the bundle is getting fetched
- * @param {string} error - Errors received while performing the API call
+ * @param {string} [error=null] - Errors received while performing the API call
  * @param {function} setBundle -  Redux action to store the bundle in the state
  * @param {function} fetchBundle - Redux action to fetch bundle
  */
@@ -67,9 +67,9 @@ function Bundle({
   error,
   setBundle,
   fetchBundle,
+  intl, // react-intl prop
   /* eslint-disable react/prop-types */ // react-router prop
-  location = { search: '' }, // fix for location prop being absent while testing
-  intl,
+  location,
 }) {
   const helmetTitleFM = intl.formatMessage(messages.helmetTitle);
   const helmetDescriptionFM = intl.formatMessage(messages.helmetDescription);

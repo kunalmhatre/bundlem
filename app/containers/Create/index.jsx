@@ -32,7 +32,7 @@ function Create({
   title,
   description,
   createBundle,
-  intl,
+  intl, // react-intl prop
 }) {
   const helmetTitleFM = intl.formatMessage(messages.helmetTitle);
   const helmetDescriptionFM = intl.formatMessage(messages.helmetDescription);
