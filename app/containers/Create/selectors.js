@@ -15,6 +15,7 @@ const makeSelectTitle = () => createSelector(
   selectCreateDomain,
   substate => substate.get('title'),
 );
+
 const makeSelectDescription = () => createSelector(
   selectCreateDomain,
   substate => substate.get('description'),
