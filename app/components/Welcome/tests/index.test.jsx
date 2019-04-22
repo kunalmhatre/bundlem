@@ -30,7 +30,7 @@ describe('<Welcome />', () => {
     expect(history.push).toHaveReturnedWith('/create');
   });
 
-  it('SEARCH button redirects to /bundle', () => {
+  it('SEARCH button redirects to /bundle/search', () => {
     const history = {
       push: jest.fn(pathname => pathname),
     };
@@ -41,6 +41,6 @@ describe('<Welcome />', () => {
       .at(1)
       .simulate('click');
 
-    expect(history.push).toHaveReturnedWith('/bundle');
+    expect(history.push).toHaveReturnedWith('/bundle/search');
   });
 });

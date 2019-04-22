@@ -74,7 +74,7 @@ function Welcome({
               <Button
                 text={messages.searchButton}
                 highlight={false}
-                onClick={() => history.push('/bundle')}
+                onClick={() => history.push('/bundle/search')}
               />
             </Col>
           </Row>

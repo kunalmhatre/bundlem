@@ -39,7 +39,7 @@ function BundleCard({
       <div className="bundle-card-title">
         <a
           className="theme-blue-inverse"
-          href={clickable ? `${domain}/bundle/?bundleID=${bundleID}` : null}
+          href={clickable ? `${domain}/bundle/${bundleID}` : null}
         >
           { bundleTitle }
         </a>
@@ -50,7 +50,7 @@ function BundleCard({
           <FormattedMessage {...messages.res} />
         </div>
         <div>
-          <a href={clickable ? `${domain}/bundle/?bundleID=${bundleID}` : null}>
+          <a href={clickable ? `${domain}/bundle/${bundleID}` : null}>
             <FormattedMessage {...messages.view} />
           </a>
         </div>

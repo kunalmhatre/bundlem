@@ -18,7 +18,7 @@ describe('<BundleCard />', () => {
         <BundleCard {...testProps} />,
       ).find('div.bundle-card-title a')
         .prop('href'),
-    ).toBe(`${domain}/bundle/?bundleID=${testProps.bundleID}`);
+    ).toBe(`${domain}/bundle/${testProps.bundleID}`);
   });
 
   it('renders card with no link for bundle title', () => {
@@ -39,7 +39,7 @@ describe('<BundleCard />', () => {
         <BundleCard {...testProps} />,
       ).find('div.bundle-card-actions a')
         .prop('href'),
-    ).toBe(`${domain}/bundle/?bundleID=${testProps.bundleID}`);
+    ).toBe(`${domain}/bundle/${testProps.bundleID}`);
   });
 
   it('renders card with no link for view action', () => {

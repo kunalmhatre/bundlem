@@ -18,7 +18,7 @@ Live: https://bundlem.in
 
 ### Bundle on Online Privacy
 - **Bundle ID**: 1
-- **URL**: https://bundlem.in//bundle/?bundleID=1 
+- **URL**: https://bundlem.in/bundle/1 
 
 ### Tech Stack
 - Frontend is powered by,

@@ -1,14 +1,14 @@
 import {
-  domain,
+  nodeAppDomain,
   verifyTokenAPI,
   publishBundleAPI,
 } from '../apis';
 
 describe('APIs', () => {
   it('verifyTokenAPI', () => {
-    expect(verifyTokenAPI).toBe(`${domain}/verify`);
+    expect(verifyTokenAPI).toBe(`${nodeAppDomain}/verify`);
   });
   it('publishBundleAPI', () => {
-    expect(publishBundleAPI).toBe(`${domain}/create`);
+    expect(publishBundleAPI).toBe(`${nodeAppDomain}/create`);
   });
 });

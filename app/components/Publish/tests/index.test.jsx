@@ -55,7 +55,7 @@ describe('<Publish />', () => {
     ).toBe('/create');
   });
 
-  it('VIEW button redirects to /bundle/?bundleID=[bundleID]', () => {
+  it('VIEW button redirects to /bundle/[bundleID]', () => {
     const history = {
       push: jest.fn(pathname => pathname),
     };
@@ -74,7 +74,7 @@ describe('<Publish />', () => {
       .at(0)
       .simulate('click');
 
-    expect(history.push).toHaveReturnedWith('/bundle/?bundleID=1337');
+    expect(history.push).toHaveReturnedWith('/bundle/1337');
   });
 
   describe('dispatches correct actions', () => {

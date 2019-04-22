@@ -70,12 +70,12 @@ function Publish({
                   <Button
                     text={messages.viewButton}
                     onClick={
-                      () => history.push(`/bundle/?bundleID=${location.state.bundleID}`)
+                      () => history.push(`/bundle/${location.state.bundleID}`)
                     }
                   />
                 </span>
                 <CopyToClipboard text={
-                  `https://bundlem.in/bundle/?bundleID=${location.state.bundleID}`
+                  `https://bundlem.in/bundle/${location.state.bundleID}`
                 }
                 >
                   <Tooltip

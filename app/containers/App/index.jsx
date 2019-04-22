@@ -36,7 +36,7 @@ function App() {
         <ProtectedRoute path="/make" component={Make} />
         <ProtectedRoute path="/robot" component={Robot} />
         <Route path="/publish" component={Publish} />
-        <Route path="/bundle" component={Bundle} />
+        <Route path="/bundle/:bundleID" component={Bundle} />
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />

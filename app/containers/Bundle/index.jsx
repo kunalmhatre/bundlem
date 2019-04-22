@@ -5,7 +5,6 @@ import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 import { Helmet } from 'react-helmet';
 import { Row, Col, Icon } from 'antd';
-import queryString from 'query-string';
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 
 import Form from './Form';
@@ -69,7 +68,7 @@ function Bundle({
   fetchBundle,
   intl, // react-intl prop
   /* eslint-disable react/prop-types */ // react-router prop
-  location,
+  match,
 }) {
   const helmetTitleFM = intl.formatMessage(messages.helmetTitle);
   const helmetDescriptionFM = intl.formatMessage(messages.helmetDescription);
@@ -81,14 +80,11 @@ function Bundle({
     xl: 14,
     xxl: 14,
   };
-
-  // Checking if Bundle ID is provided as a URL parameter
-  const searchParams = queryString.parse(location.search);
-  const [isFetchRequest, setIsFetchRequest] = useState(!!(searchParams.bundleID));
+  const [isFetchRequest, setIsFetchRequest] = useState(match.params.bundleID !== 'search');
 
   if (isFetchRequest) {
-    fetchBundle(searchParams.bundleID);
-    setIsFetchRequest(false);
+    fetchBundle(match.params.bundleID);
+    setIsFetchRequest(false); // to prevent API calls on subsequent renders
   }
 
   return (
