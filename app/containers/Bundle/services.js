@@ -1,5 +1,9 @@
 import { getBundleAPI } from '../../utils/apis';
 
+/**
+ * Fetch Bundle using Bundle ID
+ * @param {string|number} bundleID - Bundle ID of the bundle to be fetched
+ */
 export default async function fetchBundle(bundleID) {
   const callResult = {
     data: null,
