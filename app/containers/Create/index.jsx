@@ -80,4 +80,6 @@ export default compose(
   injectIntl,
 )(Create);
 
-export { mapDispatchToProps };
+const CreateComponent = injectIntl(Create);
+
+export { mapDispatchToProps, CreateComponent };
