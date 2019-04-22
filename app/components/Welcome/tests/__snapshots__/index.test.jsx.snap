@@ -110,7 +110,8 @@ exports[`<Welcome /> renders old snapshot 1`] = `
                       >
                         <a
                           className="theme-blue-inverse"
-                          href="https://bundlem.in/bundle/57"
+                          href="/bundle/57"
+                          onClick={[Function]}
                         >
                           UX - Few amazing and useful resources to build better products and to make your users satisfied
                         </a>
@@ -128,7 +129,8 @@ exports[`<Welcome /> renders old snapshot 1`] = `
                         </div>
                         <div>
                           <a
-                            href="https://bundlem.in/bundle/57"
+                            href="/bundle/57"
+                            onClick={[Function]}
                           >
                             <span>
                               view
@@ -149,7 +151,8 @@ exports[`<Welcome /> renders old snapshot 1`] = `
                       >
                         <a
                           className="theme-blue-inverse"
-                          href="https://bundlem.in/bundle/60"
+                          href="/bundle/60"
+                          onClick={[Function]}
                         >
                           Songs which might make you feel good
                         </a>
@@ -167,7 +170,8 @@ exports[`<Welcome /> renders old snapshot 1`] = `
                         </div>
                         <div>
                           <a
-                            href="https://bundlem.in/bundle/60"
+                            href="/bundle/60"
+                            onClick={[Function]}
                           >
                             <span>
                               view
@@ -196,7 +200,8 @@ exports[`<Welcome /> renders old snapshot 1`] = `
                       >
                         <a
                           className="theme-blue-inverse"
-                          href="https://bundlem.in/bundle/57"
+                          href="/bundle/57"
+                          onClick={[Function]}
                         >
                           UX - Few amazing and useful resources to build better products and to make your users satisfied
                         </a>
@@ -214,7 +219,8 @@ exports[`<Welcome /> renders old snapshot 1`] = `
                         </div>
                         <div>
                           <a
-                            href="https://bundlem.in/bundle/57"
+                            href="/bundle/57"
+                            onClick={[Function]}
                           >
                             <span>
                               view
@@ -239,7 +245,8 @@ exports[`<Welcome /> renders old snapshot 1`] = `
                       >
                         <a
                           className="theme-blue-inverse"
-                          href="https://bundlem.in/bundle/60"
+                          href="/bundle/60"
+                          onClick={[Function]}
                         >
                           Songs which might make you feel good
                         </a>
@@ -257,7 +264,8 @@ exports[`<Welcome /> renders old snapshot 1`] = `
                         </div>
                         <div>
                           <a
-                            href="https://bundlem.in/bundle/60"
+                            href="/bundle/60"
+                            onClick={[Function]}
                           >
                             <span>
                               view

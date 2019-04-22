@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
+import { Link } from 'react-router-dom';
 import numeral from 'numeral';
 
-import { domain } from '../../utils/apis';
 import messages from './messages';
 import './bundle-card.css';
 
@@ -37,12 +37,16 @@ function BundleCard({
   return (
     <div className="bundle-card theme-blue-inverse">
       <div className="bundle-card-title">
-        <a
-          className="theme-blue-inverse"
-          href={clickable ? `${domain}/bundle/${bundleID}` : null}
-        >
-          { bundleTitle }
-        </a>
+        {
+          clickable ? (
+            <Link
+              className="theme-blue-inverse"
+              to={`/bundle/${bundleID}`}
+            >
+              { bundleTitle }
+            </Link>
+          ) : bundleTitle
+        }
       </div>
       <div className="bundle-card-actions">
         <div>
@@ -50,9 +54,15 @@ function BundleCard({
           <FormattedMessage {...messages.res} />
         </div>
         <div>
-          <a href={clickable ? `${domain}/bundle/${bundleID}` : null}>
-            <FormattedMessage {...messages.view} />
-          </a>
+          {
+            clickable ? (
+              <Link to={`/bundle/${bundleID}`}>
+                <FormattedMessage {...messages.view} />
+              </Link>
+            ) : (
+              <FormattedMessage {...messages.view} />
+            )
+          }
         </div>
       </div>
     </div>

@@ -1,9 +1,9 @@
 import React from 'react';
 import numeral from 'numeral';
+import { Link, BrowserRouter } from 'react-router-dom';
 
 import { mountWithIntl } from '../../../utils/reactIntlHelperFunction';
 import BundleCard from '../index';
-import { domain } from '../../../utils/apis';
 
 describe('<BundleCard />', () => {
   const testProps = {
@@ -15,58 +15,60 @@ describe('<BundleCard />', () => {
   it('renders card with correct link for bundle title', () => {
     expect(
       mountWithIntl(
-        <BundleCard {...testProps} />,
-      ).find('div.bundle-card-title a')
-        .prop('href'),
-    ).toBe(`${domain}/bundle/${testProps.bundleID}`);
+        <BrowserRouter>
+          <BundleCard {...testProps} />
+        </BrowserRouter>,
+      ).find(Link)
+        .at(0)
+        .prop('to'),
+    ).toBe(`/bundle/${testProps.bundleID}`);
   });
 
   it('renders card with no link for bundle title', () => {
     expect(
       mountWithIntl(
-        <BundleCard
-          {...testProps}
-          clickable={false}
-        />,
-      ).find('div.bundle-card-title a')
-        .prop('href'),
-    ).toBe(null);
+        <BrowserRouter>
+          <BundleCard
+            {...testProps}
+            clickable={false}
+          />
+        </BrowserRouter>,
+      ).find(Link)
+        .length,
+    ).toBe(0);
   });
 
   it('renders card with correct link for view action', () => {
     expect(
       mountWithIntl(
-        <BundleCard {...testProps} />,
-      ).find('div.bundle-card-actions a')
-        .prop('href'),
-    ).toBe(`${domain}/bundle/${testProps.bundleID}`);
-  });
-
-  it('renders card with no link for view action', () => {
-    expect(
-      mountWithIntl(
-        <BundleCard
-          {...testProps}
-          clickable={false}
-        />,
-      ).find('div.bundle-card-actions a')
-        .prop('href'),
-    ).toBe(null);
+        <BrowserRouter>
+          <BundleCard {...testProps} />
+        </BrowserRouter>,
+      ).find(Link)
+        .at(1)
+        .prop('to'),
+    ).toBe(`/bundle/${testProps.bundleID}`);
   });
 
   it('renders card with correct title', () => {
     expect(
       mountWithIntl(
-        <BundleCard {...testProps} />,
-      ).find('div.bundle-card-title a')
-        .text(),
+        <BrowserRouter>
+          <BundleCard {...testProps} />
+        </BrowserRouter>,
+      ).find(Link)
+        .at(0)
+        .props()
+        .children,
     ).toBe(testProps.bundleTitle);
   });
 
   it('renders card with correct number of resources', () => {
     expect(
       mountWithIntl(
-        <BundleCard {...testProps} />,
+        <BrowserRouter>
+          <BundleCard {...testProps} />
+        </BrowserRouter>,
       ).find('div.bundle-card-actions > div:first-child > span:first-child')
         .text(),
     ).toBe(numeral(testProps.resourcesCount).format('0a'));

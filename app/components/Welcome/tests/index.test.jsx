@@ -22,7 +22,9 @@ describe('<Welcome />', () => {
     };
 
     mountWithIntl(
-      <WelcomeComponent history={history} />,
+      <BrowserRouter>
+        <WelcomeComponent history={history} />
+      </BrowserRouter>,
     ).find('button')
       .at(0)
       .simulate('click');
@@ -36,7 +38,9 @@ describe('<Welcome />', () => {
     };
 
     mountWithIntl(
-      <WelcomeComponent history={history} />,
+      <BrowserRouter>
+        <WelcomeComponent history={history} />
+      </BrowserRouter>,
     ).find('button')
       .at(1)
       .simulate('click');
