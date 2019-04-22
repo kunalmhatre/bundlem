@@ -41,16 +41,16 @@ const defaultProps = {
 
 /**
  * Input component
- * @param {object} label - Label for the input field
- * @param {object} placeholder - Placeholder for the input field
- * @param {function} onChange - On change handler function
- * @param {function} onBlur - On blur handler function
+ * @param {object} [label=Default Label] - Label for the input field (react-intl)
+ * @param {object} [placeholder=Default Placeholder] - Placeholder for the input field (react-intl)
+ * @param {function} onChange - Handler function for onChange (default blank function)
+ * @param {function} onBlur - Handler function for onBlur (default blank function)
  * @param {boolean} [showError=false] - Shows error below the input field when true
- * @param {object} errorMessage - Error message to be shown
+ * @param {object} [errorMessage=Default Error Message] - Error message to be shown (react-intl)
  * @param {boolean} [autoFocus=false] - Sets autofocus attribute for the input field
  * @param {string} value - Value for the input field
- * @param {string} name - Sets name attribute for the input field
- * @param {string} id - Sets id attribute for the input field
+ * @param {string} name - Sets name attribute for the input field (random when not provided)
+ * @param {string} id - Sets id attribute for the input field (random when not provided)
  */
 function Input({
   label,
@@ -63,7 +63,7 @@ function Input({
   value,
   name,
   id,
-  intl,
+  intl, // react-intl prop
 }) {
   const inputClasses = classNames(
     { 'input-field': true },

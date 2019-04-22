@@ -11,6 +11,6 @@ export const scope = 'app.components.Button';
 export default defineMessages({
   defaultButtonText: {
     id: `${scope}.defaultButtonText`,
-    defaultMessage: 'button',
+    defaultMessage: 'BUTTON',
   },
 });

@@ -19,14 +19,14 @@ const defaultProps = {
 
 /**
  * BundleInfo
- * @param {string} bundleTitle - Title of the bundle
- * @param {string} bundleDescription - Description of the bundle
- * @param {number} resourcesCount - Total resources included in the bundle
+ * @param {string} [bundleTitle=Default Title] - Title of the bundle
+ * @param {number} [resourcesCount=0] - Total resources included in the bundle
+ * @param {string} [bundleDescription=null] - Description of the bundle
  */
 function BundleInfo({
   bundleTitle,
-  bundleDescription,
   resourcesCount,
+  bundleDescription,
 }) {
   return (
     <div className="bundle-info theme-blue">

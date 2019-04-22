@@ -14,6 +14,7 @@ const propTypes = {
 
 /**
  * ProtectedRoute component
+ * Note: This component is used for conditional routing, check out the link mentioned below.
  * Source: https://stackoverflow.com/a/48497783
  * @param {string} title - Title from the state
  * @param {function} component - Render prop for Route

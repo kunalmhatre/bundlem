@@ -21,7 +21,7 @@ const propTypes = {
 function Welcome({
   /* eslint-disable react/prop-types */
   history,
-  intl,
+  intl, // react-intl prop
 }) {
   const helmetTitleFM = intl.formatMessage(messages.helmetTitle);
   const descriptionFM = intl.formatMessage(messages.description);
@@ -32,7 +32,6 @@ function Welcome({
     xl: 10,
     xxl: 8,
   };
-
   const responsiveFeaturedBundle = {
     md: 10,
     xl: 8,

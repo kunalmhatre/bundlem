@@ -37,11 +37,11 @@ const defaultProps = {
  * Layout for all the pages used in the app
  * @param {boolean} [setHeader=true] - Renders header when set to true
  * @param {boolean} [setFooter=true] - Renders footer when set to true
- * @param {object} headerTitle - Header title to be shown (react-intl message object)
+ * @param {object} headerTitle - Header title to be shown (react-intl)
  * @param {string} [headerTitleString=Bundlem] - Header title in string
  * @param {boolean} [setString=false] - States whether the header title is in string format
- * @param {boolean} homeRedirection - States whether clicking on header redirects user to /
- * @param {object} children - React component to render as a child
+ * @param {boolean} [homeRedirection=true] - States whether clicking on header redirects user to /
+ * @param {object} children - React component to render as a child (provided as a child element)
  */
 function PageLayout({
   setHeader,

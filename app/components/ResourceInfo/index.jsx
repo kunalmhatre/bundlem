@@ -32,12 +32,12 @@ const defaultProps = {
 
 /**
  * ResourceInfo component
- * @param {string} resourceType - Type of the resource
- * @param {string} resourceLink - Link of the resource
- * @param {number} resourceCount - Location of the resource (index + 1) from the list of resources
- * @param {string} resourceTitle - Title of the resource
- * @param {string} resourceNotes - Notes of the resource
- * @param {function} onLoad - On load handler function
+ * @param {string} [resourceType=OTHER] - Type of the resource
+ * @param {string} [resourceLink=#] - Link of the resource
+ * @param {number} [resourceCount=0] - Location of the resource (index + 1) from the list of resources
+ * @param {string} [resourceTitle=null] - Title of the resource
+ * @param {string} [resourceNotes=null] - Notes of the resource
+ * @param {function} onLoad - Handler function for onLoad (default blank function)
  */
 function ResourceInfo({
   resourceType,

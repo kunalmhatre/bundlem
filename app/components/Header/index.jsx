@@ -25,10 +25,10 @@ const defaultProps = {
 
 /**
  * Header component
- * @param {object} headerTitle - Header title to be shown (react-intl message object)
- * @param {string} headerTitleString - Header title in string
+ * @param {object} headerTitle - Header title to be shown (react-intl)
+ * @param {string} [headerTitleString=Bundlem] - Header title in string
  * @param {boolean} [setString=false] - States whether the header title is in string format
- * @param {boolean} homeRedirection - States whether clicking on header redirects user to /
+ * @param {boolean} [homeRedirection=true] - States whether clicking on header redirects user to /
  */
 function Header({
   headerTitle,

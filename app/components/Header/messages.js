@@ -12,6 +12,5 @@ export default defineMessages({
   defaultHeaderTitle: {
     id: `${scope}.defaultHeaderTitle`,
     defaultMessage: 'Bundlem',
-    description: 'Name of the application',
   },
 });

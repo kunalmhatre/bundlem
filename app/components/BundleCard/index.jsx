@@ -15,17 +15,17 @@ const propTypes = {
 };
 
 const defaultProps = {
-  bundleID: 1,
-  bundleTitle: 'Online Privacy',
-  resourcesCount: 13,
+  bundleID: 0,
+  bundleTitle: 'Default Title',
+  resourcesCount: 0,
   clickable: true,
 };
 
 /**
  * BundleCard component is used to display meta data about a bundle
- * @param {number} bundleID - Unique ID given to the bundle
- * @param {string} bundleTitle - Bundle title
- * @param {number} resourcesCount - Number of resources present in the bundle
+ * @param {number} [bundleID=0] - Unique ID given to the bundle
+ * @param {string} [bundleTitle=Default Title] - Bundle title
+ * @param {number} [resourcesCount=0] - Number of resources present in the bundle
  * @param {boolean} [clickable=true] - Sets the state of the links on the card; clickable or not
  */
 function BundleCard({

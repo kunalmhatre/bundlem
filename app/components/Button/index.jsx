@@ -34,12 +34,12 @@ const defaultProps = {
 
 /**
  * Button component
- * @param {object} text - Button's text (react-intl message object)
+ * @param {object} [text=BUTTON] - Button's text (react-intl)
  * @param {string} extraText - Extra text to be appended
  * @param {string} [size=default] - Set width for the button (default or block)
  * @param {boolean} [highlight=true] - Highlight button (true or false)
- * @param {function} onClick - On click handler function
- * @param {string} className - Extra class(es) to be applied on button
+ * @param {function} onClick - Handler function for onClick (default blank function)
+ * @param {string} [className=null] - Extra class(es) to be applied on button
  * @param {boolean} [disabled=false] - Sets disable attribute for the button
  */
 function Button({

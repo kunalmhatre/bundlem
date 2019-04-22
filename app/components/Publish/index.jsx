@@ -36,7 +36,7 @@ function Publish({
   /* eslint-disable react/prop-types */ // react-router-dom props
   history,
   location,
-  intl,
+  intl, // react-intl prop
 }) {
   const helmetTitleFM = intl.formatMessage(messages.helmetTitle);
   const helmetDescriptionFM = intl.formatMessage(messages.helmetDescription);

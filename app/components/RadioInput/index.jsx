@@ -28,34 +28,34 @@ const defaultProps = {
   items: [messages.defaultRadioItem],
   value: '',
   onChange: () => null,
+  onBlur: () => null,
   showError: false,
   errorMessage: messages.defaultErrorMessage,
   label: messages.defaultRadioLabel,
   name: shortid.generate(),
-  onBlur: () => null,
 };
 
 /**
  * RadioInput component
  * @param {array} items - Radio inputs (items) to be rendered
  * @param {number} value - Value of the selected item
- * @param {function} onChange - On change handler function
+ * @param {function} onChange - Handler function for onChange (default blank function)
+ * @param {function} onBlur - Handler function for onBlur (default blank function)
  * @param {boolean} [showError=false] - Shows error below the input field when true
- * @param {object} errorMessage - Error message to be shown
- * @param {object} label - Label for the radio input
- * @param {string} name - Sets name attribute for the radio input field
- * @param {function} onBlur - On blur handler function
+ * @param {object} errorMessage - Error message to be shown (react-intl)
+ * @param {object} label - Label for the radio input (react-intl)
+ * @param {string} name - Sets name attribute for the radio input field (random when not provided)
  */
 function RadioInput({
   items,
   value,
   onChange,
+  onBlur,
   showError,
   errorMessage,
   label,
   name,
-  onBlur,
-  intl,
+  intl, // react-intl prop
 }) {
   return (
     <div className="radio-input-container theme-blue">

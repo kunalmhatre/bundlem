@@ -27,8 +27,8 @@ const defaultProps = {
 
 /**
  * Footer component
- * @param {array} - Array containing menu items (react-intl message objects)
- * @param {array} - Array containing links for the menu items
+ * @param {array} linkTitles - Array containing menu items (react-intl message objects)
+ * @param {array} links - Array containing links for the menu items
  */
 function Footer({ linkTitles, links }) {
   if (linkTitles.length !== links.length) return null;
