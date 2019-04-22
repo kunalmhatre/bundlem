@@ -41,4 +41,8 @@ export default defineMessages({
     id: `${scope}.secondFeaturedBundleTitle`,
     defaultMessage: 'Songs which might make you feel good',
   },
+  helmetTitle: {
+    id: `${scope}.helmetTitle`,
+    defaultMessage: 'Bundlem - Create your bundle of online resources',
+  },
 });

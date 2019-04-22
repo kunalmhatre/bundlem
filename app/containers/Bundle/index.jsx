@@ -6,7 +6,7 @@ import { compose } from 'redux';
 import { Helmet } from 'react-helmet';
 import { Row, Col, Icon } from 'antd';
 import queryString from 'query-string';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 
 import Form from './Form';
 import ResourceList from './ResourceList';
@@ -45,6 +45,7 @@ const propTypes = {
   error: PropTypes.string,
   setBundle: PropTypes.func.isRequired,
   fetchBundle: PropTypes.func.isRequired,
+  intl: intlShape.isRequired,
 };
 
 const defaultProps = {
@@ -68,7 +69,10 @@ function Bundle({
   fetchBundle,
   /* eslint-disable react/prop-types */ // react-router prop
   location = { search: '' }, // fix for location prop being absent while testing
+  intl,
 }) {
+  const helmetTitleFM = intl.formatMessage(messages.helmetTitle);
+  const helmetDescriptionFM = intl.formatMessage(messages.helmetDescription);
   const responsiveContentColumn1 = {
     xs: 24,
     sm: 24,
@@ -77,6 +81,7 @@ function Bundle({
     xl: 14,
     xxl: 14,
   };
+
   // Checking if Bundle ID is provided as a URL parameter
   const searchParams = queryString.parse(location.search);
   const [isFetchRequest, setIsFetchRequest] = useState(!!(searchParams.bundleID));
@@ -89,8 +94,8 @@ function Bundle({
   return (
     <React.Fragment>
       <Helmet>
-        <title>Bundle</title>
-        <meta name="description" content="Description of Bundle" />
+        <title>{helmetTitleFM}</title>
+        <meta name="description" content={helmetDescriptionFM} />
       </Helmet>
       <PageLayout>
         <Row className="bundle-search-form-mobile">
@@ -202,6 +207,9 @@ export default compose(
   withReducer,
   withSaga,
   withConnect,
+  injectIntl,
 )(Bundle);
 
-export { mapDispatchToProps, Bundle as BundleComponent };
+const BundleComponent = injectIntl(Bundle);
+
+export { mapDispatchToProps, BundleComponent };

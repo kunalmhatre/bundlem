@@ -10,16 +10,27 @@
  */
 
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
+import { Helmet } from 'react-helmet';
 
 import PageLayout from '../../components/PageLayout';
 import messages from './messages';
 import './notfoundpage.css';
 
-/* eslint-disable react/prefer-stateless-function */
-export default class NotFound extends React.PureComponent {
-  render() {
-    return (
+const propTypes = {
+  intl: intlShape.isRequired,
+};
+
+function NotFoundPage({ intl }) {
+  const helmetTitleFM = intl.formatMessage(messages.helmetTitle);
+  const helmetDescriptionFM = intl.formatMessage(messages.helmetDescription);
+
+  return (
+    <React.Fragment>
+      <Helmet>
+        <title>{helmetTitleFM}</title>
+        <meta name="description" content={helmetDescriptionFM} />
+      </Helmet>
       <PageLayout>
         <div className="notfoundpage-alignment">
           <h1 className="notfoundpage-title theme-blue">
@@ -27,6 +38,10 @@ export default class NotFound extends React.PureComponent {
           </h1>
         </div>
       </PageLayout>
-    );
-  }
+    </React.Fragment>
+  );
 }
+
+NotFoundPage.propTypes = propTypes;
+
+export default injectIntl(NotFoundPage);

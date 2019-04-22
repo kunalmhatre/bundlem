@@ -5,7 +5,7 @@ import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { Helmet } from 'react-helmet';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 import { Redirect } from 'react-router-dom';
 
 import RobotMessage from './RobotMessage';
@@ -32,6 +32,7 @@ const propTypes = {
   bundleID: PropTypes.number,
   error: PropTypes.string,
   verifyToken: PropTypes.func.isRequired,
+  intl: intlShape.isRequired,
 };
 
 const defaultProps = {
@@ -55,7 +56,11 @@ function Robot({
   bundleID,
   error,
   verifyToken,
+  intl,
 }) {
+  const helmetTitleFM = intl.formatMessage(messages.helmetTitle);
+  const helmetDescriptionFM = intl.formatMessage(messages.helmetDescription);
+
   const currentTask = () => {
     let messageElement = null;
 
@@ -80,11 +85,11 @@ function Robot({
         ) : (
           <React.Fragment>
             <Helmet
-              title="Robot"
+              title={helmetTitleFM}
               meta={[
                 {
                   name: 'description',
-                  content: 'Description of Robot',
+                  content: helmetDescriptionFM,
                 },
               ]}
             />
@@ -145,6 +150,9 @@ export default compose(
   withReducer,
   withSaga,
   withConnect,
+  injectIntl,
 )(Robot);
 
-export { mapDispatchToProps, Robot as RobotComponent };
+const RobotComponent = injectIntl(Robot);
+
+export { mapDispatchToProps, RobotComponent };

@@ -37,4 +37,12 @@ export default defineMessages({
     id: `${scope}.errorDefault`,
     defaultMessage: 'Something went wrong!',
   },
+  helmetTitle: {
+    id: `${scope}.helmetTitle`,
+    defaultMessage: 'Robot',
+  },
+  helmetDescription: {
+    id: `${scope}.helmetDescription`,
+    defaultMessage: 'Verify that you are not a robot.',
+  },
 });

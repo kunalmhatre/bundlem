@@ -53,4 +53,12 @@ export default defineMessages({
     id: `${scope}.errorDefault`,
     defaultMessage: 'Something went wrong!',
   },
+  helmetTitle: {
+    id: `${scope}.helmetTitle`,
+    defaultMessage: 'Bundle',
+  },
+  helmetDescription: {
+    id: `${scope}.helmetDescription`,
+    defaultMessage: 'Search for a bundle.',
+  },
 });

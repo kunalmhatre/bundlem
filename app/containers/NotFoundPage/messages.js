@@ -12,4 +12,12 @@ export default defineMessages({
     id: `${scope}.title`,
     defaultMessage: 'Page not found',
   },
+  helmetTitle: {
+    id: `${scope}.helmetTitle`,
+    defaultMessage: '404 - Page not found',
+  },
+  helmetDescription: {
+    id: `${scope}.helmetDescription`,
+    defaultMessage: 'Requested page was not found.',
+  },
 });

@@ -89,4 +89,12 @@ export default defineMessages({
     id: `${scope}.removeButton`,
     defaultMessage: 'REMOVE',
   },
+  helmetTitle: {
+    id: `${scope}.helmetTitle`,
+    defaultMessage: 'Make',
+  },
+  helmetDescription: {
+    id: `${scope}.helmetDescription`,
+    defaultMessage: 'Add resources in your bundle.',
+  },
 });

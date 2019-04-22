@@ -45,4 +45,12 @@ export default defineMessages({
     id: `${scope}.errorDescriptionLength`,
     defaultMessage: 'Exceeds maximum length of 320 characters',
   },
+  helmetTitle: {
+    id: `${scope}.helmetTitle`,
+    defaultMessage: 'Create',
+  },
+  helmetDescription: {
+    id: `${scope}.helmetDescription`,
+    defaultMessage: 'Create your bundle of online resources.',
+  },
 });

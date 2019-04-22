@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 import { Row, Col } from 'antd';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 
 import Button from '../../components/Button';
 import messages from './messages';
@@ -37,6 +37,7 @@ const propTypes = {
   })).isRequired,
   removeResource: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
+  intl: intlShape.isRequired,
 };
 
 /**
@@ -57,7 +58,10 @@ function Make({
   title,
   /* eslint-disable react/prop-types */ // react-router-dom prop
   history,
+  intl,
 }) {
+  const helmetTitleFM = intl.formatMessage(messages.helmetTitle);
+  const helmetDescriptionFM = intl.formatMessage(messages.helmetDescription);
   const [buttonChoice, setButtonChoice] = useState(null);
 
   const responsiveForm = {
@@ -109,11 +113,11 @@ function Make({
   return (
     <React.Fragment>
       <Helmet
-        title="Make"
+        title={helmetTitleFM}
         meta={[
           {
             name: 'description',
-            content: 'Description of Make',
+            content: helmetDescriptionFM,
           },
         ]}
       />
@@ -200,6 +204,9 @@ const withReducer = injectReducer({ key: 'make', reducer });
 export default compose(
   withReducer,
   withConnect,
+  injectIntl,
 )(Make);
 
-export { mapDispatchToProps, Make as MakeComponent };
+const MakeComponent = injectIntl(Make);
+
+export { mapDispatchToProps, MakeComponent };

@@ -33,4 +33,12 @@ export default defineMessages({
     id: `${scope}.copiedTooltip`,
     defaultMessage: 'Copied',
   },
+  helmetTitle: {
+    id: `${scope}.helmetTitle`,
+    defaultMessage: 'Publish',
+  },
+  helmetDescription: {
+    id: `${scope}.helmetDescription`,
+    defaultMessage: 'Get ID for your published bundle.',
+  },
 });
