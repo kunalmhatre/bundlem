@@ -1,0 +1,21 @@
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 1rem;
+    border-top: 1px solid;
+    height: 7%;
+}
+
+.footer-link {
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+}
+
+@media only screen and (max-width: 767px) {
+    .footer-link {
+        font-size: 0.5rem;
+    }
+}

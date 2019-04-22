@@ -1,0 +1,315 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Welcome /> renders old snapshot 1`] = `
+<div
+  className="ant-row page-layout theme-blue"
+>
+  <div
+    className="ant-col-22 ant-col-offset-1"
+  >
+    <div
+      className="page-layout-header-content"
+    >
+      <section
+        className="page-layout-content"
+      >
+        <div
+          className="welcome"
+        >
+          <div
+            className="ant-row"
+          >
+            <div
+              className="welcome-logo"
+            >
+              <span>
+                Bundlem
+              </span>
+            </div>
+          </div>
+          <div
+            className="ant-row"
+          >
+            <div
+              className="welcome-headline"
+            >
+              <span>
+                Create and share your bundle of online resources
+              </span>
+            </div>
+          </div>
+          <div
+            className="ant-row"
+          >
+            <div
+              className="welcome-description ant-col-xs-24 ant-col-sm-22 ant-col-md-18 ant-col-xl-10 ant-col-xxl-8"
+            >
+              <span>
+                An easy way to bundle, store, and share your online resources like links of articles, videos or documents.
+              </span>
+            </div>
+          </div>
+          <div
+            className="ant-row"
+          >
+            <div
+              className="welcome-buttons"
+            >
+              <button
+                className="button theme-blue-inverse welcome-create-button"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                <span>
+                  CREATE
+                </span>
+                
+              </button>
+              <button
+                className="button theme-blue"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                <span>
+                  SEARCH
+                </span>
+                
+              </button>
+            </div>
+          </div>
+          <hr />
+          <div
+            className="ant-row"
+          >
+            <div
+              className=""
+            >
+              <div
+                className="welcome-featured-bundles"
+              >
+                <span>
+                  FEATURED BUNDLES
+                </span>
+              </div>
+              <div
+                className="welcome-featured-bundles-lg"
+              >
+                <div
+                  className="ant-row"
+                >
+                  <div
+                    className="ant-col-md-10 ant-col-xl-8 ant-col-xxl-6"
+                  >
+                    <div
+                      className="bundle-card theme-blue-inverse"
+                    >
+                      <div
+                        className="bundle-card-title"
+                      >
+                        <a
+                          className="theme-blue-inverse"
+                          href="https://shielded-mesa-38298.herokuapp.com/bundle/?bundleID=57"
+                        >
+                          UX - Few amazing and useful resources to build better products and to make your users satisfied
+                        </a>
+                      </div>
+                      <div
+                        className="bundle-card-actions"
+                      >
+                        <div>
+                          <span>
+                            7
+                          </span>
+                          <span>
+                             Res.
+                          </span>
+                        </div>
+                        <div>
+                          <a
+                            href="https://shielded-mesa-38298.herokuapp.com/bundle/?bundleID=57"
+                          >
+                            <span>
+                              view
+                            </span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="ant-col-md-10 ant-col-xl-8 ant-col-xxl-6"
+                  >
+                    <div
+                      className="bundle-card theme-blue-inverse"
+                    >
+                      <div
+                        className="bundle-card-title"
+                      >
+                        <a
+                          className="theme-blue-inverse"
+                          href="https://shielded-mesa-38298.herokuapp.com/bundle/?bundleID=60"
+                        >
+                          Songs which might make you feel good
+                        </a>
+                      </div>
+                      <div
+                        className="bundle-card-actions"
+                      >
+                        <div>
+                          <span>
+                            6
+                          </span>
+                          <span>
+                             Res.
+                          </span>
+                        </div>
+                        <div>
+                          <a
+                            href="https://shielded-mesa-38298.herokuapp.com/bundle/?bundleID=60"
+                          >
+                            <span>
+                              view
+                            </span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="welcome-featured-bundles-sm"
+              >
+                <div
+                  className="ant-row"
+                >
+                  <div
+                    className=""
+                  >
+                    <div
+                      className="bundle-card theme-blue-inverse"
+                    >
+                      <div
+                        className="bundle-card-title"
+                      >
+                        <a
+                          className="theme-blue-inverse"
+                          href="https://shielded-mesa-38298.herokuapp.com/bundle/?bundleID=57"
+                        >
+                          UX - Few amazing and useful resources to build better products and to make your users satisfied
+                        </a>
+                      </div>
+                      <div
+                        className="bundle-card-actions"
+                      >
+                        <div>
+                          <span>
+                            7
+                          </span>
+                          <span>
+                             Res.
+                          </span>
+                        </div>
+                        <div>
+                          <a
+                            href="https://shielded-mesa-38298.herokuapp.com/bundle/?bundleID=57"
+                          >
+                            <span>
+                              view
+                            </span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="ant-row"
+                >
+                  <div
+                    className=""
+                  >
+                    <div
+                      className="bundle-card theme-blue-inverse"
+                    >
+                      <div
+                        className="bundle-card-title"
+                      >
+                        <a
+                          className="theme-blue-inverse"
+                          href="https://shielded-mesa-38298.herokuapp.com/bundle/?bundleID=60"
+                        >
+                          Songs which might make you feel good
+                        </a>
+                      </div>
+                      <div
+                        className="bundle-card-actions"
+                      >
+                        <div>
+                          <span>
+                            6
+                          </span>
+                          <span>
+                             Res.
+                          </span>
+                        </div>
+                        <div>
+                          <a
+                            href="https://shielded-mesa-38298.herokuapp.com/bundle/?bundleID=60"
+                          >
+                            <span>
+                              view
+                            </span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <footer
+      className="footer theme-blue"
+    >
+      <a
+        className="footer-link theme-blue"
+        href="https://github.com/kunalmhatre/bundlem/"
+      >
+        <span>
+          source
+        </span>
+      </a>
+      <a
+        className="footer-link theme-blue"
+        href="https://github.com/kunalmhatre/bundlem/issues/new/choose"
+      >
+        <span>
+          REPORT ISSUE
+        </span>
+      </a>
+      <a
+        className="footer-link theme-blue"
+        href="https://kunalmhatre.com/bundlem/"
+      >
+        <span>
+          STORY
+        </span>
+      </a>
+      <a
+        className="footer-link theme-blue"
+        href="https://kunalmhatre.com/"
+      >
+        <span>
+          AUTHOR
+        </span>
+      </a>
+    </footer>
+  </div>
+</div>
+`;

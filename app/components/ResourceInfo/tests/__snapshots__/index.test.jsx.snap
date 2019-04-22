@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ResourceInfo /> renders old snapshot 1`] = `
+<div
+  className="resource-info theme-blue"
+  onLoad={[Function]}
+>
+  <div
+    className="resource-info-title"
+  >
+    0. 
+    OTHER
+  </div>
+  <div
+    className="resource-info-action"
+  >
+    <button
+      className="button theme-blue-inverse"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      <span>
+        VIEW
+      </span>
+      
+    </button>
+    <span
+      className="resource-info-action-label"
+    >
+      <span>
+        OTHER
+      </span>
+    </span>
+  </div>
+</div>
+`;

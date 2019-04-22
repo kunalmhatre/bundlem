@@ -1,0 +1,55 @@
+/* Blue theme */
+.theme-blue {
+    background: #004392;
+    color: #FFFFFF;
+}
+
+.theme-blue-inverse {
+    background: #FFFFFF;
+    color: #004392;
+}
+
+a.theme-blue {
+    &:active, &:hover {
+        color: #FFFFFF;
+    }
+    &:focus {
+        text-decoration: none;
+    }
+}
+
+/* Dark theme */
+.theme-dark {
+    background: #000000;
+    color: #FFFFFF;
+}
+
+.theme-dark-inverse {
+    background: #FFFFFF;
+    color: #000000;
+}
+
+a.theme-dark {
+    &:active, &:hover {
+        color: #FFFFFF;
+    }
+    &:focus {
+        text-decoration: none;
+    }
+}
+
+/* Common elements */
+.theme-blue-error-message, .theme-dark-error-message {
+    color: #E87E7E;
+}
+
+.theme-blue-error-border, .theme-dark-error-border {
+    border-color: #E87E7E;
+}
+
+button.theme-blue,
+button.theme-blue-inverse,
+button.theme-dark,
+button.theme-dark-inverse {
+    border: 3px solid #FFFFFF;
+}

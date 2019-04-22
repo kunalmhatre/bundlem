@@ -1,0 +1,44 @@
+.make-resource-count {
+    font-weight: 700;
+    font-size: 1.5rem;
+    padding: 3rem 0 3rem 0;
+}
+
+.make-next-resource-button {
+    float: right;
+}
+
+.make-button-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.make-bundle-up-button {
+    margin: 1.5rem 0 1.5rem 0;
+}
+
+.make-button-group {
+    margin-bottom: 1.5rem;
+}
+
+.make-row {
+    display: flex;
+    flex-grow: 1;
+}
+
+@media only screen and (max-width: 1199px) {
+    .make-button-section {
+        display: none;
+    }
+    .make-resource-count {
+        font-size: 1.2rem;
+        padding: 1rem 0 1rem 0;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .make-bundle-up-button {
+        display: none;
+    }
+}

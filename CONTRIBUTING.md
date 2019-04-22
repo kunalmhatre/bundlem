@@ -1,19 +1,16 @@
 # Bundlem
 
-First of all, thank you for considering to contribute. There are no hard and fast rules for contribution, but few that needs to be addressed. 
+Hey, thanks for looking into this file. Seems like you gonna fire up your code editor to raise some PRs. But, hold on for a moment, we need to talk.
 
 ## Issues
-
-Great, you got an issue, but before you create an issue, please make sure if it is already present in the queue. If your issue is unique, feel free to raise it. Due to lack of "human" resources, we may not guarantee if we can work on every other issue, but the most valid and important ones will be surely taken care of.
+Due to the lack of "human" resources, I may not guarantee if I can work on every other issue (or feature), but the valid and important ones will be surely taken care of.
 
 ## Pull requests
+Before raising a PR, please raise a relevant issue for that. Once the issue is raised, please wait for it to get approved before you actually start working on it. By doing so we can avoid conflicts and maintain a good work-flow.
 
-Awesome, you want to contribute code now. Yes, we truly value your efforts and hence it would be tremendously helpful if you can raise the relevant issue for your work. Once the issue is raised, please wait for it to get approved before you actually start working on it. Doing so, we can maintain an efficient work-flow and avoid hectic conflicts in future.
+## Before you write your React code
+- Please use functional components - with Hooks if necessary. *Why?* - Check out here: https://reactjs.org/docs/hooks-intro.html
+- Please make sure your code is 100% tested. *Why?* - To keep Bundlem robust.
+- Please write docstrings (for components or functions) using [JSDoc](http://usejsdoc.org/). *Why?* - Well, primarily for common ground, but also check this out: https://medium.com/@antonkrinitsyn/why-use-jsdoc-19d19e40822c
 
-## Before you push
-
-- If you can, please write test cases for your work, that would be really appreciable. If you are going to write test cases, please put them in `__tests__` directory.
-- Please run your code through the linter (that we have setup) using `npm run lint` - to adhere to the common style that we are following. *If you are allergic to semicolons, you can skip the semicolons check.*   
-- Tabs or Spaces? - Anything will do, but do make sure your code is properly styled.
-
-Thank you for patiently reading this out, we are eagerly waiting for your contributions.
+Thank you for patiently going through this. I am eagerly waiting for your contributions. :)

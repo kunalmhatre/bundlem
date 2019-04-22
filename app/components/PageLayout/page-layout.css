@@ -1,0 +1,27 @@
+.page-layout {
+    height: 100%;
+
+    div.ant-col-22 {
+        height: 100%;
+    }
+}
+
+.page-layout-content {
+    display: flex;
+    flex-grow: 1;
+    overflow: auto;
+    min-height: 100%;
+    flex-direction: column;
+}
+
+.page-layout-header-content {
+    display: flex;
+    flex-direction: column;
+    min-height: 93%;
+
+    &::after {
+        content: "";
+        display: block;
+        height: 7%;
+    }
+}

@@ -1,0 +1,30 @@
+.create-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 3rem 0 3rem 0;
+}
+
+.create-button {
+    margin-bottom: 1.5rem;
+    float: right;
+}
+
+.create-bundle-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.create-row {
+    display: flex;
+    flex-grow: 1;
+}
+
+@media only screen and (max-width: 1199px) {
+    .create-title {
+        font-size: 1.2rem;
+        padding: 1rem 0 1rem 0;
+    }
+    .create-bundle-card {
+        display: none;
+    }
+}

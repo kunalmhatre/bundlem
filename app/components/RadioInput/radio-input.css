@@ -1,0 +1,62 @@
+.radio-input-container {
+    font-weight: 700;
+}
+
+.radio-input-main-label {
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    margin-bottom: 1rem;    
+}
+
+.radio-input-group {
+    list-style: none;
+    display: flex;
+    border: 3px solid;
+    padding: 0;
+    margin: 0;
+}
+
+.radio-input {
+    font-size: 0.9rem;
+    flex-grow: 1;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.radio-input-label {
+    cursor: pointer;
+}
+
+.radio-input-field {
+    opacity: 0;
+    position: fixed;
+}
+
+.radio-input-error-message {
+    height: 2rem;
+    padding: 0.5rem 0 0.5rem 0;
+    font-size: 0.9rem;
+}
+
+@media only screen and (max-width: 767px) {
+    .radio-input-main-label {
+        font-size: 0.8rem;
+    }
+    .radio-input {
+        font-size: 0.6rem;
+    }
+    .radio-input-error-message {
+        font-size: 0.8rem;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .radio-input {
+        padding: 0.3rem;
+    }
+}

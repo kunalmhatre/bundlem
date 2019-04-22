@@ -1,0 +1,133 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Publish /> renders old snapshot 1`] = `
+<div
+  className="ant-row page-layout theme-blue"
+>
+  <div
+    className="ant-col-22 ant-col-offset-1"
+  >
+    <div
+      className="page-layout-header-content"
+    >
+      <header
+        className="header theme-blue"
+      >
+        <a
+          className="theme-blue"
+          href="/"
+          onClick={[Function]}
+        >
+          <span>
+            Bundlem
+          </span>
+        </a>
+      </header>
+      <section
+        className="page-layout-content"
+      >
+        <div
+          className="publish-content"
+        >
+          <div
+            className="publish-title"
+          >
+            <span>
+              Congrats, your bundle has been published!
+            </span>
+          </div>
+          <div
+            className="publish-bundle-id-title"
+          >
+            <span>
+              BUNDLE ID
+            </span>
+          </div>
+          <div
+            className="publish-bundle-id"
+          >
+            1337
+          </div>
+          <div
+            className="publish-button-group"
+          >
+            <span>
+              <button
+                className="button theme-blue-inverse"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                <span>
+                  VIEW
+                </span>
+                
+              </button>
+            </span>
+            <span
+              onClick={[Function]}
+              onMouseDown={[Function]}
+              onTouchStart={[Function]}
+            >
+              <button
+                className="button theme-blue-inverse"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                <span>
+                  COPY LINK
+                </span>
+                
+              </button>
+            </span>
+          </div>
+          <div
+            className="publish-thank-you-message"
+          >
+            <span>
+              Thank you for using Bundlem
+            </span>
+          </div>
+        </div>
+      </section>
+    </div>
+    <footer
+      className="footer theme-blue"
+    >
+      <a
+        className="footer-link theme-blue"
+        href="https://github.com/kunalmhatre/bundlem/"
+      >
+        <span>
+          source
+        </span>
+      </a>
+      <a
+        className="footer-link theme-blue"
+        href="https://github.com/kunalmhatre/bundlem/issues/new/choose"
+      >
+        <span>
+          REPORT ISSUE
+        </span>
+      </a>
+      <a
+        className="footer-link theme-blue"
+        href="https://kunalmhatre.com/bundlem/"
+      >
+        <span>
+          STORY
+        </span>
+      </a>
+      <a
+        className="footer-link theme-blue"
+        href="https://kunalmhatre.com/"
+      >
+        <span>
+          AUTHOR
+        </span>
+      </a>
+    </footer>
+  </div>
+</div>
+`;

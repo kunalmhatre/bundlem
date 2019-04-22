@@ -2,33 +2,37 @@
 
 ![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
 [![Build Status](https://travis-ci.com/kunalmhatre/bundlem.svg?token=rqM3wT2oavxkwLkqCg8X&branch=master)](https://travis-ci.com/kunalmhatre/bundlem)
+[![Coverage Status](https://coveralls.io/repos/github/kunalmhatre/bundlem/badge.svg?branch=master)](https://coveralls.io/github/kunalmhatre/bundlem?branch=master)
 
-Bundlem can be used to bundle and share your online resources.
+Bundlem can be used to bundle and share your online resources. It is also a React application written completely using functional components with Hooks.
 
 Live: https://bundlem.in
 
-### Objectives
+### Use cases
 
 - #### Primary
-  Sometimes we get stuck on understanding certain concept or topic, which after checking up few videos or articles online gets totally cleared. And that's pretty much the primary objective of Bundlem - to bundle those curated resources in order to share or keep a track of it for later use. 
+  Have you ever googled too much to understand a certain topic or concept? And, did the articles or videos you had gone through helped you understand that topic? Well, that's pretty much the primary objective of Bundlem, i.e., to bundle those curated resources in order to share or keep a track of it.
 
 - #### Secondary
-  You can as well make mini-courses on various topics, all you need to do is align the set of resources in serial order. Writing well formatted content can be tricky since the notes section of resources is not well equipped with formatting options, but we might upgrade that soon. 
+  You can also make mini-courses on various topics by adding the resources in chronological order.
 
 ### Bundle on Online Privacy
 - **Bundle ID**: 1
-- **URL**: https://bundlem.in/#/bundle/1 
+- **URL**: https://bundlem.in//bundle/?bundleID=1 
 
 ### Tech Stack
-- Frontend is powered by [React](https://reactjs.org/) and [Redux](https://redux.js.org/). UI Library: [React-Bootstrap](https://react-bootstrap.github.io/)
-- Backend (not yet open sourced) runs on [Node.js](https://nodejs.org/en/about/) and [MongoDB](https://www.mongodb.com/what-is-mongodb).
+- Frontend is powered by,
+  - [React](https://reactjs.org/) - Special thanks to [react-boilerplate](https://github.com/react-boilerplate/react-boilerplate)
+  - [Redux](https://redux.js.org/)
+  - [Ant Design](https://ant.design/)
+- Backend (not yet open sourced) runs on,
+  - [Node.js](https://nodejs.org/en/about/)
+  - [MongoDB](https://www.mongodb.com/what-is-mongodb).
 
 ### Active services
 - Frontend is proudly hosted on [Netlify](https://www.netlify.com/). *A truly good service.*
-- Our Node.js server is on [Heroku](https://www.heroku.com/) and MongoDB is provided by [mLab](https://mlab.com/).
-
-### Do you want to collaborate code?
-You are more than welcome. Currently, I am working on documenting the code and writing test cases to cover at least 50% of the code. Once the documentation is done, code will be more understandable (I hope so), and more efficient the collaboration would be. Issues (bugs or improvements) are always welcome. Please do read CONTRIBUTING.md before collaborating your valuable efforts.
+- Node.js server is on [Heroku](https://www.heroku.com/)
+- MongoDB is provided by [mLab](https://mlab.com/)
 
 ### License
 MIT

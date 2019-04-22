@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: containers/Make/Form.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: containers/Make/Form.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from 'react';
+import { withFormik } from 'formik';
+import PropTypes from 'prop-types';
+import * as yup from 'yup';
+import { Row, Col } from 'antd';
+
+import messages from './messages';
+import Button from '../../components/Button';
+import Input from '../../components/Input';
+import RadioInput from '../../components/RadioInput';
+
+const propTypes = {
+  currentResource: PropTypes.number,
+  nextResource: PropTypes.func,
+  previousResource: PropTypes.func,
+  removeResource: PropTypes.func,
+  isAddedResource: PropTypes.bool,
+};
+
+const defaultProps = {
+  currentResource: 0,
+  nextResource: () => null,
+  previousResource: () => null,
+  removeResource: () => null,
+  isAddedResource: false,
+};
+
+/**
+ * Form for Make page
+ * @param {number} [currentResource=0] - Current resource number
+ * @param {function} nextResource - Traverse to the next resource (default blank function)
+ * @param {function} previousResource - Traverse to the previous resource (default blank function)
+ * @param {function} removeResource - Remove current resource (default blank function)
+ * @param {boolean} [isAddedResource=false] - States whether the current resource is already added
+ */
+function BaseForm({
+  currentResource,
+  nextResource,
+  previousResource,
+  removeResource,
+  isAddedResource,
+  /* eslint-disable react/prop-types */ // formik props
+  values,
+  errors,
+  touched,
+  handleChange,
+  handleBlur,
+  isValid,
+}) {
+  const responsiveResourceButton = {
+    xs: 6,
+    sm: 6,
+    md: 5,
+    lg: 5,
+    xl: 6,
+    xxl: 5,
+  };
+  const responsiveRemoveButton = {
+    xs: 8,
+    sm: 8,
+    md: 12,
+    lg: 12,
+    xl: 10,
+    xxl: 12,
+  };
+
+  return (
+    &lt;form>
+      &lt;RadioInput
+        name="resourceType"
+        items={[
+          messages.typeInput1,
+          messages.typeInput2,
+          messages.typeInput3,
+          messages.typeInput4,
+          messages.typeInput5,
+        ]}
+        label={messages.typeInputLabel}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        value={values.resourceType}
+        showError={!!errors.resourceType}
+        errorMessage={messages[errors.resourceType]}
+      />
+      &lt;Input
+        id="link"
+        name="link"
+        label={messages.linkInputLabel}
+        placeholder={messages.linkInputPlaceholder}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        value={values.link}
+        showError={!!(touched.link &amp;&amp; errors.link)}
+        errorMessage={messages[errors.link]}
+      />
+      &lt;Input
+        id="title"
+        name="title"
+        label={messages.titleInputLabel}
+        placeholder={messages.titleInputPlaceholder}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        value={values.title}
+        showError={!!(touched.title &amp;&amp; errors.title)}
+        errorMessage={messages[errors.title]}
+      />
+      &lt;Input
+        id="notes"
+        name="notes"
+        label={messages.notesInputLabel}
+        placeholder={messages.notesInputPlaceholder}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        value={values.notes}
+        showError={!!errors.notes}
+        errorMessage={messages[errors.notes]}
+      />
+      &lt;Row
+        type="flex"
+        justify="space-between"
+        align="middle"
+        className="make-button-group"
+      >
+        &lt;Col {...responsiveResourceButton}>
+          {
+            currentResource > 0 ? (
+              &lt;Button
+                className="test"
+                text={messages.resource}
+                extraText={` ${currentResource}`}
+                onClick={() => previousResource({
+                  resourceType: values.resourceType,
+                  link: values.link.trim(),
+                  title: values.title.trim(),
+                  notes: values.notes.trim(),
+                })}
+                size="block"
+              />
+            ) : null
+          }
+        &lt;/Col>
+        &lt;Col {...responsiveRemoveButton}>
+          {
+            isAddedResource ? (
+              &lt;Button
+                text={messages.removeButton}
+                highlight={false}
+                size="block"
+                onClick={() => removeResource(currentResource)}
+              />
+            ) : null
+          }
+        &lt;/Col>
+        &lt;Col {...responsiveResourceButton}>
+          &lt;Button
+            className="make-next-resource-button"
+            text={messages.resource}
+            extraText={` ${currentResource + 2}`}
+            disabled={!isValid}
+            onClick={() => nextResource({
+              resourceType: values.resourceType,
+              link: values.link.trim(),
+              title: values.title.trim(),
+              notes: values.notes.trim(),
+            })}
+            size="block"
+          />
+        &lt;/Col>
+      &lt;/Row>
+    &lt;/form>
+  );
+}
+
+BaseForm.propTypes = propTypes;
+BaseForm.defaultProps = defaultProps;
+
+const yupValidationSchema = yup.object().shape({
+  resourceType: yup
+    .mixed()
+    .oneOf([
+      'WEB PAGE',
+      'VIDEO',
+      'DOCUMENT',
+      'IMAGE',
+      'OTHER',
+    ])
+    .required('errorTypeInputEmpty'),
+  link: yup
+    .string()
+    .url('errorLinkInputInvalid')
+    .required('errorLinkInputEmpty'),
+  title: yup
+    .string()
+    .max(120, 'errorTitleInputLength'),
+  notes: yup
+    .string()
+    .max(1024, 'errorNotesInputLength'),
+});
+
+const Form = withFormik({
+  enableReinitialize: true,
+  mapPropsToValues({
+    resourceType,
+    link,
+    title,
+    notes,
+  }) {
+    return {
+      resourceType: resourceType || '',
+      link: link || '',
+      title: title || '',
+      notes: notes || '',
+    };
+  },
+  validationSchema: yupValidationSchema,
+  isInitialValid({ resourceType, link }) {
+    return !!(resourceType &amp;&amp; link);
+  },
+})(BaseForm);
+
+export default Form;
+export { yupValidationSchema };
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#BaseForm">BaseForm</a></li><li><a href="global.html#Bundle">Bundle</a></li><li><a href="global.html#BundleCard">BundleCard</a></li><li><a href="global.html#BundleInfo">BundleInfo</a></li><li><a href="global.html#Button">Button</a></li><li><a href="global.html#Create">Create</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#Input">Input</a></li><li><a href="global.html#Make">Make</a></li><li><a href="global.html#PageLayout">PageLayout</a></li><li><a href="global.html#ProtectedRoute">ProtectedRoute</a></li><li><a href="global.html#Publish">Publish</a></li><li><a href="global.html#RadioInput">RadioInput</a></li><li><a href="global.html#ResourceInfo">ResourceInfo</a></li><li><a href="global.html#ResourceList">ResourceList</a></li><li><a href="global.html#Robot">Robot</a></li><li><a href="global.html#RobotMessage">RobotMessage</a></li><li><a href="global.html#Welcome">Welcome</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Apr 22 2019 19:33:53 GMT+0530 (India Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
