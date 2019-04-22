@@ -1,12 +1,12 @@
 server/*
 internals/*
+jsdoc/*
 
 app/utils/tests/checkStore.test.js
 app/utils/tests/injectReducer.test.js
 app/utils/tests/injectSaga.test.js
 app/utils/tests/reducerInjectors.test.js
 app/utils/tests/sagaInjectors.test.js
-
 app/utils/checkStore.js
 app/utils/constants.js
 app/utils/history.js
