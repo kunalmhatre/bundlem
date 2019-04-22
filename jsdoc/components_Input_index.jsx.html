@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/Input/index.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/Input/index.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from 'react';
+import PropTypes from 'prop-types';
+import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
+import classNames from 'classnames';
+import shortid from 'shortid';
+
+import messages from './messages';
+import './input.css';
+
+const formattedMessagePropTypes = PropTypes.shape({
+  id: PropTypes.string.isRequired,
+  defaultMessage: PropTypes.string.isRequired,
+});
+
+const propTypes = {
+  label: formattedMessagePropTypes,
+  placeholder: formattedMessagePropTypes,
+  onChange: PropTypes.func,
+  onBlur: PropTypes.func,
+  showError: PropTypes.bool,
+  errorMessage: formattedMessagePropTypes,
+  autoFocus: PropTypes.bool,
+  value: PropTypes.string,
+  name: PropTypes.string,
+  id: PropTypes.string,
+  intl: intlShape.isRequired,
+};
+
+const defaultProps = {
+  label: messages.defaultLabel,
+  placeholder: messages.defaultPlaceholder,
+  onChange: () => null,
+  onBlur: () => null,
+  showError: false,
+  errorMessage: messages.defaultErrorMessage,
+  autoFocus: false,
+  value: '',
+  name: shortid.generate(),
+  id: shortid.generate(),
+};
+
+/**
+ * Input component
+ * @param {object} [label=Default Label] - Label for the input field (react-intl)
+ * @param {object} [placeholder=Default Placeholder] - Placeholder for the input field (react-intl)
+ * @param {function} onChange - Handler function for onChange (default blank function)
+ * @param {function} onBlur - Handler function for onBlur (default blank function)
+ * @param {boolean} [showError=false] - Shows error below the input field when true
+ * @param {object} [errorMessage=Default Error Message] - Error message to be shown (react-intl)
+ * @param {boolean} [autoFocus=false] - Sets autofocus attribute for the input field
+ * @param {string} value - Value for the input field
+ * @param {string} name - Sets name attribute for the input field (random when not provided)
+ * @param {string} id - Sets id attribute for the input field (random when not provided)
+ */
+function Input({
+  label,
+  placeholder,
+  onChange,
+  onBlur,
+  showError,
+  errorMessage,
+  autoFocus,
+  value,
+  name,
+  id,
+  intl, // react-intl prop
+}) {
+  const inputClasses = classNames(
+    { 'input-field': true },
+    { 'theme-blue-error-border': showError },
+  );
+  const placeholderFM = intl.formatMessage(placeholder);
+
+  return (
+    &lt;div className="input theme-blue">
+      &lt;label htmlFor={id}>
+        &lt;div className="input-label">
+          &lt;FormattedMessage {...label} />
+        &lt;/div>
+        &lt;input
+          id={id}
+          className={inputClasses}
+          onChange={onChange}
+          onBlur={onBlur}
+          placeholder={placeholderFM}
+          autoFocus={autoFocus}
+          value={value}
+          name={name}
+        />
+      &lt;/label>
+      &lt;div className="input-error-message theme-blue-error-message">
+        { showError ? &lt;FormattedMessage {...errorMessage} /> : null }
+      &lt;/div>
+    &lt;/div>
+  );
+}
+
+Input.propTypes = propTypes;
+Input.defaultProps = defaultProps;
+
+export default React.memo(injectIntl(Input));
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#BaseForm">BaseForm</a></li><li><a href="global.html#Bundle">Bundle</a></li><li><a href="global.html#BundleCard">BundleCard</a></li><li><a href="global.html#BundleInfo">BundleInfo</a></li><li><a href="global.html#Button">Button</a></li><li><a href="global.html#Create">Create</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#Input">Input</a></li><li><a href="global.html#Make">Make</a></li><li><a href="global.html#PageLayout">PageLayout</a></li><li><a href="global.html#ProtectedRoute">ProtectedRoute</a></li><li><a href="global.html#Publish">Publish</a></li><li><a href="global.html#RadioInput">RadioInput</a></li><li><a href="global.html#ResourceInfo">ResourceInfo</a></li><li><a href="global.html#ResourceList">ResourceList</a></li><li><a href="global.html#Robot">Robot</a></li><li><a href="global.html#RobotMessage">RobotMessage</a></li><li><a href="global.html#Welcome">Welcome</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Apr 22 2019 19:33:53 GMT+0530 (India Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

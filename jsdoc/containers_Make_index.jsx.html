@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: containers/Make/index.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: containers/Make/index.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState, useEffect, useCallback } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { Helmet } from 'react-helmet';
+import { createStructuredSelector } from 'reselect';
+import { compose } from 'redux';
+import { Row, Col } from 'antd';
+import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
+
+import Button from '../../components/Button';
+import messages from './messages';
+import PageLayout from '../../components/PageLayout';
+import Form, { yupValidationSchema } from './Form';
+import injectReducer from '../../utils/injectReducer';
+import reducer from './reducer';
+import './make.css';
+import {
+  setCurrentResourceAction,
+  addResourceAction,
+  removeResourceAction,
+} from './actions';
+import {
+  makeSelectCurrentResource,
+  makeSelectResources,
+} from './selectors';
+import { makeSelectTitle } from '../Create/selectors';
+
+const propTypes = {
+  setCurrentResource: PropTypes.func.isRequired,
+  currentResource: PropTypes.number.isRequired,
+  addResource: PropTypes.func.isRequired,
+  resources: PropTypes.arrayOf(PropTypes.shape({
+    resourceType: PropTypes.string,
+    link: PropTypes.string,
+    title: PropTypes.string,
+    notes: PropTypes.string,
+  })).isRequired,
+  removeResource: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  intl: intlShape.isRequired,
+};
+
+/**
+ * Make container
+ * @param {function} setCurrentResource - Redux action to set (current) resource number
+ * @param {number} currentResource - Current resource number
+ * @param {function} addResource - Redux action to add resource to the stored resources
+ * @param {array} resources - Stored resources
+ * @param {function} removeResource - Redux action to remove resource
+ * @param {string} title - Title of the bundle
+ */
+function Make({
+  setCurrentResource,
+  currentResource,
+  addResource,
+  resources,
+  removeResource,
+  title,
+  /* eslint-disable react/prop-types */ // react-router-dom prop
+  history,
+  intl, // react-intl prop
+}) {
+  const helmetTitleFM = intl.formatMessage(messages.helmetTitle);
+  const helmetDescriptionFM = intl.formatMessage(messages.helmetDescription);
+  const [buttonChoice, setButtonChoice] = useState(null);
+
+  const responsiveForm = {
+    xs: 24,
+    sm: 24,
+    md: 24,
+    lg: 24,
+    xl: 12,
+    xxl: 12,
+  };
+  const formFields = (resources[currentResource]) ? {
+    resourceType: resources[currentResource].resourceType,
+    link: resources[currentResource].link,
+    title: resources[currentResource].title,
+    notes: resources[currentResource].notes,
+  } : null;
+
+  const nextResource = (resource) => {
+    addResource(currentResource, resource);
+    setButtonChoice('next');
+  };
+
+  const previousResource = (resource) => {
+    /* istanbul ignore else */
+    if (yupValidationSchema.isValidSync(resource)) {
+      addResource(currentResource, resource);
+    }
+
+    setButtonChoice('previous');
+  };
+
+  const setCurrentResourceMemoized = useCallback(
+    (choice) => {
+      if (choice === 'next') {
+        setCurrentResource(currentResource + 1);
+      } else if (choice === 'previous') {
+        setCurrentResource(currentResource - 1);
+      }
+
+      setButtonChoice(null);
+    },
+    [currentResource, setCurrentResource],
+  );
+
+  useEffect(() => {
+    setCurrentResourceMemoized(buttonChoice);
+  }, [resources, buttonChoice, setCurrentResourceMemoized]);
+
+  return (
+    &lt;React.Fragment>
+      &lt;Helmet
+        title={helmetTitleFM}
+        meta={[
+          {
+            name: 'description',
+            content: helmetDescriptionFM,
+          },
+        ]}
+      />
+      &lt;PageLayout
+        setString
+        headerTitleString={title}
+        homeRedirection={false}
+      >
+        &lt;Row className="make-row">
+          &lt;Col {...responsiveForm}>
+            &lt;div className="make-resource-count">
+              &lt;FormattedMessage {...messages.resource} />
+              {` ${currentResource + 1}`}
+            &lt;/div>
+            &lt;Form
+              {...formFields}
+              currentResource={currentResource}
+              nextResource={nextResource}
+              previousResource={previousResource}
+              removeResource={removeResource}
+              isAddedResource={!!(resources[currentResource])}
+            />
+            {
+              resources.length >= 1 ? (
+                &lt;Button
+                  className="make-bundle-up-button"
+                  text={messages.bundleUpButton}
+                  size="block"
+                  onClick={() => history.push('/robot')}
+                />
+              ) : null
+            }
+          &lt;/Col>
+          &lt;Col
+            className="make-button-section"
+            span={8}
+            offset={2}
+          >
+            {
+              resources.length >= 1 ? (
+                &lt;Button
+                  text={messages.bundleUpButton}
+                  size="block"
+                  onClick={() => history.push('/robot')}
+                />
+              ) : null
+            }
+          &lt;/Col>
+        &lt;/Row>
+      &lt;/PageLayout>
+    &lt;/React.Fragment>
+  );
+}
+
+Make.propTypes = propTypes;
+
+const mapStateToProps = createStructuredSelector({
+  currentResource: makeSelectCurrentResource(),
+  resources: makeSelectResources(),
+  title: makeSelectTitle(),
+});
+
+function mapDispatchToProps(dispatch) {
+  return {
+    setCurrentResource: currentResource => dispatch(
+      setCurrentResourceAction(currentResource),
+    ),
+    addResource: (resourceNumber, resource) => dispatch(
+      addResourceAction(resourceNumber, resource),
+    ),
+    removeResource: resourceNumber => dispatch(
+      removeResourceAction(resourceNumber),
+    ),
+  };
+}
+
+const withConnect = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+);
+
+const withReducer = injectReducer({ key: 'make', reducer });
+
+export default compose(
+  withReducer,
+  withConnect,
+  injectIntl,
+)(Make);
+
+const MakeComponent = injectIntl(Make);
+
+export { mapDispatchToProps, MakeComponent };
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#BaseForm">BaseForm</a></li><li><a href="global.html#Bundle">Bundle</a></li><li><a href="global.html#BundleCard">BundleCard</a></li><li><a href="global.html#BundleInfo">BundleInfo</a></li><li><a href="global.html#Button">Button</a></li><li><a href="global.html#Create">Create</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#Input">Input</a></li><li><a href="global.html#Make">Make</a></li><li><a href="global.html#PageLayout">PageLayout</a></li><li><a href="global.html#ProtectedRoute">ProtectedRoute</a></li><li><a href="global.html#Publish">Publish</a></li><li><a href="global.html#RadioInput">RadioInput</a></li><li><a href="global.html#ResourceInfo">ResourceInfo</a></li><li><a href="global.html#ResourceList">ResourceList</a></li><li><a href="global.html#Robot">Robot</a></li><li><a href="global.html#RobotMessage">RobotMessage</a></li><li><a href="global.html#Welcome">Welcome</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Apr 22 2019 19:33:53 GMT+0530 (India Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
