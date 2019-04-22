@@ -14,16 +14,6 @@ import {
 describe('<Make />', () => {
   const store = configureStore({}, history);
 
-  it('renders successfully', () => {
-    mountWithIntl(
-      <Provider store={store}>
-        <BrowserRouter>
-          <Make />
-        </BrowserRouter>
-      </Provider>,
-    );
-  });
-
   it('dispatches setCurrentResourceAction', () => {
     const dispatch = jest.fn();
     const props = mapDispatchToProps(dispatch);

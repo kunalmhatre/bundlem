@@ -1,30 +1,15 @@
 import React from 'react';
-import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
 import BundleInfo from '../../../components/BundleInfo';
-import history from '../../../utils/history';
-import configureStore from '../../../configureStore';
 import { mountWithIntl } from '../../../utils/reactIntlHelperFunction';
-import Bundle, { mapDispatchToProps, BundleComponent } from '../index';
+import { mapDispatchToProps, BundleComponent } from '../index';
 import {
   setBundleAction,
   fetchBundleAction,
 } from '../actions';
 
 describe('<Bundle />', () => {
-  const store = configureStore({}, history);
-
-  it('renders successfully', () => {
-    mountWithIntl(
-      <Provider store={store}>
-        <BrowserRouter>
-          <Bundle />
-        </BrowserRouter>
-      </Provider>,
-    );
-  });
-
   it('dispatches setBundleAction', () => {
     const bundle = {
       id: 1337,

@@ -1,28 +1,13 @@
 import React from 'react';
-import { Provider } from 'react-redux';
 import * as ReactRouterDOM from 'react-router-dom';
 
-import history from '../../../utils/history';
-import configureStore from '../../../configureStore';
 import { mountWithIntl } from '../../../utils/reactIntlHelperFunction';
-import Robot, { mapDispatchToProps, RobotComponent } from '../index';
+import { mapDispatchToProps, RobotComponent } from '../index';
 import { verifyTokenAction } from '../actions';
 import messages from '../messages';
 import RobotMessage from '../RobotMessage';
 
 describe('<Robot />', () => {
-  const store = configureStore({}, history);
-
-  it('renders successfully', () => {
-    mountWithIntl(
-      <Provider store={store}>
-        <ReactRouterDOM.BrowserRouter>
-          <Robot />
-        </ReactRouterDOM.BrowserRouter>
-      </Provider>,
-    );
-  });
-
   it('dispatches verifyTokenAction', () => {
     const token = 'testToken';
     const dispatch = jest.fn();
