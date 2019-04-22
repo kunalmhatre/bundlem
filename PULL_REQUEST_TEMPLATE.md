@@ -1,1 +1,1 @@
-Hey, thanks for contributing your code, please make sure to read [CONTRIBUTING.md](https://github.com/kunalmhatre/bundlem/CONTRIBUTING.md) before raising the PR.
+Hey, thanks for contributing your code, please make sure to read [CONTRIBUTING.md](https://github.com/kunalmhatre/bundlem/blob/master/CONTRIBUTING.md) before raising the PR.
