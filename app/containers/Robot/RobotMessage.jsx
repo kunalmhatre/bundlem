@@ -19,6 +19,13 @@ const defaultProps = {
   errorClassName: null,
 };
 
+/**
+ * RobotMessage component
+ * @param {object} message - Message to be rendered (react-intl)
+ * @param {boolean} [isLoading=true] - States whether the loader should be rendered
+ * @param {boolean} [isError=false] - States whether the message provided is an error message
+ * @param {string} [errorClassName=null] - Extra class(es) to be applied on the error message
+ */
 function RobotMessage({
   message,
   isLoading,

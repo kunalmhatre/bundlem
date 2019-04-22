@@ -21,6 +21,10 @@ const propTypes = {
   intl: intlShape.isRequired,
 };
 
+/**
+ * NotFoundPage container
+ * Note: This container came with the boilerplate code. (Now converted to SFC)
+ */
 function NotFoundPage({ intl }) {
   const helmetTitleFM = intl.formatMessage(messages.helmetTitle);
   const helmetDescriptionFM = intl.formatMessage(messages.helmetDescription);

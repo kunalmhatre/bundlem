@@ -14,20 +14,24 @@ import { IntlProvider } from 'react-intl';
 
 import { makeSelectLocale } from './selectors';
 
-class LanguageProvider extends React.PureComponent {
-  // eslint-disable-line react/prefer-stateless-function
-  render() {
-    const { locale, messages, children } = this.props;
-    return (
-      <IntlProvider
-        locale={locale}
-        key={locale}
-        messages={messages[locale]}
-      >
-        {React.Children.only(children)}
-      </IntlProvider>
-    );
-  }
+/**
+ * LanguageProvider container
+ * Note: This container came with the boilerplate code. (Now converted to SFC)
+ */
+function LanguageProvider({
+  locale,
+  messages,
+  children,
+}) {
+  return (
+    <IntlProvider
+      locale={locale}
+      key={locale}
+      messages={messages[locale]}
+    >
+      {React.Children.only(children)}
+    </IntlProvider>
+  );
 }
 
 LanguageProvider.propTypes = {

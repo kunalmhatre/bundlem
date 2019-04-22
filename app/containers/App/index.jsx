@@ -21,8 +21,13 @@ import Publish from '../../components/Publish/Loadable';
 import getGlobalStyle from '../../global-styles';
 import '../../themes.css';
 
-export default function App() {
+/**
+ * App container
+ * Note: This container came with the boilerplate code.
+ */
+function App() {
   const GlobalStyle = getGlobalStyle();
+
   return (
     <React.Fragment>
       <Switch>
@@ -38,3 +43,5 @@ export default function App() {
     </React.Fragment>
   );
 }
+
+export default App;
