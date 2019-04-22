@@ -10,7 +10,7 @@ import messages from './messages';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 
-const propsTypes = {
+const propTypes = {
   setBundle: PropTypes.func.isRequired,
 };
 
@@ -19,6 +19,8 @@ const propsTypes = {
  * @param {function} setBundle - Redux action to store the bundle
  */
 function BaseForm({
+  /* eslint-disable no-unused-vars */ // used in handleSubmit function passed to withFormik
+  setBundle,
   /* eslint-disable react/prop-types */ // formik props
   values,
   errors,
@@ -27,8 +29,6 @@ function BaseForm({
   handleBlur,
   handleSubmit,
   isSubmitting,
-  /* eslint-disable no-unused-vars */ // used in handleSubmit function passed to withFormik
-  setBundle,
 }) {
   return (
     <div className="bundle-search-form theme-blue">
@@ -64,7 +64,7 @@ function BaseForm({
   );
 }
 
-BaseForm.propsTypes = propsTypes;
+BaseForm.propTypes = propTypes;
 
 const Form = withFormik({
   mapPropsToValues({ bundleID }) {
