@@ -2,7 +2,7 @@
 
 ![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
 [![Build Status](https://travis-ci.com/kunalmhatre/bundlem.svg?token=rqM3wT2oavxkwLkqCg8X&branch=master)](https://travis-ci.com/kunalmhatre/bundlem)
-[![Coverage Status](https://coveralls.io/repos/github/kunalmhatre/bundlem/badge.svg?branch=master)](https://coveralls.io/github/kunalmhatre/bundlem?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/kunalmhatre/bundlem/badge.svg?branch=code-design-revamp)](https://coveralls.io/github/kunalmhatre/bundlem?branch=code-design-revamp)
 
 Bundlem can be used to bundle and share your online resources. It is also a React application written completely using functional components with Hooks.
 
