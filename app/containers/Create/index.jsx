@@ -23,7 +23,7 @@ const propTypes = {
 };
 
 /**
- * Create page
+ * Create container
  * @param {string} title - Title (if previously present) from state
  * @param {string} description - Description (if previously present) from state
  * @param {function} createBundle - Redux action to save title and description in the state

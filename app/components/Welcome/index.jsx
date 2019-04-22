@@ -16,7 +16,7 @@ const propTypes = {
 };
 
 /**
- * Welcome page
+ * Welcome component
  */
 function Welcome({
   /* eslint-disable react/prop-types */

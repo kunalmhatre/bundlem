@@ -22,8 +22,8 @@ const propTypes = {
 };
 
 /**
- * NotFoundPage container
- * Note: This container came with the boilerplate code. (Now converted to SFC)
+ * NotFoundPage component
+ * Note: This component came with the boilerplate code. (Now converted to SFC)
  */
 function NotFoundPage({ intl }) {
   const helmetTitleFM = intl.formatMessage(messages.helmetTitle);

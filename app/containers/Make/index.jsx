@@ -41,7 +41,7 @@ const propTypes = {
 };
 
 /**
- * Make page
+ * Make container
  * @param {function} setCurrentResource - Redux action to set (current) resource number
  * @param {number} currentResource - Current resource number
  * @param {function} addResource - Redux action to add resource to the stored resources

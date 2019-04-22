@@ -54,7 +54,7 @@ const defaultProps = {
 };
 
 /**
- * Bundle page
+ * Bundle container
  * @param {object} [bundle=null] - Bundle data
  * @param {boolean} isFetchingBundle - States whether the bundle is getting fetched
  * @param {string} [error=null] - Errors received while performing the API call

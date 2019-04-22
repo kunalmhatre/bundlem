@@ -41,7 +41,7 @@ const defaultProps = {
 };
 
 /**
- * Robot page
+ * Robot container
  * @param {boolean} isVerifyingToken - States whether the verification is in progress
  * @param {boolean} isPublishingBundle - States whether the bundle is getting published
  * @param {boolean} isBundlePublished - States whether the bundle is published
