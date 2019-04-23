@@ -22,9 +22,14 @@ Live: https://bundlem.in
 
 ### Tech Stack
 - Frontend is powered by,
-  - [React](https://reactjs.org/) - Special thanks to [react-boilerplate](https://github.com/react-boilerplate/react-boilerplate)
+  - [React](https://reactjs.org/) 
   - [Redux](https://redux.js.org/)
   - [Ant Design](https://ant.design/)
+  - Special thanks to following React libraries,
+    - [react-boilerplate](https://github.com/react-boilerplate/react-boilerplate)
+    - [formik](https://github.com/jaredpalmer/formik)
+    - [react-virtualized](https://github.com/bvaughn/react-virtualized)
+
 - Backend (not yet open sourced) runs on,
   - [Node.js](https://nodejs.org/en/about/)
   - [MongoDB](https://www.mongodb.com/what-is-mongodb).
