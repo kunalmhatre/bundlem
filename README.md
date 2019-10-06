@@ -6,7 +6,7 @@
 
 Bundlem can be used to bundle and share your online resources. It is also a React application written completely using functional components with Hooks.
 
-Live: https://bundlem.in
+Live: https://bundlem.netlify.com/
 
 ### Use cases
 
@@ -18,7 +18,7 @@ Live: https://bundlem.in
 
 ### Bundle on Online Privacy
 - **Bundle ID**: 1
-- **URL**: https://bundlem.in/bundle/1 
+- **URL**: https://bundlem.netlify.com/bundle/1 
 
 ### Tech Stack
 - Frontend is powered by,
