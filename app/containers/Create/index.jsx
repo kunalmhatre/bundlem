@@ -43,7 +43,7 @@ function Create({
         <title>{helmetTitleFM}</title>
         <meta name="description" content={helmetDescriptionFM} />
       </Helmet>
-      <PageLayout>
+      <PageLayout setFooter={false}>
         <Form
           title={title}
           description={description}

@@ -52,7 +52,7 @@ function Publish({
         <title>{helmetTitleFM}</title>
         <meta name="description" content={helmetDescriptionFM} />
       </Helmet>
-      <PageLayout>
+      <PageLayout setFooter={false}>
         {
           location.state ? ( // checking if internal navigation has happened
             <div className="publish-content">

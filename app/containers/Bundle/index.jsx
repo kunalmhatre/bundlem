@@ -93,7 +93,7 @@ function Bundle({
         <title>{helmetTitleFM}</title>
         <meta name="description" content={helmetDescriptionFM} />
       </Helmet>
-      <PageLayout>
+      <PageLayout setFooter={false}>
         <Row className="bundle-search-form-mobile">
           <Col>
             <Form setBundle={setBundle} />
