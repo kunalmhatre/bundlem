@@ -93,7 +93,7 @@ function Robot({
                 },
               ]}
             />
-            <PageLayout>
+            <PageLayout setFooter={false}>
               <div className="robot-content">
                 <div className="robot-title">
                   <FormattedMessage {...messages.robotPageTitle} />

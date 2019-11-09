@@ -282,42 +282,6 @@ exports[`<Welcome /> renders old snapshot 1`] = `
         </div>
       </section>
     </div>
-    <footer
-      className="footer theme-blue"
-    >
-      <a
-        className="footer-link theme-blue"
-        href="https://github.com/kunalmhatre/bundlem/"
-      >
-        <span>
-          source
-        </span>
-      </a>
-      <a
-        className="footer-link theme-blue"
-        href="https://github.com/kunalmhatre/bundlem/issues/new/choose"
-      >
-        <span>
-          REPORT ISSUE
-        </span>
-      </a>
-      <a
-        className="footer-link theme-blue"
-        href="https://kunalmhatre.com/bundlem/"
-      >
-        <span>
-          STORY
-        </span>
-      </a>
-      <a
-        className="footer-link theme-blue"
-        href="https://kunalmhatre.com/"
-      >
-        <span>
-          AUTHOR
-        </span>
-      </a>
-    </footer>
   </div>
 </div>
 `;

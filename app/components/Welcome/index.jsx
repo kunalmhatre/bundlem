@@ -44,7 +44,7 @@ function Welcome({
         <title>{helmetTitleFM}</title>
         <meta name="description" content={descriptionFM} />
       </Helmet>
-      <PageLayout setHeader={false}>
+      <PageLayout setHeader={false} setFooter={false}>
         <div className="welcome">
           <Row>
             <Col className="welcome-logo">

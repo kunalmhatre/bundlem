@@ -125,6 +125,7 @@ function Make({
         setString
         headerTitleString={title}
         homeRedirection={false}
+        setFooter={false}
       >
         <Row className="make-row">
           <Col {...responsiveForm}>

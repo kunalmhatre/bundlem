@@ -35,7 +35,7 @@ function NotFoundPage({ intl }) {
         <title>{helmetTitleFM}</title>
         <meta name="description" content={helmetDescriptionFM} />
       </Helmet>
-      <PageLayout>
+      <PageLayout setFooter={false}>
         <div className="notfoundpage-alignment">
           <h1 className="notfoundpage-title theme-blue">
             <FormattedMessage {...messages.title} />
